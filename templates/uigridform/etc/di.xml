@@ -2,9 +2,9 @@
 
 <!-- @TODO: PROBLEMS when file exists -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <virtualType name="Ref${Type}GridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+    <virtualType name="Ref${Modelname}GridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="collection" xsi:type="object" shared="false">${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Collection</argument>
+            <argument name="collection" xsi:type="object" shared="false">${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Collection</argument>
             <argument name="filterPool" xsi:type="object" shared="false">RefGridFilterPool</argument>
         </arguments>
     </virtualType>
@@ -19,16 +19,16 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="${vendorname}_${modulename}_${type}_listing_data_source" xsi:type="string">${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Grid\Collection</item>
+                <item name="${vendorname}_${modulename}_${modelname}_listing_data_source" xsi:type="string">${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Grid\Collection</item>
             </argument>
         </arguments>
     </type>
-    <type name="${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Grid\Collection">
+    <type name="${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Grid\Collection">
         <arguments>
-            <argument name="mainTable" xsi:type="string">${vendorname}_${modulename}_${type}</argument>
-            <argument name="eventPrefix" xsi:type="string">${vendorname}_${modulename}_${type}_grid_collection</argument>
-            <argument name="eventObject" xsi:type="string">${vendorname}_${modulename}_${type}_grid_collection</argument>
-            <argument name="resourceModel" xsi:type="string">${Vendorname}\${Modulename}\Model\ResourceModel\${Type}</argument>
+            <argument name="mainTable" xsi:type="string">${vendorname}_${modulename}_${modelname}</argument>
+            <argument name="eventPrefix" xsi:type="string">${vendorname}_${modulename}_${modelname}_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">${vendorname}_${modulename}_${modelname}_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}</argument>
         </arguments>
     </type>
 </config>

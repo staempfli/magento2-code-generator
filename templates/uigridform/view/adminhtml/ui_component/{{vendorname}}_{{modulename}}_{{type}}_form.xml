@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * ${vendorname}_${modulename}_${type}_form
+ * ${vendorname}_${modulename}_${modelname}_form
  * @project  mage2-module-references
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
  * @author    juan.alonso@staempfli.com
@@ -10,25 +10,25 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">${vendorname}_${modulename}_${type}_form.${vendorname}_${modulename}_${type}_form_data_source</item>
-            <item name="deps" xsi:type="string">${vendorname}_${modulename}_${type}_form.${vendorname}_${modulename}_${type}_form_data_source</item>
+            <item name="provider" xsi:type="string">${vendorname}_${modulename}_${modelname}_form.${vendorname}_${modulename}_${modelname}_form_data_source</item>
+            <item name="deps" xsi:type="string">${vendorname}_${modulename}_${modelname}_form.${vendorname}_${modulename}_${modelname}_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">${Type} Form</item>
+        <item name="label" xsi:type="string" translate="true">${Modelname} Form</item>
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
             <item name="navContainerName" xsi:type="string">left</item>
         </item>
         <item name="buttons" xsi:type="array">
-            <item name="back" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Type}\Edit\BackButton</item>
-            <item name="delete" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Type}\Edit\DeleteButton</item>
-            <item name="save" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Type}\Edit\SaveButton</item>
-            <item name="save_and_continue" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Type}\Edit\SaveAndContinueButton</item>
+            <item name="back" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit\DeleteButton</item>
+            <item name="save" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit\SaveButton</item>
+            <item name="save_and_continue" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit\SaveAndContinueButton</item>
         </item>
     </argument>
     <dataSource name="computer_games_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">${Vendorname}\${Modulename}\Ui\Component\Form\${Type}\DataProvider</argument>
-            <argument name="name" xsi:type="string">${vendorname}_${modulename}_${type}_form_data_source</argument>
+            <argument name="class" xsi:type="string">${Vendorname}\${Modulename}\Ui\Component\Form\${Modelname}\DataProvider</argument>
+            <argument name="name" xsi:type="string">${vendorname}_${modulename}_${modelname}_form_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">${database_field_id_name}</argument>
             <argument name="requestFieldName" xsi:type="string">${database_field_id_name}</argument>
             <argument name="data" xsi:type="array">

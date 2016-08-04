@@ -8,7 +8,7 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Model\ResourceModel\${Type};
+namespace ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname};
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
@@ -26,6 +26,6 @@ class Collection extends AbstractCollection
      */
     protected function _construct()
     {
-        $this->_init('${Vendorname}\${Modulename}\Model\${Type}', '${Vendorname}\${Modulename}\Model\ResourceModel\${Type}');
+        $this->_init('${Vendorname}\${Modulename}\Model\${Modelname}', '${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}');
     }
 }

@@ -7,12 +7,12 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Type};
+namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
-use ${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Collection;
+use ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Collection;
 
 /**
  * Grid inline edit controller

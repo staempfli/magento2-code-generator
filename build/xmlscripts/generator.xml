@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Generator" basedir="../..">
+
+    <includepath classpath="${project.basedir}/build/phpscripts/Generator"/>
+    <taskdef name="inputParamsTask" classname="InputParamsTask"/>
+    <taskdef name="multiCasePropertiesTask" classname="MultiCasePropertiesTask"/>
+    <taskdef name="generateCodeTask" classname="GenerateCodeTask"/>
+
+    <target name="generator:inputParams"
+            hidden="true">
+
+        <echo message="Please specify the following params:"/>
+        <inputParamsTask/>
+
+    </target>
+
+    <target name="generator:multiCaseParams"
+            hidden="true">
+
+        <multiCasePropertiesTask/>
+
+    </target>
+
+    <target name="generateCode"
+            hidden="true"
+            depends="util:properties:read,
+            magento:module:get:properties,
+            generator:inputParams,
+            generator:multiCaseParams">
+
+        <generateCodeTask/>
+
+    </target>
+
+</project>

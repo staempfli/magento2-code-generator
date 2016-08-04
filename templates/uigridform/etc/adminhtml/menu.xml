@@ -8,6 +8,6 @@
 <!-- @TODO: PROBLEMS when file exists -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="${Vendorname}_${Modulename}::${type}" title="${Type}" module="${Vendorname}_${Modulename}" sortOrder="10" parent="${Vendorname_Modulename::menu_parent}" action="${vendorname}_${modulename}/${type}" resource="${Vendorname}_${Modulename}::${type}"/>
+        <add id="${Vendorname}_${Modulename}::${modelname}" title="${Modelname}" module="${Vendorname}_${Modulename}" sortOrder="10" parent="${Vendorname_Modulename::menu_parent}" action="${vendorname}_${modulename}/${modelname}" resource="${Vendorname}_${Modulename}::${modelname}"/>
     </menu>
 </config>

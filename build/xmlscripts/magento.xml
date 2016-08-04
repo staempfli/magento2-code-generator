@@ -11,20 +11,8 @@
 
         <getModulePropertiesTask/>
 
-        <echo message="${vendorname}"/>
-        <echo message="${modulename}"/>
-
-        <if>
-            <or>
-                <equals arg1="${vendorname}" arg2=""/>
-                <equals arg1="${modulename}" arg2=""/>
-            </or>
-            <then>
-                <fail message="Vendorname and Module name could not be found on the registration.php file. Please check that your registration.php is correct and try again"/>
-            </then>
-        </if>
-
-        <!--<fail/>-->
+        <echo message="Vendorname set to: ${Vendorname}"/>
+        <echo message="Modulename set to: ${Modulename}"/>
 
     </target>
 

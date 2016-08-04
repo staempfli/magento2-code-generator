@@ -7,11 +7,11 @@
  * @author    juan.alonso@staempfli.com
  */
  
-namespace ${Vendorname}\${Modulename}\Ui\Component\Form\${Type};
+namespace ${Vendorname}\${Modulename}\Ui\Component\Form\${Modelname};
 
 use Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool;
 use Magento\Ui\DataProvider\AbstractDataProvider;
-use ${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Collection;
+use ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Collection;
 
 class DataProvider extends AbstractDataProvider
 {

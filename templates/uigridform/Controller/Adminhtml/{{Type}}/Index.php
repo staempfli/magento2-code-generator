@@ -7,7 +7,7 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Type};
+namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -39,7 +39,7 @@ class Index extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('${Vendorname}_${Modulename}::${type}');
+        return $this->_authorization->isAllowed('${Vendorname}_${Modulename}::${modelname}');
     }
 
     /**
@@ -51,8 +51,8 @@ class Index extends Action
     {
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('${Vendorname}_${Modulename}::${type}');
-        $resultPage->getConfig()->getTitle()->prepend(__('${Type}'));
+        $resultPage->setActiveMenu('${Vendorname}_${Modulename}::${modelname}');
+        $resultPage->getConfig()->getTitle()->prepend(__('${Modelname}'));
 
         return $resultPage;
     }

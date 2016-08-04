@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ${Type}.php
+ * ${Modelname}.php
  *
  * @package  ${Modulename}
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
@@ -18,24 +18,24 @@ use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Registry;
 use ${Vendorname}\${Modulename}\Model\ResourceModel\Reference\Collection;
 
-class ${Type} extends AbstractModel implements IdentityInterface
+class ${Modelname} extends AbstractModel implements IdentityInterface
 {
     /**
      * CMS page cache tag
      */
-    const CACHE_TAG = '${vendorname}_${modulename}_${type}';
+    const CACHE_TAG = '${vendorname}_${modulename}_${modelname}';
 
     /**
      * @var string
      */
-    protected $_cacheTag = '${vendorname}_${modulename}_${type}';
+    protected $_cacheTag = '${vendorname}_${modulename}_${modelname}';
 
     /**
      * Prefix of model events names
      *
      * @var string
      */
-    protected $_eventPrefix = '${vendorname}_${modulename}_${type}';
+    protected $_eventPrefix = '${vendorname}_${modulename}_${modelname}';
     /**
      * @var Collection
      */
@@ -49,7 +49,7 @@ class ${Type} extends AbstractModel implements IdentityInterface
     protected function _construct()
     {
         parent::_construct();
-        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Type}');
+        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}');
     }
 
     /**

@@ -6,7 +6,7 @@
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
  * @author    juan.alonso@staempfli.com
  */
-namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Type};
+namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
@@ -41,7 +41,7 @@ class Validate extends Action
     public function validateRequireEntries(array $data)
     {
         $requiredFields = [
-            'title' => __('${Type} Title'),
+            'title' => __('${Modelname} Title'),
         ];
         foreach ($data as $field => $value) {
             if (in_array($field, array_keys($requiredFields)) && $value == '') {

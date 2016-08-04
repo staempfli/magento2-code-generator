@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * ${vendorname}_${modulename}_${type}_edit
+ * ${vendorname}_${modulename}_${modelname}_edit
  * @project  mage2-module-references
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
  * @author    juan.alonso@staempfli.com
@@ -11,7 +11,7 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <uiComponent name="${vendorname}_${modulename}_${type}_form"/>
+            <uiComponent name="${vendorname}_${modulename}_${modelname}_form"/>
         </referenceContainer>
     </body>
 </page>

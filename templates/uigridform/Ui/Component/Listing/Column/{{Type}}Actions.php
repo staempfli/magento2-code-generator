@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ${Type}Actions.php
+ * ${Modelname}Actions.php
  *
  * @package  ${Modulename}
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
@@ -15,12 +15,12 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Ui\Component\Listing\Columns\Column;
 
-class ${Type}Actions extends Column
+class ${Modelname}Actions extends Column
 {
     /**
      * Url path
      */
-    const URL_PATH_EDIT = '${vendorname}_${modulename}/${type}/edit';
+    const URL_PATH_EDIT = '${vendorname}_${modulename}/${modelname}/edit';
 
     /**
      * @var UrlInterface

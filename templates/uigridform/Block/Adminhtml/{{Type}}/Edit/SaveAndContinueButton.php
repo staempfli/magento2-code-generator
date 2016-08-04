@@ -7,7 +7,7 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Block\Adminhtml\${Type}\Edit;
+namespace ${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit;
 
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 

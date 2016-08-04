@@ -10,7 +10,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="${Vendorname}_${Modulename}::${type}" title="${Type}" sortOrder="10" />
+                <resource id="${Vendorname}_${Modulename}::${modelname}" title="${Modelname}" sortOrder="10" />
             </resource>
         </resources>
     </acl>

@@ -6,13 +6,13 @@
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
  * @author    juan.alonso@staempfli.com
  */
-namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Type};
+namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Ui\Component\MassAction\Filter;
 use Magento\Framework\Controller\ResultFactory;
-use ${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Collection;
+use ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Collection;
 
 /**
  * Class MassDelete

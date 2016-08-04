@@ -7,24 +7,24 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Type};
+namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
-use ${Vendorname}\${Modulename}\Model\${Type}Factory;
+use ${Vendorname}\${Modulename}\Model\${Modelname}Factory;
 
 class Delete extends Action
 {
-    /** @var ${type}Factory $objectFactory */
+    /** @var ${modelname}Factory $objectFactory */
     protected $objectFactory;
 
     /**
      * @param Context $context
-     * @param ${Type}Factory $objectFactory
+     * @param ${Modelname}Factory $objectFactory
      */
     public function __construct(
     Context $context,
-    ${Type}Factory $objectFactory
+    ${Modelname}Factory $objectFactory
     ) {
         $this->objectFactory = $objectFactory;
         parent::__construct($context);
@@ -35,7 +35,7 @@ class Delete extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('${Vendorname}_${Modulename}::${type}');
+        return $this->_authorization->isAllowed('${Vendorname}_${Modulename}::${modelname}');
     }
 
     /**

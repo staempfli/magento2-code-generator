@@ -7,7 +7,7 @@
 
         <phingcall target="generateCode">
             <property name="template" value="uigridform"/>
-            <property name="params" value="type,database_field_id_name"/>
+            <property name="params" value="modelname,database_field_id_name"/>
         </phingcall>
 
     </target>

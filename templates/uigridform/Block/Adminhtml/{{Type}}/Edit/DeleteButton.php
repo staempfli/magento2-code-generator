@@ -7,7 +7,7 @@
  * @author    juan.alonso@staempfli.com
  */
  
-namespace ${Vendorname}\${Modulename}\Block\Adminhtml\${Type}\Edit;
+namespace ${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit;
 
 use Magento\Backend\Block\Widget\Context;
 use Magento\Framework\Registry;
@@ -54,7 +54,7 @@ class DeleteButton implements ButtonProviderInterface
         $data = [
             'label' => __('Delete'),
             'class' => 'delete',
-            'id' => '${type}-edit-delete-button',
+            'id' => '${modelname}-edit-delete-button',
             'data_attribute' => [
                 'url' => $this->getDeleteUrl()
             ],

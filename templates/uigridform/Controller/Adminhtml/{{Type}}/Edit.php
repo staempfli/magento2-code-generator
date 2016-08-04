@@ -7,13 +7,13 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Type};
+namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Result\PageFactory;
-use ${Vendorname}\${Modulename}\Model\${Type}Factory;
+use ${Vendorname}\${Modulename}\Model\${Modelname}Factory;
 
 class Edit extends Action
 {
@@ -29,20 +29,20 @@ class Edit extends Action
      */
     protected $resultPageFactory;
 
-    /** @var ${type}Factory $objectFactory */
+    /** @var ${modelname}Factory $objectFactory */
     protected $objectFactory;
 
     /**
      * @param Context $context
      * @param PageFactory $resultPageFactory
      * @param Registry $registry
-     * @param ${Type}Factory $objectFactory
+     * @param ${Modelname}Factory $objectFactory
      */
     public function __construct(
         Context $context,
         PageFactory $resultPageFactory,
         Registry $registry,
-        ${Type}Factory $objectFactory
+        ${Modelname}Factory $objectFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->_coreRegistry = $registry;
@@ -55,7 +55,7 @@ class Edit extends Action
      */
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('${Vendorname}_${Modulename}::${type}');
+        return $this->_authorization->isAllowed('${Vendorname}_${Modulename}::${modelname}');
     }
 
     /**
@@ -94,8 +94,8 @@ class Edit extends Action
         // 5. Build edit form
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('${Vendorname}_${Modulename}::${type}');
-        $resultPage->getConfig()->getTitle()->prepend(__('${Type} Edit'));
+        $resultPage->setActiveMenu('${Vendorname}_${Modulename}::${modelname}');
+        $resultPage->getConfig()->getTitle()->prepend(__('${Modelname} Edit'));
 
         return $resultPage;
     }

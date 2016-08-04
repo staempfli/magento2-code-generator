@@ -7,7 +7,7 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace ${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Grid;
+namespace ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Grid;
 
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;
@@ -17,13 +17,13 @@ use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 use Magento\Framework\Search\AggregationInterface;
 use Psr\Log\LoggerInterface;
-use ${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Collection as ${Type}Collection;
+use ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Collection as ${Modelname}Collection;
 
 /**
  * Class Collection
  * Collection for displaying grid of sales documents
  */
-class Collection extends ${Type}Collection implements SearchResultInterface
+class Collection extends ${Modelname}Collection implements SearchResultInterface
 {
     /**
      * @var AggregationInterface

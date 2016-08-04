@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ${Type}.php
+ * ${Modelname}.php
  *
  * @package  ${Modulename}
  * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
@@ -12,7 +12,7 @@ namespace ${Vendorname}\${Modulename}\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class ${Type} extends AbstractDb
+class ${Modelname} extends AbstractDb
 {
     /**
      * Initialize resource model
@@ -21,6 +21,6 @@ class ${Type} extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('${vendorname}_${modulename}_${type}', '${database_field_id_name}');
+        $this->_init('${vendorname}_${modulename}_${modelname}', '${database_field_id_name}');
     }
 }

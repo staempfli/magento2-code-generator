@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Mage2 Code Generator" default="help">
+<project name="Mage2CodeGenerator" default="help">
 
     <import file="${project.basedir}/build/xmlscripts/util.xml"/>
+    <import file="${project.basedir}/build/xmlscripts/generator.xml"/>
     <import file="${project.basedir}/build/xmlscripts/magento.xml"/>
     <import>
         <fileset dir="${project.basedir}/build/xmlscripts/templates">
@@ -24,7 +25,7 @@
 
         <echo message="List available templates:"/>
         <echo message=""/>
-        <echo message="$ bin/phing -l"/>
+        <echo message="$ mage2-generator.sh -l"/>
         <echo message="**********************************************************************"/>
     </target>
 </project>
