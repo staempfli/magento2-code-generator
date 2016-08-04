@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Module" basedir="../../..">
+
+    <target name="module:generate"
+            description="Generate Magento 2 module">
+
+        <phingcall target="generateCode">
+            <property name="template" value="module"/>
+            <property name="params" value="vendorname,modulename,description"/>
+            <property name="skipGetModuleProperties" value="1"/>
+        </phingcall>
+
+    </target>
+
+</project>

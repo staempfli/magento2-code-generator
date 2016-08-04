@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Mage2 Code Generator" default="help">
+
+    <import file="${project.basedir}/build/xmlscripts/util.xml"/>
+    <import file="${project.basedir}/build/xmlscripts/magento.xml"/>
+    <import>
+        <fileset dir="${project.basedir}/build/xmlscripts/templates">
+            <include name="*.xml" />
+        </fileset>
+    </import>
+
+    <tstamp>
+        <format property="generator.timestamp" pattern="%Y%m%d-%H%M"/>
+    </tstamp>
+
+    <target name="help"
+            description="show help with information about the instance"
+            depends="util:properties:read">
+
+        <echo message="**********************************************************************"/>
+        <echo message="Current Directory:            ${application.startdir}" level="warning"/>
+        <echo message="**********************************************************************"/>
+
+        <echo message="List available templates:"/>
+        <echo message=""/>
+        <echo message="$ bin/phing -l"/>
+        <echo message="**********************************************************************"/>
+    </target>
+</project>

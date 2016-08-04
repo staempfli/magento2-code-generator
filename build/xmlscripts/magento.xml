@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Magento" basedir="../..">
+
+    <includepath classpath="${project.basedir}/build/phpscripts/Magento"/>
+    <taskdef name="getModulePropertiesTask" classname="GetModulePropertiesTask"/>
+
+    <target name="magento:module:get:properties"
+            hidden="true"
+            unless="skipGetModuleProperties">
+
+        <getModulePropertiesTask/>
+
+        <echo message="${vendorname}"/>
+        <echo message="${modulename}"/>
+
+        <if>
+            <or>
+                <equals arg1="${vendorname}" arg2=""/>
+                <equals arg1="${modulename}" arg2=""/>
+            </or>
+            <then>
+                <fail message="Vendorname and Module name could not be found on the registration.php file. Please check that your registration.php is correct and try again"/>
+            </then>
+        </if>
+
+        <!--<fail/>-->
+
+    </target>
+
+</project>

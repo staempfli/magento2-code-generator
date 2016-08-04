@@ -1,0 +1,36 @@
+{
+  "name": "staempfli/mage2-code-generator",
+  "description": "Staempfli AG Magento 2 Code Generator Tool",
+  "type": "staempfli-mage-tool",
+  "license": [
+    "Private"
+  ],
+  "authors": [
+    {
+      "name": "Juan Alonso",
+      "email": "juan.alonso@staempfli.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://packages.staempfli.com"
+    }
+  ],
+  "require": {
+    "phing/phing": "2.*"
+  },
+  "config": {
+    "secure-http": false,
+    "bin-dir": "bin"
+  },
+  "scripts": {
+    "setPermissionsBin": "chmod -R +x bin",
+    "post-install-cmd": [
+      "@setPermissionsBin"
+    ],
+    "post-update-cmd": [
+      "@setPermissionsBin"
+    ]
+  }
+}

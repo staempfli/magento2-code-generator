@@ -1,0 +1,76 @@
+<?php
+/**
+ * DataProvider
+ *
+ * @project  mage2-module-references
+ * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
+ * @author    juan.alonso@staempfli.com
+ */
+ 
+namespace ${Vendorname}\${Modulename}\Ui\Component\Form\${Type};
+
+use Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool;
+use Magento\Ui\DataProvider\AbstractDataProvider;
+use ${Vendorname}\${Modulename}\Model\ResourceModel\${Type}\Collection;
+
+class DataProvider extends AbstractDataProvider
+{
+    /**
+     * @var Collection
+     */
+    protected $collection;
+    
+    /**
+     * @var FilterPool
+     */
+    protected $filterPool;
+
+    /**
+     * @var array
+     */
+    protected $loadedData;
+
+    /**
+     * Construct
+     *
+     * @param $name
+     * @param $primaryFieldName
+     * @param $requestFieldName
+     * @param Collection $collection
+     * @param FilterPool $filterPool
+     * @param array $meta
+     * @param array $data
+     */
+    public function __construct(
+        $name,
+        $primaryFieldName,
+        $requestFieldName,
+        Collection $collection,
+        FilterPool $filterPool,
+        array $meta = [],
+        array $data = []
+    ) {
+        parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
+        $this->collection = $collection;
+        $this->filterPool = $filterPool;
+    }
+
+    /**
+     * Get data
+     *
+     * @return array
+     */
+    public function getData()
+    {
+        if (!$this->loadedData) {
+            $items = $this->collection->getItems();
+            $result = array();
+            foreach ($items as $item) {
+                $result['main_fieldset'] = $item->getData();
+                $this->loadedData[$item->getId()] = $result;
+                break;
+            }
+        }
+        return $this->loadedData;
+    }
+}

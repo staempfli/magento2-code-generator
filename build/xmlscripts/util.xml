@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Util" basedir="../..">
+
+    <includepath classpath="${project.basedir}/build/phpscripts/Util"/>
+    <taskdef name="inputParamsTask" classname="InputParamsTask"/>
+    <taskdef name="multiCasePropertiesTask" classname="MultiCasePropertiesTask"/>
+    <taskdef name="generateCodeTask" classname="GenerateCodeTask"/>
+
+    <target name="util:properties:read"
+            description="read all required properties files"
+            hidden="true">
+
+        <property file="${application.startdir}/build/config/default.properties"/>
+
+    </target>
+
+    <target name="generateCode"
+            hidden="true"
+            depends="magento:module:get:properties">
+
+        <echo message="Please specify the following params:"/>
+        <inputParamsTask/>
+        <multiCasePropertiesTask/>
+        <generateCodeTask/>
+
+    </target>
+
+</project>
