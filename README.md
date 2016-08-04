@@ -3,8 +3,8 @@
 ## Installation
 
 * Git clone and composer install
-* Optional create symlink to `path_to_mage2-generator.sh` file in your `$PATH`:
-    `ln -s $(PWD)/mage2-generator.sh /usr/local/bin/mage2-generator`
+* Optional create symlink to `bin/mage2-generator` file in your `$PATH`:
+    `ln -s $(PWD)/bin/mage2-generator /usr/local/bin/mage2-generator`
 
 ### Setup personal config
 
@@ -12,9 +12,9 @@
 
 ## Usage
 
-* List all templates: `<path_to_mage2-generator.sh> -l` 
+* List all templates: `bin/mage2-generator -l` 
 
-* Generate template: `<path_to_mage2-generator.sh> <template:command>` 
+* Generate template: `bin/mage2-generator <template:command>` 
 
 **NOTE**:
     

@@ -1,4 +1,5 @@
 .idea
 .DS_STORE
-/bin
+/bin/*
+!bin/mage2-generator
 /vendor

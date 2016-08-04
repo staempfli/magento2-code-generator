@@ -6,8 +6,8 @@
             description="read all required properties files"
             hidden="true">
 
-        <property file="${application.startdir}/config/personal.properties"/>
-        <property file="${application.startdir}/build/config/default.properties"/>
+        <property file="${phing.dir}/config/personal.properties"/>
+        <property file="${phing.dir}/build/config/default.properties"/>
 
     </target>
 

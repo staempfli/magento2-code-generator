@@ -24,6 +24,7 @@
     "secure-http": false,
     "bin-dir": "bin"
   },
+  "bin": ["mage2-generator"],
   "scripts": {
     "setPermissionsBin": "chmod -R +x bin",
     "post-install-cmd": [

@@ -26,7 +26,7 @@
 
         <echo message="List available templates:"/>
         <echo message=""/>
-        <echo message="$ mage2-generator.sh -l"/>
+        <echo message="$ bin/mage2-generator -l"/>
         <echo message="**********************************************************************"/>
     </target>
 </project>
