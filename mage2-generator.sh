@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/perl
+use Cwd 'abs_path';
+$realpath = abs_path();
 
-# Run phing with the right paths from any location
-BASEDIR=$(dirname $0)
-${BASEDIR}/bin/phing -f ${BASEDIR}/build.xml $1
+exec("$realpath/bin/phing -f $realpath/build.xml $ARGV[0]");

@@ -3,7 +3,8 @@
 ## Installation
 
 * Git clone and composer install
-* Optional create symlink to `path_to_mage2-generator.sh` file in your `$PATH` 
+* Optional create symlink to `path_to_mage2-generator.sh` file in your `$PATH`:
+    `ln -s $(PWD)/mage2-generator.sh /usr/local/bin/mage2-generator`
 
 ### Setup personal config
 
