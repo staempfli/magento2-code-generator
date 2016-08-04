@@ -23,7 +23,7 @@ class GetModulePropertiesTask extends Task
             throw new BuildException($message);
         }
         $this->_setProperty('Vendorname', $vendorName);
-        $this->_setProperty('Modulename', $vendorName);
+        $this->_setProperty('Modulename', $moduleName);
 
     }
 
