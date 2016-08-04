@@ -59,11 +59,11 @@ class ${Modelname}Actions extends Column
             $storeId = $this->context->getFilterParam('store_id');
 
             foreach ($dataSource['data']['items'] as &$item) {
-                if (isset($item['${database_field_id_name}'])) {
+                if (isset($item['${database_field_id}'])) {
                     $item[$this->getData('name')]['edit'] = [
                         'href' => $this->urlBuilder->getUrl(
                             self::URL_PATH_EDIT,
-                            ['${database_field_id_name}' => $item['${database_field_id_name}'], 'store' => $storeId]
+                            ['${database_field_id}' => $item['${database_field_id}'], 'store' => $storeId]
                         ),
                         'label' => __('Edit'),
                         'hidden' => false,

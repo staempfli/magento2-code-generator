@@ -49,9 +49,9 @@ class Save extends \Magento\Backend\App\Action
         if ($data) {
             $params = [];
             $objectInstance = $this->objectFactory->create();
-            if (isset($data['${database_field_id_name}'])) {
-                $objectInstance->load($data['${database_field_id_name}']);
-                $params['${database_field_id_name}'] = $data['${database_field_id_name}'];
+            if (isset($data['${database_field_id}'])) {
+                $objectInstance->load($data['${database_field_id}']);
+                $params['${database_field_id}'] = $data['${database_field_id}'];
             }
             $objectInstance->addData($data);
 
@@ -65,7 +65,7 @@ class Save extends \Magento\Backend\App\Action
                 $this->messageManager->addSuccessMessage(__('You saved this record.'));
                 $this->_getSession()->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
-                    $params = ['${database_field_id_name}' => $objectInstance->getId(), '_current' => true];
+                    $params = ['${database_field_id}' => $objectInstance->getId(), '_current' => true];
                     return $resultRedirect->setPath('*/*/edit', $params);
                 }
                 return $resultRedirect->setPath('*/*/');

@@ -20,8 +20,11 @@
     
 ## Contribute
 
-- New template file on "templates dir" and set placeholders
-- Add new target as in this example:
+1. New template files on "templates dir" and 
+2. Set placeholders:
+    * Placeholders have the following format `${param_name}`
+    * Placeholders are possible on files content as well as on folder and file names.
+3. Add a new target in `build/xmlscripts/templates/<your_template>.xml` as in this example:
 
 ```
     <target name="uigridform:generate"
@@ -29,7 +32,7 @@
 
         <phingcall target="generateCode">
             <property name="template" value="uigridform"/>
-            <property name="params" value="type,database_field_id_name"/>
+            <property name="params" value="type,database_field_id"/>
         </phingcall>
 
     </target>
@@ -38,7 +41,7 @@
 ## Built-in Properties
 
 - vendorname -> calculated from registration.php
-- modulename -> calculated from registration
+- modulename -> calculated from registration.php
 
 ### Multicase properties
 

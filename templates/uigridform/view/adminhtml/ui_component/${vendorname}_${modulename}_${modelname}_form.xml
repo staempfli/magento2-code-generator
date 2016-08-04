@@ -29,8 +29,8 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">${Vendorname}\${Modulename}\Ui\Component\Form\${Modelname}\DataProvider</argument>
             <argument name="name" xsi:type="string">${vendorname}_${modulename}_${modelname}_form_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">${database_field_id_name}</argument>
-            <argument name="requestFieldName" xsi:type="string">${database_field_id_name}</argument>
+            <argument name="primaryFieldName" xsi:type="string">${database_field_id}</argument>
+            <argument name="requestFieldName" xsi:type="string">${database_field_id}</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="submit_url" xsi:type="url" path="*/*/save"/>
@@ -50,7 +50,7 @@
                 <item name="label" xsi:type="string" translate="true">Main Information</item>
             </item>
         </argument>
-        <field name="${database_field_id_name}">
+        <field name="${database_field_id}">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="visible" xsi:type="boolean">false</item>

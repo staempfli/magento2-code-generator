@@ -17,7 +17,7 @@ class Collection extends AbstractCollection
     /**
      * @var string
      */
-    protected $_idFieldName = '${database_field_id_name}';
+    protected $_idFieldName = '${database_field_id}';
 
     /**
      * Define resource model
