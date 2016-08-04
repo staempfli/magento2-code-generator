@@ -2,11 +2,9 @@
 /**
  * BackButton
  *
- * @project  ${Modulename}
- * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
- * @author    juan.alonso@staempfli.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
- 
 namespace ${Vendorname}\${Modulename}\Block\Adminhtml\${Modelname}\Edit;
 
 use Magento\Backend\Block\Widget\Context;

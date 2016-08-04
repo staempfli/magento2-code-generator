@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
-
-<!-- @TODO: PROBLEMS when file exists -->
+<!--
+/**
+ * di
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
+ */
+-->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <virtualType name="Ref${Modelname}GridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>

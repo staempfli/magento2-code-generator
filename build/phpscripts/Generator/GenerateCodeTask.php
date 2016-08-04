@@ -4,8 +4,8 @@
  * GenerateCodeTask.php
  *
  * @category mage2-code-generator
- * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
- * @author    juan.alonso@staempfli.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
 
 require_once "phing/Task.php";

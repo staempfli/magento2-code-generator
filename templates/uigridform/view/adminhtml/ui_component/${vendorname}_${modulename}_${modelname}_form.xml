@@ -2,9 +2,8 @@
 <!--
 /**
  * ${vendorname}_${modulename}_${modelname}_form
- * @project  mage2-module-references
- * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
- * @author    juan.alonso@staempfli.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
 -->
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">

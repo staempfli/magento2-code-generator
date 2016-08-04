@@ -2,9 +2,8 @@
 /**
  * Collection.php
  *
- * @package  ${Modulename}
- * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
- * @author    juan.alonso@staempfli.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
 
 namespace ${Vendorname}\${Modulename}\Model\ResourceModel\${Modelname}\Grid;

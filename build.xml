@@ -13,6 +13,7 @@
 
     <tstamp>
         <format property="generator.timestamp" pattern="%Y%m%d-%H%M"/>
+        <format property="generator.time.year" pattern="%Y"/>
     </tstamp>
 
     <target name="help"

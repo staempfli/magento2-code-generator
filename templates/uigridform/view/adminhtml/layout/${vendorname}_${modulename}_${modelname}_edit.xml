@@ -2,9 +2,8 @@
 <!--
 /**
  * ${vendorname}_${modulename}_${modelname}_edit
- * @project  mage2-module-references
- * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
- * @author    juan.alonso@staempfli.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"

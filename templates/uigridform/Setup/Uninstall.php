@@ -3,11 +3,9 @@
 /**
  * Uninstall.php
  *
- * @package  ${Modulename}
- * @copyright Copyright (c) 2016 Staempfli AG (http://www.staempfli.com)
- * @author    juan.alonso@staempfli.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
-//@TODO create this file manually
 namespace ${Vendorname}\${Modulename}\Setup;
 
 use Magento\Framework\Setup\UninstallInterface;

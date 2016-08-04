@@ -2,12 +2,9 @@
 /**
  * installSchema.php
  *
- * @package  ${Modulename}
- * @copyright Copyright (c) 2016 Unic AG (http://www.unic.com)
- * @author    juan.alonso@unic.com
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
  */
-
-//@TODO create this file manually
 namespace ${Vendorname}\${Modulename}\Setup;
 
 use Magento\Framework\DB\Ddl\Table;
