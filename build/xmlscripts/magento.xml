@@ -11,9 +11,6 @@
 
         <getModulePropertiesTask/>
 
-        <echo message="Vendorname set to: ${Vendorname}"/>
-        <echo message="Modulename set to: ${Modulename}"/>
-
     </target>
 
 </project>
