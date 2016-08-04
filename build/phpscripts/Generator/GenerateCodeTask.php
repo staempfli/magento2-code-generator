@@ -88,7 +88,7 @@ class GenerateCodeTask extends Task
         $this->log($filenameRelativePath . ' not copied', Project::MSG_WARN);
         $this->log('Template Content:');
         print($templateContent);
-        $this->log('You can manually copy the previous code and add it manually on ' . $filenameRelativePath);
+        $this->log('You can manually copy the previous code and add it manually on ' . $filenameRelativePath, Project::MSG_WARN);
     }
 
     protected function _prepareDirToWriteTo($filenameAbsolutePath)
