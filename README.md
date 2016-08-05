@@ -2,13 +2,23 @@
 
 ## Installation
 
-* Git clone and composer install
-* Optional create symlink to `bin/mage2-generator` file in your `$PATH`:
-    `ln -s $(PWD)/bin/mage2-generator /usr/local/bin/mage2-generator`
+```
+$ git clone https://github.com/staempfli/mage2-code-generator.git
+$ cd mage2-code-generator && composer install
+
+# Test that it works
+$ bin/mage2-generator
+```
+
+### Global installation
+
+* Create symlink to `bin/mage2-generator` on your preferred `$PATH`:
+   
+    * `$ ln -s $(PWD)/bin/mage2-generator /usr/local/bin/mage2-generator`
 
 ### Setup personal config
 
-* cp config/personal.properties.dist config/personal.properties
+* `$ cp config/personal.properties.dist config/personal.properties
 
 ## Usage
 
@@ -18,28 +28,34 @@
 
 **NOTE**:
     
-* This commands mut be executed on the root module folder where the "registration.php" file is. 
+* This commands mut be executed on the root module folder where the `registration.php file is. 
 
 * For `module:generate` where this file is not existing, you must create first the module parent folder and execute the command from there.
     
 ## Contribute
 
-1. New template files on "templates dir" and 
-2. Set placeholders:
+1. Create new template files on `/templates` directory 
+2. Set your placeholders:
     * Placeholders have the following format `${param_name}` 
-    * Placeholders are possible on files content as well as on folder and file names.
+    * Placeholders are possible on files content as well as on folder/file names.
 3. Add a new target in `build/xmlscripts/templates/<your_template>.xml` as in this example:
 
 ```
-    <target name="uigridform:generate"
-            description="Generate Magento 2 CRUD UI Grid and Form">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="<your_template>" basedir="../../..">
+
+    <target name="<your_template>:generate"
+            description="<description>">
 
         <phingcall target="generateCode">
-            <property name="template" value="uigridform"/>
-            <property name="params" value="type,database_field_id"/>
+            <property name="template" value="<your_template_parent_folder_name>"/>
+            <property name="params" value="<coma_separated_placeholder_params"/>
         </phingcall>
 
     </target>
+
+</project>
 ```
 
 ## Built-in Properties
