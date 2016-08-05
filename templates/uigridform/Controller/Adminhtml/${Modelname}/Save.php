@@ -7,10 +7,11 @@
  */
 namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Modelname};
 
+use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use ${Vendorname}\${Modulename}\Model\${Modelname}Factory;
 
-class Save extends \Magento\Backend\App\Action
+class Save extends Action
 {
     /** @var ${Modelname}Factory $objectFactory */
     protected $objectFactory;
@@ -42,13 +43,16 @@ class Save extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $data = $this->getRequest()->getParam('main_fieldset', []);
+        $data = $this->getRequest()->getParam('main_fieldset');
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             $params = [];
             $objectInstance = $this->objectFactory->create();
-            if (isset($data['${database_field_id}'])) {
+            if (empty($data['${database_field_id}'])) {
+                $data['${database_field_id}'] = null;
+            } else {
+                $objectInstance->load($data['id']);
                 $objectInstance->load($data['${database_field_id}']);
                 $params['${database_field_id}'] = $data['${database_field_id}'];
             }

@@ -19,9 +19,9 @@ class GenerateCodeTask extends Task
         $templateDir = $this->_getTemplateDir();
         $fileIterator = $this->_getFilesIterator($templateDir);
 
-        foreach ($fileIterator as $filename => $file) {
-            $filename = $this->_getValueWithReplacedPlaceholders($filename);
-            $templateContent = $this->_getValueWithReplacedPlaceholders(file_get_contents($filename));
+        foreach ($fileIterator as $file) {
+            $filename = $this->_getValueWithReplacedPlaceholders($file->getPathname());
+            $templateContent = $this->_getValueWithReplacedPlaceholders(file_get_contents($file->getPathname()));
 
             $filenameAbsolutePath = $this->_getAbsolutePathToCopyTo($filename);
             if (file_exists($filenameAbsolutePath)) {

@@ -25,7 +25,6 @@ class InstallSchema implements InstallSchemaInterface
      */
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context) //@codingStandardsIgnoreLine
     {
-        //@codingStandardsIgnoreEnd
         $setup->startSetup();
 
         /**
@@ -39,20 +38,6 @@ class InstallSchema implements InstallSchemaInterface
             null,
             ['identity' => true, 'nullable' => false, 'primary' => true],
             '${Modelname} ID'
-        )->addColumn(
-            'identifier',
-            Table::TYPE_TEXT,
-            100,
-            ['nullable' => false],
-            '${Modelname} Identifier'
-        )->addIndex(
-            $setup->getIdxName(
-                $setup->getTable('${vendorname}_${modulename}_${modelname}'),
-                ['identifier'],
-                AdapterInterface::INDEX_TYPE_FULLTEXT
-            ),
-            ['identifier'],
-            ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
         )->setComment(
             '${Modelname} Table'
         );

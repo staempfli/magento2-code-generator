@@ -51,19 +51,4 @@ class ${Modelname} extends AbstractModel implements IdentityInterface
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
-
-    /**
-     * Save from collection data
-     *
-     * @param array $data
-     * @return $this|bool
-     */
-    public function saveCollection(array $data)
-    {
-        if (isset($data[$this->getId()])) {
-            $this->addData($data[$this->getId()]);
-            $this->getResource()->save($this);
-        }
-        return $this;
-    }
 }

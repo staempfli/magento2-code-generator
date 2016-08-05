@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="CrudModel" basedir="../../..">
+
+    <target name="crudmodel:generate"
+            description="Generate Magento 2 CRUD Model">
+
+        <phingcall target="generateCode">
+            <property name="template" value="crudmodel"/>
+            <property name="params" value="modelname,database_field_id"/>
+        </phingcall>
+
+        <!-- Echo post manual actions
+        * Add your custom fields on Setup/InstallSchema.php
+        -->
+
+    </target>
+
+</project>
