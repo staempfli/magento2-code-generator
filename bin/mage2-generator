@@ -11,4 +11,4 @@ done
 BASEDIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 # Phing command to execute template targets
-${BASEDIR}/phing -f ${BASEDIR}/../build.xml $1
+${BASEDIR}/phing -f ${BASEDIR}/../build.xml $1 $2

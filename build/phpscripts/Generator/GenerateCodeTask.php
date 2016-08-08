@@ -8,9 +8,9 @@
  * @author    ${comments.user.mail}
  */
 
-require_once "phing/Task.php";
+require_once "GeneratorAbstract.php";
 
-class GenerateCodeTask extends Task
+class GenerateCodeTask extends GeneratorAbstract
 {
     const TEMPLATES_DIR = 'templates';
 
@@ -37,20 +37,6 @@ class GenerateCodeTask extends Task
             }
             $this->log('Created: ' . $this->_getRelativePathToCopyTo($filename));
         }
-    }
-
-    protected function _getTemplateDir()
-    {
-        return $this->project->getProperty('project.basedir') . '/' . self::TEMPLATES_DIR . '/' . $this->project->getProperty('template');
-    }
-
-    protected function _getFilesIterator($dir)
-    {
-        $directoryIterator = new RecursiveDirectoryIterator($dir);
-        $directoryIterator->setFlags(RecursiveDirectoryIterator::SKIP_DOTS);
-        $fileIterator = new RecursiveIteratorIterator($directoryIterator);
-
-        return $fileIterator;
     }
 
     protected function _getValueWithReplacedPlaceholders($value)
@@ -87,8 +73,8 @@ class GenerateCodeTask extends Task
         $filenameRelativePath = $this->_getRelativePathToCopyTo($filename);
         $this->log($filenameRelativePath . ' not copied', Project::MSG_WARN);
         $this->log('Template Content:');
-        print($templateContent);
-        $this->log('You can manually copy the previous code and add it manually on ' . $filenameRelativePath, Project::MSG_WARN);
+        print($templateContent . PHP_EOL);
+        $this->log('You can copy the previous code and add it manually on ' . $filenameRelativePath, Project::MSG_WARN);
     }
 
     protected function _prepareDirToWriteTo($filenameAbsolutePath)

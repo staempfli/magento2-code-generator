@@ -9,8 +9,15 @@
             hidden="true"
             unless="skipGetModuleProperties">
 
-        <getModulePropertiesTask/>
-
+        <if>
+            <equals arg1="${template}" arg2="module"/>
+            <then>
+                <echo message="skip get Module properties"/>
+            </then>
+            <else>
+                <getModulePropertiesTask/>
+            </else>
+        </if>
     </target>
 
 </project>

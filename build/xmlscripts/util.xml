@@ -4,7 +4,17 @@
 
     <target name="util:properties:read"
             description="read all required properties files"
-            hidden="true">
+            hidden="true"
+            depends="generator:templates:get">
+
+        <if>
+            <not>
+                <isset property="template"/>
+            </not>
+            <then>
+                <input propertyName="template" message="Please specify the template: " validArgs="${templates.list}"/>
+            </then>
+        </if>
 
         <property file="${phing.dir}/config/personal.properties"/>
         <property file="${phing.dir}/build/config/default.properties"/>

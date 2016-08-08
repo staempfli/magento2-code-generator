@@ -5,11 +5,6 @@
     <import file="${project.basedir}/build/xmlscripts/util.xml"/>
     <import file="${project.basedir}/build/xmlscripts/generator.xml"/>
     <import file="${project.basedir}/build/xmlscripts/magento.xml"/>
-    <import>
-        <fileset dir="${project.basedir}/build/xmlscripts/templates">
-            <include name="*.xml" />
-        </fileset>
-    </import>
 
     <tstamp>
         <format property="generator.timestamp" pattern="%Y%m%d-%H%M"/>
@@ -24,9 +19,13 @@
         <echo message="Current Directory:            ${application.startdir}" level="warning"/>
         <echo message="**********************************************************************"/>
 
-        <echo message="List available templates:"/>
+        <echo message="Usage:"/>
         <echo message=""/>
-        <echo message="$ bin/mage2-generator -l"/>
+        <echo message="List Templates"/>
+        <echo message="$ bin/mage2-generator generator:templates:list" level="warning"/>
+        <echo message=""/>
+        <echo message="Generate Template:"/>
+        <echo message="$ bin/mage2-generator generate"/>
         <echo message="**********************************************************************"/>
     </target>
 </project>

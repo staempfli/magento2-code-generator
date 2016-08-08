@@ -6,6 +6,27 @@
     <taskdef name="inputParamsTask" classname="InputParamsTask"/>
     <taskdef name="multiCasePropertiesTask" classname="MultiCasePropertiesTask"/>
     <taskdef name="generateCodeTask" classname="GenerateCodeTask"/>
+    <taskdef name="getTemplatesTask" classname="GetTemplatesTask"/>
+
+    <target name="generator:templates:get"
+            hidden="true">
+
+        <getTemplatesTask/>
+
+    </target>
+
+    <target name="generator:templates:list">
+
+        <getTemplatesTask showList="true"/>
+
+    </target>
+
+    <target name="generator:template:info"
+            hidden="true">
+
+        <echo message="${template.name}" level="warning"/>
+
+    </target>
 
     <target name="generator:inputParams"
             hidden="true">
@@ -22,8 +43,7 @@
 
     </target>
 
-    <target name="generateCode"
-            hidden="true"
+    <target name="generate"
             depends="util:properties:read,
             magento:module:get:properties,
             generator:inputParams,

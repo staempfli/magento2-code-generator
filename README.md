@@ -22,15 +22,15 @@ $ bin/mage2-generator
 
 ## Usage
 
-* List all templates: `bin/mage2-generator -l` 
+* List all templates: `bin/mage2-generator generator:templates:list` 
 
-* Generate template: `bin/mage2-generator <template:command>` 
+* Generate template: `bin/mage2-generator generate` 
 
 **NOTE**:
     
 * This commands mut be executed on the root module folder where the `registration.php file is. 
 
-* For `module:generate` where this file is not existing, you must create first the module parent folder and execute the command from there.
+* For generate `module` where this file is not existing, you must create first the module parent folder and execute the command from there.
     
 ## Contribute
 
@@ -38,25 +38,6 @@ $ bin/mage2-generator
 2. Set your placeholders:
     * Placeholders have the following format `${param_name}` 
     * Placeholders are possible on files content as well as on folder/file names.
-3. Add a new target in `build/xmlscripts/templates/<your_template>.xml` as in this example:
-
-```
-<?xml version="1.0" encoding="UTF-8"?>
-
-<project name="<your_template>" basedir="../../..">
-
-    <target name="<your_template>:generate"
-            description="<description>">
-
-        <phingcall target="generateCode">
-            <property name="template" value="<your_template_parent_folder_name>"/>
-            <property name="params" value="<coma_separated_placeholder_params"/>
-        </phingcall>
-
-    </target>
-
-</project>
-```
 
 ## Built-in Properties
 
