@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * widget.xml
+ *
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="${vendorname}_${modulename}_${widgetname}" class="${Vendorname}\${Modulename}\Block\Widget\${Widgetname}">
+        <label translate="true">Display ${Widgetname}</label>
+        <description>Display a selected ${Widgetname} on any CMS Block or Page</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" visible="true" sort_order="10" >
+                <label translate="true">Title</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
