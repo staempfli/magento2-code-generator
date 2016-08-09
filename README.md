@@ -41,8 +41,10 @@ $ bin/mage2-generator
 
 ## Built-in Properties
 
-- vendorname -> calculated from registration.php
-- modulename -> calculated from registration.php
+* vendorname -> calculated from registration.php
+* modulename -> calculated from registration.php
+* comments.company.name
+* comments.user.mail
 
 ### Multicase properties
 
