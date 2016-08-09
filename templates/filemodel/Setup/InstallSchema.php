@@ -28,18 +28,18 @@ class InstallSchema implements InstallSchemaInterface
         $setup->startSetup();
 
         /**
-         * Create table '${vendorname}_${modulename}_${modelname}'
+         * Create table '${vendorname}_${modulename}_${entityname}'
          */
         $table = $setup->getConnection()->newTable(
-            $setup->getTable('${vendorname}_${modulename}_${modelname}')
+            $setup->getTable('${vendorname}_${modulename}_${entityname}')
         )->addColumn(
             '${database_field_id}',
             Table::TYPE_SMALLINT,
             null,
             ['identity' => true, 'nullable' => false, 'primary' => true],
-            '${Modelname} ID'
+            '${Entityname} ID'
         )->setComment(
-            '${Modelname} Table'
+            '${Entityname} Table'
         );
 
         $table->addColumn(

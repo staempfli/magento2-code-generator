@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ${vendorname}_${modulename}_${entityname}_edit
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="${vendorname}_${modulename}_${entityname}_form"/>
+        </referenceContainer>
+    </body>
+</page>

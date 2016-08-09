@@ -18,7 +18,7 @@
                 <item name="url" xsi:type="string">{{route_id}}/file/uploader</item>
             </item>
         * Edit your form DataProvider to get the file data in the right format:
-            use method ${Modelname}->getFileValueForForm();
+            use method ${Entityname}->getFileValueForForm();
         -->
 
     </target>
