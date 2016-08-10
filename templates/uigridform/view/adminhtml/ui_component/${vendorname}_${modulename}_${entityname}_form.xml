@@ -12,11 +12,11 @@
             <item name="provider" xsi:type="string">${vendorname}_${modulename}_${entityname}_form.${vendorname}_${modulename}_${entityname}_form_data_source</item>
             <item name="deps" xsi:type="string">${vendorname}_${modulename}_${entityname}_form.${vendorname}_${modulename}_${entityname}_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">${Entityname} Form</item>
-        <item name="layout" xsi:type="array">
-            <item name="type" xsi:type="string">tabs</item>
-            <item name="navContainerName" xsi:type="string">left</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
         </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="label" xsi:type="string" translate="true">${Entityname} Form</item>
         <item name="buttons" xsi:type="array">
             <item name="back" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\BackButton</item>
             <item name="delete" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\DeleteButton</item>
