@@ -43,18 +43,18 @@ class Save extends Action
      */
     public function execute()
     {
-        $data = $this->getRequest()->getParam('main_fieldset');
+        $data = $this->getRequest()->getParams();
         /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($data) {
             $params = [];
             $objectInstance = $this->objectFactory->create();
-            if (empty($data['${database_field_id}'])) {
-                $data['${database_field_id}'] = null;
+            $idField = $objectInstance->getIdFieldName();
+            if (empty($data[$idField])) {
+                $data[$idField] = null;
             } else {
-                $objectInstance->load($data['id']);
-                $objectInstance->load($data['${database_field_id}']);
-                $params['${database_field_id}'] = $data['${database_field_id}'];
+                $objectInstance->load($data[$idField]);
+                $params[$idField] = $data[$idField];
             }
             $objectInstance->addData($data);
 
@@ -68,7 +68,7 @@ class Save extends Action
                 $this->messageManager->addSuccessMessage(__('You saved this record.'));
                 $this->_getSession()->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
-                    $params = ['${database_field_id}' => $objectInstance->getId(), '_current' => true];
+                    $params = [$idField => $objectInstance->getId(), '_current' => true];
                     return $resultRedirect->setPath('*/*/edit', $params);
                 }
                 return $resultRedirect->setPath('*/*/');

@@ -76,7 +76,7 @@ class Validate extends Action
     {
         $this->response->setError(0);
 
-        $this->validateRequireEntries($this->getRequest()->getParam('main_fieldset'));
+        $this->validateRequireEntries($this->getRequest()->getParams());
 
         $resultJson = $this->jsonFactory->create()->setData($this->response);
         return $resultJson;

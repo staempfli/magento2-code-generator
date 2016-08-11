@@ -64,8 +64,7 @@ class DataProvider extends AbstractDataProvider
             $items = $this->collection->getItems();
             $result = array();
             foreach ($items as $item) {
-                $result['main_fieldset'] = $item->getData();
-                $this->loadedData[$item->getId()] = $result;
+                $this->loadedData[$item->getId()] = $item->getData();
                 break;
             }
         }
