@@ -31,83 +31,16 @@ class ${Entityname}Setup extends EavSetup
     {
         $attributes = [];
 
-        // Add your entity attributes here...
-
-        $attributes['image'] = [
-            'type' => 'varchar',
-            'label' => 'Image',
-            'input' => 'image',
-            'backend' => 'Staempfli\${Modulename}\Model\${Entityname}\Attribute\Backend\Image',
-            'required' => false,
-            'sort_order' => 10,
-            'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
-            'group' => 'General',
-        ];
-
-        $attributes['title'] = [
-            'type' => 'varchar',
-            'label' => 'Title',
-            'input' => 'text',
-            'required' => true,
-            'sort_order' => 20,
-            'global' => ScopedAttributeInterface::SCOPE_STORE,
-            'group' => 'General',
-            'validate_rules' => 'a:2:{s:15:"max_text_length";i:255;s:15:"min_text_length";i:1;}',
-        ];
-
-        $attributes['description'] = [
-            'type' => 'text',
-            'label' => 'Description',
-            'input' => 'textarea',
-            'required' => true,
-            'sort_order' => 30,
-            'global' => ScopedAttributeInterface::SCOPE_STORE,
-            'group' => 'General',
-            'wysiwyg_enabled' => true,
-        ];
-
-        $attributes['link'] = [
-            'type' => 'varchar',
-            'label' => 'Link',
-            'input' => 'text',
-            'required' => true,
-            'sort_order' => 40,
-            'global' => ScopedAttributeInterface::SCOPE_STORE,
-            'group' => 'General',
-            'validate_rules' => 'a:2:{s:15:"max_text_length";i:255;s:15:"min_text_length";i:1;}',
-        ];
-
-        $attributes['is_active'] = [
-            'type' => 'int',
-            'label' => 'Is Active',
-            'input' => 'select',
-            'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
-            'sort_order' => 50,
-            'global' => ScopedAttributeInterface::SCOPE_STORE,
-            'group' => 'General',
-        ];
-
-        $attributes['date_from'] = [
-            'type' => 'datetime',
-            'label' => 'Date From',
-            'input' => 'date',
-            'backend' => 'Magento\Eav\Model\Entity\Attribute\Backend\Datetime',
-            'required' => false,
-            'sort_order' => 60,
-            'global' => ScopedAttributeInterface::SCOPE_STORE,
-            'group' => 'General',
-        ];
-
-        $attributes['date_to'] = [
-            'type' => 'datetime',
-            'label' => 'Date To',
-            'input' => 'date',
-            'backend' => 'Magento\Eav\Model\Entity\Attribute\Backend\Datetime',
-            'required' => false,
-            'sort_order' => 70,
-            'global' => ScopedAttributeInterface::SCOPE_STORE,
-            'group' => 'General',
-        ];
+        // Add your entity attributes here... For example:
+//        $attributes['is_active'] = [
+//            'type' => 'int',
+//            'label' => 'Is Active',
+//            'input' => 'select',
+//            'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+//            'sort_order' => 10,
+//            'global' => ScopedAttributeInterface::SCOPE_STORE,
+//            'group' => 'General',
+//        ];
 
         return $attributes;
     }

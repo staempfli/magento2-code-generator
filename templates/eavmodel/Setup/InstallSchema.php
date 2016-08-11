@@ -67,7 +67,7 @@ class InstallSchema implements InstallSchemaInterface
             ['identifier']
         );
 
-        // Add more non scopable attributes here...
+        // Add more non static attributes here...
 
         $table->addColumn(
             'created_at',
