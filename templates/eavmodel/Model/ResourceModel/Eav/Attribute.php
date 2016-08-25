@@ -9,12 +9,14 @@
 namespace ${Vendorname}\${Modulename}\Model\ResourceModel\Eav;
 
 use ${Vendorname}\${Modulename}\Setup\${Entityname}Setup;
+use Magento\Eav\Model\Entity\Attribute as EavAttribute;
+use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 
 /**
  * Class Attribute
  * @package Staempfli\Employee\Model\ResourceModel\Eav
  */
-class Attribute extends \Magento\Eav\Model\Entity\Attribute implements ScopedAttributeInterface
+class Attribute extends EavAttribute implements ScopedAttributeInterface
 {
     /**
      * Constants
@@ -50,7 +52,7 @@ class Attribute extends \Magento\Eav\Model\Entity\Attribute implements ScopedAtt
      */
     protected function _construct()
     {
-        $this->_init('Staempfli\Employee\Model\ResourceModel\Attribute');
+        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\Attribute');
     }
 
     /**

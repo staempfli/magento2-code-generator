@@ -20,7 +20,7 @@ use ${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}\Collection as 
 
 /**
  * Class Collection
- * Collection for displaying grid of sales documents
+ * Collection for displaying grid
  */
 class Collection extends ${Entityname}Collection implements SearchResultInterface
 {

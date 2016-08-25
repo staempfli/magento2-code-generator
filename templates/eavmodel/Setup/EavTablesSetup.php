@@ -186,7 +186,7 @@ class EavTablesSetup
                     'entity_id'
                 ),
                 'entity_id',
-                $this->setup->getTable($entityCode),
+                $this->setup->getTable($entityCode . '_entity'),
                 'entity_id',
                 Table::ACTION_CASCADE
             )

@@ -24,7 +24,7 @@
     </argument>
     <dataSource name="${vendorname}_${modulename}_${entityname}_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Ref${Entityname}GridDataProvider</argument>
+            <argument name="class" xsi:type="string">${Vendorname}${Entityname}GridDataProvider</argument>
             <argument name="name" xsi:type="string">${vendorname}_${modulename}_${entityname}_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">${database_field_id}</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>

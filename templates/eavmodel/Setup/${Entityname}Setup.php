@@ -31,6 +31,17 @@ class ${Entityname}Setup extends EavSetup
     {
         $attributes = [];
 
+        $attributes['identifier'] = [
+            'type' => 'static',
+            'label' => 'identifier',
+            'input' => 'text',
+            'required' => true,
+            'sort_order' => 10,
+            'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group' => 'General',
+            'validate_rules' => 'a:2:{s:15:"max_text_length";i:100;s:15:"min_text_length";i:1;}'
+        ];
+
         // Add your entity attributes here... For example:
 //        $attributes['is_active'] = [
 //            'type' => 'int',
@@ -54,12 +65,12 @@ class ${Entityname}Setup extends EavSetup
     {
         $entities = [
             self::ENTITY_TYPE_CODE => [
-                'entity_model' => 'Staempfli\${Modulename}\Model\ResourceModel\${Entityname}',
-                'attribute_model' => 'Staempfli\${Modulename}\Model\ResourceModel\Eav\Attribute',
+                'entity_model' => '${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}',
+                'attribute_model' => '${Vendorname}\${Modulename}\Model\ResourceModel\Eav\Attribute',
                 'table' => self::ENTITY_TYPE_CODE . '_entity',
                 'increment_model' => null,
                 'additional_attribute_table' => self::ENTITY_TYPE_CODE . '_eav_attribute',
-                'entity_attribute_collection' => 'Staempfli\${Modulename}\Model\ResourceModel\Attribute\Collection',
+                'entity_attribute_collection' => '${Vendorname}\${Modulename}\Model\ResourceModel\Attribute\Collection',
                 'attributes' => $this->getAttributes()
             ]
         ];
