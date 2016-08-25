@@ -48,7 +48,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
     /**
      * @var ${Entityname}Factory
      */
-    protected ${entityname}Factory;
+    protected $${entityname}Factory;
 
     /**
      * Initialize resource model
@@ -63,7 +63,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
 
     /**
      * @param FileProcessor $fileProcessor
-     * @param ${Entityname}Factory ${entityname}Factory
+     * @param ${Entityname}Factory $${entityname}Factory
      * @param Context $context
      * @param Registry $registry
      * @param AbstractResource|null $resource
@@ -72,7 +72,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
      */
     public function __construct(
         FileProcessor $fileProcessor,
-        ${Entityname}Factory ${entityname}Factory,
+        ${Entityname}Factory $${entityname}Factory,
         Context $context,
         Registry $registry,
         AbstractResource $resource = null,
@@ -88,7 +88,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
         );
 
         $this->fileProcessor = $fileProcessor;
-        $this->${entityname}Factory = ${entityname}Factory;
+        $this->${entityname}Factory = $${entityname}Factory;
     }
 
     /**

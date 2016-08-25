@@ -48,7 +48,7 @@ class FileProcessor
     /**
      * @var string
      */
-    const FILE_DIR = '{vendorname}_${modulename}/files';
+    const FILE_DIR = '${vendorname}_${modulename}/files';
 
     /**
      * @var string

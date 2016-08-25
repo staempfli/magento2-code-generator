@@ -51,8 +51,9 @@ class Delete extends Action
             if ($objectInstance->getId()) {
                 $objectInstance->delete();
                 $this->messageManager->addSuccessMessage(__('You deleted the record.'));
+            } else {
+                $this->messageManager->addErrorMessage(__('Record does not exist.'));
             }
-            $this->messageManager->addErrorMessage(__('Record does not exist.'));
         } catch (\Exception $exception) {
             $this->messageManager->addErrorMessage($exception->getMessage());
         }
