@@ -44,21 +44,6 @@ class Attribute extends EavAttribute
     }
 
     /**
-     * Perform actions before object save
-     *
-     * @param AbstractModel $object
-     * @return $this
-     */
-    protected function _beforeSave(AbstractModel $object)
-    {
-        $applyTo = $object->getApplyTo();
-        if (is_array($applyTo)) {
-            $object->setApplyTo(implode(',', $applyTo));
-        }
-        return parent::_beforeSave($object);
-    }
-
-    /**
      * Perform actions after object save
      *
      * @param AbstractModel $object

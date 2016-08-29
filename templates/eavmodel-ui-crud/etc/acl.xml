@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * acl
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="${Vendorname}_${Modulename}::${entityname}" title="${Entityname}" sortOrder="10" />
+            </resource>
+        </resources>
+    </acl>
+</config>

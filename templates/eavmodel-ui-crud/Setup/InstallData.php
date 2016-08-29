@@ -22,16 +22,16 @@ class InstallData implements InstallDataInterface
      *
      * @var ${Entityname}SetupFactory
      */
-    protected ${entityname}SetupFactory;
+    protected $${entityname}SetupFactory;
 
     /**
      * Init
      *
-     * @param ${Entityname}SetupFactory ${entityname}SetupFactory
+     * @param ${Entityname}SetupFactory $${entityname}SetupFactory
      */
-    public function __construct(${Entityname}SetupFactory ${entityname}SetupFactory)
+    public function __construct(${Entityname}SetupFactory $${entityname}SetupFactory)
     {
-        $this->${entityname}SetupFactory = ${entityname}SetupFactory;
+        $this->${entityname}SetupFactory = $${entityname}SetupFactory;
     }
 
     /**
@@ -40,15 +40,15 @@ class InstallData implements InstallDataInterface
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context) //@codingStandardsIgnoreLine
     {
-        /** @var ${Entityname}Setup ${entityname}Setup */
-        ${entityname}Setup = $this->${entityname}SetupFactory->create(['setup' => $setup]);
+        /** @var ${Entityname}Setup $${entityname}Setup */
+        $${entityname}Setup = $this->${entityname}SetupFactory->create(['setup' => $setup]);
 
         $setup->startSetup();
 
-        ${entityname}Setup->installEntities();
-        $entities = ${entityname}Setup->getDefaultEntities();
+        $${entityname}Setup->installEntities();
+        $entities = $${entityname}Setup->getDefaultEntities();
         foreach ($entities as $entityName => $entity) {
-            ${entityname}Setup->addEntityType($entityName, $entity);
+            $${entityname}Setup->addEntityType($entityName, $entity);
         }
 
         $setup->endSetup();

@@ -20,11 +20,12 @@ use Magento\Framework\Data\Collection\EntityFactory;
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Magento\Framework\Event\ManagerInterface;
 use Magento\Framework\Validator\UniversalFactory;
+use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
 
 /**
  * Class Collection
- * Collection for displaying grid of sales documents
+ * Collection for displaying grid
  */
 class Collection extends ${Entityname}Collection implements SearchResultInterface
 {
@@ -44,10 +45,11 @@ class Collection extends ${Entityname}Collection implements SearchResultInterfac
      * @param EavEntityFactory $eavEntityFactory
      * @param Helper $resourceHelper
      * @param UniversalFactory $universalFactory
-     * @param $eventPrefix
+     * @param StoreManagerInterface $eventPrefix
      * @param $eventObject
      * @param $resourceModel
      * @param string $model
+     * @param StoreManagerInterface $storeManager
      * @param AdapterInterface|null $connection
      *
      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
@@ -62,13 +64,14 @@ class Collection extends ${Entityname}Collection implements SearchResultInterfac
         EavEntityFactory $eavEntityFactory,
         Helper $resourceHelper,
         UniversalFactory $universalFactory,
+        StoreManagerInterface $storeManager,
         $eventPrefix,
         $eventObject,
         $resourceModel,
-        $model = 'Magento\Framework\View\Element\UiComponent\DataProvider\Document',
+        $model = '${Vendorname}\${Modulename}\Ui\Component\Listing\DataProvider\Document',
         AdapterInterface $connection = null)
     {
-        parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $eavConfig, $resource, $eavEntityFactory, $resourceHelper, $universalFactory, $connection);
+        parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $eavConfig, $resource, $eavEntityFactory, $resourceHelper, $universalFactory, $storeManager, $connection);
         $this->_eventPrefix = $eventPrefix;
         $this->_eventObject = $eventObject;
         $this->_init($model, $resourceModel);
@@ -90,7 +93,6 @@ class Collection extends ${Entityname}Collection implements SearchResultInterfac
     {
         $this->aggregations = $aggregations;
     }
-
 
     /**
      * Retrieve all ids for collection

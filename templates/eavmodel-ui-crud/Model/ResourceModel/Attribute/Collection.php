@@ -54,7 +54,6 @@ class Collection extends EavCollection
 
     /**
      * Main select object initialization.
-     * Joins ${vendorname}_${entityname}/eav_attribute table
      *
      * @return $this
      */

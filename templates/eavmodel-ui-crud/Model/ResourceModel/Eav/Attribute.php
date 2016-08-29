@@ -21,10 +21,9 @@ class Attribute extends EavAttribute implements ScopedAttributeInterface
     /**
      * Constants
      */
-    const MODULE_NAME = '${Vendorname}_${Modulename}';
+    const MODULE_NAME = '${Vendorname}_${Entityname}';
     const KEY_IS_GLOBAL = 'is_global';
     const KEY_IS_STATIC = 'static';
-    const APPLY_TO = 'apply_to';
 
     /**
      * Event object name
@@ -62,7 +61,7 @@ class Attribute extends EavAttribute implements ScopedAttributeInterface
      * @throws LocalizedException
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      */
-    public function beforeSave()
+    public function beforeSave() //@codingStandardsIgnoreLine
     {
         $this->setData('modulePrefix', self::MODULE_NAME);
         if (isset($this->_origData[self::KEY_IS_GLOBAL])) {
@@ -78,7 +77,7 @@ class Attribute extends EavAttribute implements ScopedAttributeInterface
      *
      * @return \Magento\Framework\Model\AbstractModel
      */
-    public function afterSave()
+    public function afterSave() //@codingStandardsIgnoreLine
     {
         /**
          * Fix saving attribute in admin
@@ -145,24 +144,6 @@ class Attribute extends EavAttribute implements ScopedAttributeInterface
     }
 
     /**
-     * Retrieve apply to products array
-     * Return empty array if applied to all products
-     *
-     * @return string[]
-     */
-    public function getApplyTo()
-    {
-        if ($this->getData(self::APPLY_TO)) {
-            if (is_array($this->getData(self::APPLY_TO))) {
-                return $this->getData(self::APPLY_TO);
-            }
-            return explode(',', $this->getData(self::APPLY_TO));
-        } else {
-            return [];
-        }
-    }
-
-    /**
      * Retrieve source model
      *
      * @return \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
@@ -191,7 +172,7 @@ class Attribute extends EavAttribute implements ScopedAttributeInterface
     /**
      * {@inheritdoc}
      */
-    public function afterDelete()
+    public function afterDelete() //@codingStandardsIgnoreLine
     {
         $this->_eavConfig->clear();
         return parent::afterDelete();

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * menu
+ * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
+ * @author    ${comments.user.mail}
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="${Vendorname}_${Modulename}::${entityname}" title="${Entityname}" module="${Vendorname}_${Modulename}" sortOrder="50" parent="Magento_Backend::content" action="${vendorname}_${modulename}/${entityname}" resource="${Vendorname}_${Modulename}::${entityname}"/>
+    </menu>
+</config>
