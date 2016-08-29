@@ -1,9 +1,9 @@
 
     
-0. /Volumes/workspace/tools/mage2-code-generator/templates/eavmodel-ui-crud/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_form.xml
+0. ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_form.xml
     <!-- Add your fields here -->
 
-0. /Volumes/workspace/tools/mage2-code-generator/templates/eavmodel-ui-crud/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_listing.xml
+0. ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_listing.xml
     <!-- Add your columns here -->
 
 0. ${Vendorname}/${Modulename}/Setup/InstallSchema.php
