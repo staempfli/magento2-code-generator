@@ -11,7 +11,7 @@
 0. ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_listing.xml
     <!-- Add your columns here -->
 
-0. ${Vendorname}\${Modulename}\Controller\Adminhtml\${Entityname}:
+0. ${Vendorname}\${Modulename}\Controller\Adminhtml\${Entityname}\Validate:
 
     /**
      * Check if required fields is not empty
