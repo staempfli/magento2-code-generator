@@ -24,7 +24,7 @@ $attributes['${attributename}'] = [
      *
      * @return array
      */
-    public function ${attributename}Preprocessing($data)
+    protected function ${attributename}Preprocessing($data)
     {
         if (empty($data['${attributename}'])) {
             unset($data['${attributename}']);

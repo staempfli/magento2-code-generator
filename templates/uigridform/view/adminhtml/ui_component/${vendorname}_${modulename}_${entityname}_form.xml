@@ -70,6 +70,7 @@
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="array">true</item>
                     </item>
+                    <item name="sortOrder" xsi:type="number">10</item>
                 </item>
             </argument>
         </field>

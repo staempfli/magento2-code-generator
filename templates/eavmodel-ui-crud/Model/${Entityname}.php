@@ -11,10 +11,6 @@ namespace ${Vendorname}\${Modulename}\Model;
 
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
-use Magento\Framework\Model\Context;
-use Magento\Framework\Model\ResourceModel\AbstractResource;
-use Magento\Framework\Data\Collection\AbstractDb;
-use Magento\Framework\Registry;
 
 class ${Entityname} extends AbstractModel implements IdentityInterface
 {

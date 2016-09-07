@@ -209,6 +209,7 @@ class FileProcessor
             $fileInfo = [
                 'url' => $url,
                 'file' => $filename,
+                'name' => $filename,
                 'size' => is_array($stat) ? $stat['size'] : 0,
                 'exists' => true
             ];
