@@ -7,7 +7,7 @@
 var config = {
     map: {
         '*': {
-            ${Identifier}: '${Vendorname}.${Modulename}/js/${identifier}'
+            ${Identifier}: '${Vendorname}_${Modulename}/js/${identifier}'
         }
     }
 };
