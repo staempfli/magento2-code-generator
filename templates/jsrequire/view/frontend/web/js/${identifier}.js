@@ -12,7 +12,7 @@ define([
 ], function ($) {
     "use strict";
 
-    $.widget('${vendorname}.${modulename}.${identifier}', {
+    $.widget('${vendorname}_${modulename}.${identifier}', {
         options: {
             // optionName: value
         },
@@ -43,5 +43,5 @@ define([
         }
     });
 
-    return $.${vendorname}.${modulename}.${identifier};
+    return $.${vendorname}_${modulename}.${identifier};
 });
