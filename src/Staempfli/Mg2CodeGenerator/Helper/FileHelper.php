@@ -14,13 +14,12 @@ use RecursiveIteratorIterator;
 
 class FileHelper
 {
-
     /**
      * Get Project Base Dir
      *
      * @return mixed
      */
-    protected function getProjectBaseDir()
+    public function getProjectBaseDir()
     {
         return BP;
     }
@@ -30,9 +29,19 @@ class FileHelper
      *
      * @return string
      */
-    protected function getModuleDir()
+    public function getModuleDir()
     {
         return getcwd();
+    }
+
+    /**
+     * Get users home
+     *
+     * @return mixed
+     */
+    public function getUsersHome()
+    {
+        return $_SERVER['HOME'];
     }
 
     /**

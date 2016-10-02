@@ -12,7 +12,8 @@
     }
   ],
   "require": {
-    "symfony/console": "^3.1"
+    "symfony/console": "^3.1",
+    "symfony/yaml": "^3.1"
   },
   "autoload": {
     "psr-4": { "Staempfli\\": "src/Staempfli" }
