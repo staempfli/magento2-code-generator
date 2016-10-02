@@ -25,6 +25,20 @@ class TemplateHelper
     protected $privateTemplatesDir = BP . '/privateTemplates';
 
     /**
+     * Check if template exists
+     *
+     * @param $templateName
+     * @return bool
+     */
+    public function templateExists($templateName)
+    {
+        if ($this->getTemplateDir($templateName)) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Get template dir path
      *
      * - Private templates are more priority. If you template have the same name the private one will prevail.
