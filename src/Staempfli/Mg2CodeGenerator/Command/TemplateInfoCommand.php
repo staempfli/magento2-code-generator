@@ -6,7 +6,7 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace Staempfli\Console\Command;
+namespace Staempfli\Mg2CodeGenerator\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

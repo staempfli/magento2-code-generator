@@ -6,7 +6,7 @@
  * @author    juan.alonso@staempfli.com
  */
 
-namespace Staempfli\Console\Command;
+namespace Staempfli\Mg2CodeGenerator\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -21,6 +21,7 @@ class TemplateGenerateCommand extends Command
      * Constants
      */
     const OPTION_DRY_RUN = 'dry-run';
+    const OPTION_MODULE_DIR = 'module-dir';
 
     /**
      * Configure Command
@@ -32,7 +33,13 @@ class TemplateGenerateCommand extends Command
             ->setHelp("This command generates code from a specific template")
             ->addArgument('template', InputArgument::REQUIRED, 'The template used to generate the code.')
             ->addOption(
-                'dry-run',
+                self::OPTION_MODULE_DIR,
+                'md',
+                InputOption::VALUE_REQUIRED,
+                'If specified, them generate code on this module directory'
+            )
+            ->addOption(
+                self::OPTION_DRY_RUN,
                 'd',
                 InputOption::VALUE_NONE,
                 'If specified, then no files will be actually generated.'
@@ -62,6 +69,10 @@ class TemplateGenerateCommand extends Command
     {
         //TODO: Load default properties (Header comments for classes)
         //TODO: if template != 'module' set Magento vendor and package variables
+        $moduleDir = $input->getOption(self::OPTION_MODULE_DIR);
+        if (is_string($moduleDir)) {
+            chdir($moduleDir);
+        }
     }
 
     /**
@@ -69,7 +80,8 @@ class TemplateGenerateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // ...
+        $output->writeln(getcwd());
+        $output->writeln(BP);
     }
 
 }
