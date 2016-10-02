@@ -12,6 +12,7 @@ use Staempfli\Mg2CodeGenerator\Helper\TemplateHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 class TemplateListCommand extends Command
 {
@@ -30,7 +31,8 @@ class TemplateListCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output) //@codingStandardsIgnoreLine
     {
-        $output->writeln('<comment>Templates List</comment>');
+        $io = new SymfonyStyle($input, $output);
+        $io->writeln('<comment>Templates List</comment>');
 
         $templateHelper = new TemplateHelper();
         $templates = $templateHelper->getTemplatesList();
@@ -43,11 +45,10 @@ class TemplateListCommand extends Command
             $output->writeln('<info>  ' . $templateName . '</info>');
         }
 
-        $output->writeln('');
-        $output->writeln([
-            '<comment>Usage:</comment>',
+        $io->newLine();
+        $io->writeln([
+            '<comment>Generate one of these templates using:</comment>',
             '<info>  mg2-codegen template:generate <template></info>'
         ]);
     }
-
 }
