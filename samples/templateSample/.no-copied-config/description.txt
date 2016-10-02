@@ -1,0 +1,1 @@
+Add here a short description of what this template is for. This description will be displayed to the user when running "mg2-codegen template:info <template>"
