@@ -59,4 +59,25 @@ class ConfigHelper
 
         return false;
     }
+
+    /**
+     * Get after generation info for an specific template
+     *
+     * @param $templateName
+     * @param array $properties
+     * @return bool|string
+     */
+    public function getTemplateAfterGenerateInfo($templateName, array $properties)
+    {
+        $templateHelper = new TemplateHelper();
+        $templateDir = $templateHelper->getTemplateDir($templateName);
+        $afterGenerateFile = $templateDir . '/' . $this->afterGenerateFilename;
+
+        if (file_exists($afterGenerateFile)) {
+            $propertiesHelper = new PropertiesHelper();
+            return $propertiesHelper->replacePropertiesInText(file_get_contents($afterGenerateFile), $properties);
+        }
+
+        return false;
+    }
 }

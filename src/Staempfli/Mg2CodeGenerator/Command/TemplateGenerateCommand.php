@@ -8,9 +8,11 @@
 
 namespace Staempfli\Mg2CodeGenerator\Command;
 
+use Staempfli\Mg2CodeGenerator\Helper\ConfigHelper;
 use Staempfli\Mg2CodeGenerator\Helper\FileHelper;
 use Staempfli\Mg2CodeGenerator\Helper\MagentoHelper;
-use Staempfli\Mg2CodeGenerator\Helper\PropertiesHelper;
+use Staempfli\Mg2CodeGenerator\Tasks\GenerateCodeTask;
+use Staempfli\Mg2CodeGenerator\Tasks\PropertiesTask;
 use Staempfli\Mg2CodeGenerator\Helper\TemplateHelper;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -102,9 +104,9 @@ class TemplateGenerateCommand extends Command
 
         // Set default properties configuration if not yet set
         $io = new SymfonyStyle($input, $output);
-        $propertiesHelper = new PropertiesHelper();
-        if (!$propertiesHelper->defaultPropertiesExist()) {
-            $propertiesHelper->setDefaultPropertiesConfigurationFile($io);
+        $propertiesTask = new PropertiesTask();
+        if (!$propertiesTask->defaultPropertiesExist()) {
+            $propertiesTask->setDefaultPropertiesConfigurationFile($io);
         }
     }
 
@@ -129,20 +131,27 @@ class TemplateGenerateCommand extends Command
 
         // Set properties
         $io->section('Loading Default Properties');
-        $propertiesHelper = new PropertiesHelper();
-        $propertiesHelper->loadDefaultProperties();
+        $propertiesTask = new PropertiesTask();
+        $propertiesTask->loadDefaultProperties();
 
         if ($templateName != $this->moduleTemplate) {
             $io->section('Loading Magento Properties');
             $magentoHelper = new MagentoHelper();
             $moduleProperties = $magentoHelper->getModuleProperties();
-            $propertiesHelper->addProperties($moduleProperties);
+            $propertiesTask->addProperties($moduleProperties);
         }
 
-        $propertiesHelper->displayLoadedProperties($io);
+        $propertiesTask->displayLoadedProperties($io);
 
         // Ask input properties
+        $propertiesTask->askAndSetInputPropertiesForTemplate($templateName, $io);
+
         // Process properties lower and upper
+        $propertiesTask->generateMultiCaseProperties();
+        if ($output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
+            $io->writeln('<info>Properties to be replaced in Template</info>');
+            $propertiesTask->displayLoadedProperties($io);
+        }
 
         $fileHelper = new FileHelper();
         $io->text(sprintf('Code will be generated at following path %s', $fileHelper->getModuleDir()));
@@ -152,8 +161,21 @@ class TemplateGenerateCommand extends Command
         }
 
         $io->title($templateName);
-        // Generate code files replacing placeholders
+
+        // Generate code files
+        $generateCodeTask = new GenerateCodeTask($templateName, $propertiesTask->getProperties(), $io);
+        $generateCodeTask->generateCode();
+
         // After Generate
+        $configHelper = new ConfigHelper();
+        $afterGenerateInfo = $configHelper->getTemplateAfterGenerateInfo($templateName, $propertiesTask->getProperties());
+        if ($afterGenerateInfo) {
+            $io->warning('This template needs you to take care of the following manual steps:');
+            $io->text($afterGenerateInfo);
+        }
+
+        $io->success('CODE GENERATED!');
+
     }
 
     /**

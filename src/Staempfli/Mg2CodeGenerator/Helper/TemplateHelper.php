@@ -69,7 +69,6 @@ class TemplateHelper
         $templates = [];
 
         $fileHelper = new FileHelper();
-
         $directoryIterator = $fileHelper->getDirectoriesIterator($this->sharedTemplatesDir);
         foreach ($directoryIterator as $dir) {
             if ($dir->isDir()) {
@@ -85,5 +84,18 @@ class TemplateHelper
         }
 
         return $templates;
+    }
+
+    /**
+     * Get all files inside a template
+     *
+     * @param $templateName
+     * @return \RecursiveIteratorIterator
+     */
+    public function getTemplateFilesIterator($templateName)
+    {
+        $fileHelper = new FileHelper();
+        $templateDir = $this->getTemplateDir($templateName);
+        return $fileHelper->getFilesIterator($templateDir);
     }
 }

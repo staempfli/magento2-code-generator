@@ -3,3 +3,5 @@
 /bin/*
 !bin/mage2-generator
 /vendor
+
+/moduleTest

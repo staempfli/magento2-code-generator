@@ -1,6 +1,6 @@
 <?php
 /**
- * PropertiesHelper
+ * PropertiesTask
  *
  * @copyright Copyright (c) 2016 Staempfli AG
  * @author    juan.alonso@staempfli.com
@@ -8,131 +8,88 @@
 
 namespace Staempfli\Mg2CodeGenerator\Helper;
 
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Yaml\Yaml;
 
 class PropertiesHelper
 {
     /**
-     * Properties to be used during code generation
+     * Regex to identify properties ${} in text
+     *
+     * @var string
+     */
+    protected $propertyRegex = '/\$\{([^\$}]+)\}/';
+
+    /**
+     * Properties attribute class to be able to use them on replacePropertyCallback
      *
      * @var array
      */
     protected $properties = [];
 
     /**
-     * Default properties filename
+     * Get existing properties in text
      *
-     * @var string
+     * @param $text
+     * @return mixed
      */
-    protected $defaultPropertiesFilename = 'config/default-properties.yml';
-
-    /**
-     * Set property
-     *
-     * @param $property
-     * @param $value
-     */
-    public function setProperty($property, $value)
+    public function getPropertiesInText($text)
     {
-        $this->properties[$property] = $value;
+        preg_match_all($this->propertyRegex, $text, $matches);
+        return $matches[1];
     }
 
     /**
-     * Add properties
-     * - $properties format must be an array like ['propertyName', 'propertyValue']
+     * Replace properties in Text
      *
+     * @param $text
      * @param array $properties
+     * @return mixed|null
      */
-    public function addProperties(array $properties)
+    public function replacePropertiesInText($text, array $properties)
     {
-        $this->properties = array_merge($this->properties, $properties);
+
+        if ($text === null || !$properties) {
+            return null;
+        }
+
+        $this->properties = $properties;
+
+        $replacedText = $text;
+        $iteration = 0;
+
+        // loop to recursively replace tokens
+        while (strpos($replacedText, '${') !== false) {
+            $replacedText = preg_replace_callback(
+                $this->propertyRegex,
+                [$this, 'replacePropertyCallback'],
+                $replacedText
+            );
+
+            // keep track of iterations so we can break out of otherwise infinite loops.
+            $iteration++;
+            if ($iteration == 5) {
+                return $replacedText;
+            }
+        }
+
+        return $replacedText;
     }
 
     /**
-     * Get Properties
-     *
-     * @return array
-     */
-    public function getProperties()
-    {
-        return $this->properties;
-    }
-
-    /**
-     * Get Default properties file path
-     *
+     * Private [static] function for use by preg_replace_callback to replace a single param.
+     * This method makes use of a static variable to hold the
+     * @param $matches
      * @return string
      */
-    public function getDefaultPropertiesFile()
+    protected function replacePropertyCallback($matches)
     {
-        $fileHelper = new FileHelper();
-        return $fileHelper->getUsersHome() . '/.mg2-codegen/' . $this->defaultPropertiesFilename;
-    }
-
-    /**
-     * Check whether the default properties configuration is set
-     *
-     * @return bool
-     */
-    public function defaultPropertiesExist()
-    {
-         if (file_exists($this->getDefaultPropertiesFile())) {
-             return true;
-         }
-         return false;
-    }
-
-    /**
-     * Set Default Properties configuration file in user's home
-     * @param SymfonyStyle $io
-     * @throws \Exception
-     */
-    public function setDefaultPropertiesConfigurationFile(SymfonyStyle $io)
-    {
-        $fileHelper = new FileHelper();
-        $originalPropertiesFilename = $fileHelper->getProjectBaseDir() . '/' . $this->defaultPropertiesFilename;
-        $originalProperties = Yaml::parse(file_get_contents($originalPropertiesFilename));
-
-        $defaultProperties = [];
-        foreach ($originalProperties as $property => $value) {
-            if (!$value) {
-                $defaultProperties[$property] = $io->ask($property);
-            }
-        }
-        // Create user's home configuration file
-        $userConfigDir = dirname($this->getDefaultPropertiesFile());
-        if (!is_dir($userConfigDir)) {
-            if (!mkdir($userConfigDir, 0766, true)) {
-                throw new \Exception('Not possible to create user\'s configuration file: '. $this->getDefaultPropertiesFile());
-            }
+        $propertyName = $matches[1];
+        if (!isset($this->properties[$propertyName])) {
+            return $matches[0];
         }
 
-        // Save properties in user's home dir
-        file_put_contents($this->getDefaultPropertiesFile(), Yaml::dump($defaultProperties));
+        $propertyValue = $this->properties[$propertyName];
+        return $propertyValue;
     }
 
-    /**
-     * Set Default Properties
-     */
-    public function loadDefaultProperties()
-    {
-        $defaultProperties = Yaml::parse(file_get_contents($this->getDefaultPropertiesFile()));
-        $this->addProperties($defaultProperties);
-    }
 
-    /**
-     * Output default properties
-     * @param SymfonyStyle $io
-     */
-    public function displayLoadedProperties(SymfonyStyle $io)
-    {
-        $defaultProperties = $this->getProperties();
-        $ioTableContent = [];
-        foreach ($defaultProperties as $property => $value) {
-            $ioTableContent[] = [$property, $value];
-        }
-
-        $io->table(['property', 'value'], $ioTableContent);
-    }
 }

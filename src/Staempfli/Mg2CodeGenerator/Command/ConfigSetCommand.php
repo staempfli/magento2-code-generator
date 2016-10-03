@@ -8,7 +8,7 @@
 
 namespace Staempfli\Mg2CodeGenerator\Command;
 
-use Staempfli\Mg2CodeGenerator\Helper\PropertiesHelper;
+use Staempfli\Mg2CodeGenerator\Tasks\PropertiesTask;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -34,9 +34,9 @@ class ConfigSetCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->writeln('<comment>Set Configuration</comment>');
 
-        $propertiesHelper = new PropertiesHelper();
-        $propertiesHelper->setDefaultPropertiesConfigurationFile($io);
+        $propertiesTask = new PropertiesTask();
+        $propertiesTask->setDefaultPropertiesConfigurationFile($io);
 
-        $io->success(sprintf('Configuration set into %s', $propertiesHelper->getDefaultPropertiesFile()));
+        $io->success(sprintf('Configuration set into %s', $propertiesTask->getDefaultPropertiesFile()));
     }
 }

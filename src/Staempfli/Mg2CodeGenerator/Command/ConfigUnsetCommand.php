@@ -8,7 +8,7 @@
 
 namespace Staempfli\Mg2CodeGenerator\Command;
 
-use Staempfli\Mg2CodeGenerator\Helper\PropertiesHelper;
+use Staempfli\Mg2CodeGenerator\Tasks\PropertiesTask;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -34,11 +34,11 @@ class ConfigUnsetCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->writeln('<comment>Unset Configuration</comment>');
 
-        $propertiesHelper = new PropertiesHelper();
-        if (!$propertiesHelper->defaultPropertiesExist()) {
+        $propertiesTask = new PropertiesTask();
+        if (!$propertiesTask->defaultPropertiesExist()) {
             $io->error('Configuration file does exist');
         }
-        unlink($propertiesHelper->getDefaultPropertiesFile());
+        unlink($propertiesTask->getDefaultPropertiesFile());
         $io->success('Configuration was unset');
     }
 }
