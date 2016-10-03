@@ -3,8 +3,8 @@
 /**
  * ${vendorname}_${modulename}_${controllername}_index.xml
  *
- * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
- * @author    ${comments.user.mail}
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">

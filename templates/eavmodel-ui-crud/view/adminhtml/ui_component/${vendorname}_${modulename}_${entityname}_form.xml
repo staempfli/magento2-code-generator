@@ -2,8 +2,8 @@
 <!--
 /**
  * ${vendorname}_${modulename}_${entityname}_form
- * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
- * @author    ${comments.user.mail}
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
  */
 -->
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">

@@ -18,8 +18,8 @@
 
 * vendorname -> calculated from registration.php
 * modulename -> calculated from registration.php
-* comments.company.name
-* comments.user.mail
+* CommentsCompanyName
+* commentsUserEmail
 
 ### Multicase properties
 
