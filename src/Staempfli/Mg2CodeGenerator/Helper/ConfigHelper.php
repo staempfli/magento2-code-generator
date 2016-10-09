@@ -8,6 +8,7 @@
 
 namespace Staempfli\Mg2CodeGenerator\Helper;
 
+use Symfony\Component\Yaml\Yaml;
 
 class ConfigHelper
 {
@@ -28,17 +29,39 @@ class ConfigHelper
      * @var string
      */
     protected $afterGenerateFilename = self::TEMPLATE_CONFIG_FOLDER . '/after-generate-info.txt';
+    /**
+     * @var TemplateHelper
+     */
+    protected $templateHelper;
+
+    /**
+     * ConfigHelper constructor.
+     */
+    public function __construct()
+    {
+        $this->templateHelper = new TemplateHelper();
+    }
 
     /**
      * Read configuration yml file and return template dependencies
      *
-     * @param $template
+     * @param $templateName
      * @return array $templatesDependencies
      */
-    public function getTemplateDependencies($template)
+    public function getTemplateDependencies($templateName)
     {
-        // Parse yml
-        // return dependecies array
+        $dependencies = [];
+        $templateDir = $this->templateHelper->getTemplateDir($templateName);
+        $dependenciesFile = $templateDir . '/' . $this->configFilename;
+
+        if (file_exists($dependenciesFile)) {
+            $parsedConfig = Yaml::parse(file_get_contents($dependenciesFile));
+            if (isset($parsedConfig['dependencies'])) {
+                $dependencies = $parsedConfig['dependencies'];
+            }
+        }
+
+        return $dependencies;
     }
 
     /**
@@ -49,8 +72,7 @@ class ConfigHelper
      */
     public function getTemplateDescription($templateName)
     {
-        $templateHelper = new TemplateHelper();
-        $templateDir = $templateHelper->getTemplateDir($templateName);
+        $templateDir = $this->templateHelper->getTemplateDir($templateName);
         $descriptionFile = $templateDir . '/' . $this->descriptionFilename;
 
         if (file_exists($descriptionFile)) {
@@ -69,8 +91,7 @@ class ConfigHelper
      */
     public function getTemplateAfterGenerateInfo($templateName, array $properties)
     {
-        $templateHelper = new TemplateHelper();
-        $templateDir = $templateHelper->getTemplateDir($templateName);
+        $templateDir = $this->templateHelper->getTemplateDir($templateName);
         $afterGenerateFile = $templateDir . '/' . $this->afterGenerateFilename;
 
         if (file_exists($afterGenerateFile)) {

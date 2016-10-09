@@ -115,11 +115,10 @@ class TemplateGenerateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        if(!$this->beforeExecute($input, $output)) {
+        if (!$this->beforeExecute($input, $output)) {
             return;
         }
         $io = new SymfonyStyle($input, $output);
-        $io->writeln('<comment>Template Generate</comment>');
 
         $templateName = $input->getArgument($this->templateArg);
         $templateHelper = new TemplateHelper();
@@ -128,6 +127,19 @@ class TemplateGenerateCommand extends Command
             $io->note('You can check the list of available templates with "mg2-codegen template:list"');
             return;
         }
+
+        // Run possible dependencies first
+        $configHelper = new ConfigHelper();
+        $dependencies = $configHelper->getTemplateDependencies($templateName);
+        foreach ($dependencies as $dependencyTemplate) {
+            if ($io->confirm(sprintf('This module depends on "%s" template. Would you also like to generate this template?', $dependencyTemplate), true)) {
+                if ($this->runCommandForAnotherTemplate($dependencyTemplate, $input, $output)) {
+                    return false;
+                }
+            }
+        }
+
+        $io->writeln(sprintf('<comment>Template Generate: %s</comment>', $templateName));
 
         // Set properties
         $io->section('Loading Default Properties');
