@@ -104,9 +104,9 @@ class TemplateGenerateCommand extends Command
 
         // Set default properties configuration if not yet set
         $io = new SymfonyStyle($input, $output);
-        $propertiesTask = new PropertiesTask();
+        $propertiesTask = new PropertiesTask($io);
         if (!$propertiesTask->defaultPropertiesExist()) {
-            $propertiesTask->setDefaultPropertiesConfigurationFile($io);
+            $propertiesTask->setDefaultPropertiesConfigurationFile();
         }
     }
 
@@ -131,7 +131,7 @@ class TemplateGenerateCommand extends Command
 
         // Set properties
         $io->section('Loading Default Properties');
-        $propertiesTask = new PropertiesTask();
+        $propertiesTask = new PropertiesTask($io);
         $propertiesTask->loadDefaultProperties();
 
         if ($templateName != $this->moduleTemplate) {
@@ -141,16 +141,16 @@ class TemplateGenerateCommand extends Command
             $propertiesTask->addProperties($moduleProperties);
         }
 
-        $propertiesTask->displayLoadedProperties($io);
+        $propertiesTask->displayLoadedProperties();
 
         // Ask input properties
-        $propertiesTask->askAndSetInputPropertiesForTemplate($templateName, $io);
+        $propertiesTask->askAndSetInputPropertiesForTemplate($templateName);
 
         // Process properties lower and upper
         $propertiesTask->generateMultiCaseProperties();
         if ($output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
             $io->writeln('<info>Properties to be replaced in Template</info>');
-            $propertiesTask->displayLoadedProperties($io);
+            $propertiesTask->displayLoadedProperties();
         }
 
         $fileHelper = new FileHelper();

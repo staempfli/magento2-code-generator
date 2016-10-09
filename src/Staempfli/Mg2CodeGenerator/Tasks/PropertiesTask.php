@@ -36,13 +36,19 @@ class PropertiesTask
      * @var PropertiesHelper
      */
     protected $propertiesHelper;
+    /**
+     * @var SymfonyStyle
+     */
+    protected $io;
 
     /**
      * PropertiesTask constructor.
+     * @param SymfonyStyle $io
      */
-    public function __construct()
+    public function __construct(SymfonyStyle $io)
     {
         $this->propertiesHelper = new PropertiesHelper();
+        $this->io = $io;
     }
 
     /**
@@ -103,10 +109,9 @@ class PropertiesTask
 
     /**
      * Set Default Properties configuration file in user's home
-     * @param SymfonyStyle $io
      * @throws \Exception
      */
-    public function setDefaultPropertiesConfigurationFile(SymfonyStyle $io)
+    public function setDefaultPropertiesConfigurationFile()
     {
         $fileHelper = new FileHelper();
         $originalPropertiesFilename = $fileHelper->getProjectBaseDir() . '/' . $this->defaultPropertiesFilename;
@@ -115,7 +120,7 @@ class PropertiesTask
         $defaultProperties = [];
         foreach ($originalProperties as $property => $value) {
             if (!$value) {
-                $defaultProperties[$property] = $io->ask($property);
+                $defaultProperties[$property] = $this->io->ask($property);
             }
         }
         // Create user's home configuration file
@@ -141,9 +146,8 @@ class PropertiesTask
 
     /**
      * Output default properties
-     * @param SymfonyStyle $io
      */
-    public function displayLoadedProperties(SymfonyStyle $io)
+    public function displayLoadedProperties()
     {
         $defaultProperties = $this->getProperties();
         $ioTableContent = [];
@@ -151,22 +155,21 @@ class PropertiesTask
             $ioTableContent[] = [$property, $value];
         }
 
-        $io->table(['property', 'value'], $ioTableContent);
+        $this->io->table(['property', 'value'], $ioTableContent);
     }
 
     /**
      * Ask user and set the properties need in template
      *
      * @param $templateName
-     * @param SymfonyStyle $io
      */
-    public function askAndSetInputPropertiesForTemplate($templateName, SymfonyStyle $io)
+    public function askAndSetInputPropertiesForTemplate($templateName)
     {
         $templateProperties = $this->getAllPropertiesInTemplate($templateName);
         $propertiesAlreadyAsked = [];
         foreach ($templateProperties as $property) {
             if ($this->shouldAskForProperty($property, $propertiesAlreadyAsked)) {
-                $value = $io->ask($property);
+                $value = $this->io->ask($property);
                 $this->setProperty($property, $value);
                 $propertiesAlreadyAsked[] = $property;
             }

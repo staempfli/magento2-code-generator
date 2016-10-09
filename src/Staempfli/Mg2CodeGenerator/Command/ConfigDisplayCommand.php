@@ -34,9 +34,9 @@ class ConfigDisplayCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->writeln('<comment>Display Configuration</comment>');
 
-        $propertiesTask = new PropertiesTask();
+        $propertiesTask = new PropertiesTask($io);
         $propertiesTask->loadDefaultProperties();
-        $propertiesTask->displayLoadedProperties($io);
+        $propertiesTask->displayLoadedProperties();
         $io->writeln([
             '<comment>You can change this properties with:</comment>',
             '<info>  mg2-codegen config:set</info>'

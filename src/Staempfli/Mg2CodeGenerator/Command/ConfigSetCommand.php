@@ -34,8 +34,8 @@ class ConfigSetCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->writeln('<comment>Set Configuration</comment>');
 
-        $propertiesTask = new PropertiesTask();
-        $propertiesTask->setDefaultPropertiesConfigurationFile($io);
+        $propertiesTask = new PropertiesTask($io);
+        $propertiesTask->setDefaultPropertiesConfigurationFile();
 
         $io->success(sprintf('Configuration set into %s', $propertiesTask->getDefaultPropertiesFile()));
     }

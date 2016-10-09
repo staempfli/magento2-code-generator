@@ -34,7 +34,7 @@ class ConfigUnsetCommand extends Command
         $io = new SymfonyStyle($input, $output);
         $io->writeln('<comment>Unset Configuration</comment>');
 
-        $propertiesTask = new PropertiesTask();
+        $propertiesTask = new PropertiesTask($io);
         if (!$propertiesTask->defaultPropertiesExist()) {
             $io->error('Configuration file does exist');
         }
