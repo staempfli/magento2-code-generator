@@ -137,7 +137,12 @@ class TemplateGenerateCommand extends Command
         if ($templateName != $this->moduleTemplate) {
             $io->section('Loading Magento Properties');
             $magentoHelper = new MagentoHelper();
-            $moduleProperties = $magentoHelper->getModuleProperties();
+            try {
+                $moduleProperties = $magentoHelper->getModuleProperties();
+            } catch (\Exception $e) {
+                $io->error($e->getMessage());
+                return;
+            }
             $propertiesTask->addProperties($moduleProperties);
         }
 
@@ -164,7 +169,7 @@ class TemplateGenerateCommand extends Command
 
         // Generate code files
         $generateCodeTask = new GenerateCodeTask($templateName, $propertiesTask->getProperties(), $io);
-        $generateCodeTask->generateCode();
+        $generateCodeTask->generateCode($input->getOption($this->optionDryRun));
 
         // After Generate
         $configHelper = new ConfigHelper();

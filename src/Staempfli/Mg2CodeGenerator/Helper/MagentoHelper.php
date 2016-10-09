@@ -10,6 +10,8 @@ namespace Staempfli\Mg2CodeGenerator\Helper;
 
 class MagentoHelper
 {
+    protected $moduleRegistrationFile = 'registration.php';
+
     /**
      * Check if module exists to generate code into it
      *
@@ -18,7 +20,7 @@ class MagentoHelper
     public function moduleExist()
     {
         $fileHelper = new FileHelper();
-        return file_exists($fileHelper->getModuleDir() . '/registration.php');
+        return file_exists($fileHelper->getModuleDir() . '/' . $this->moduleRegistrationFile);
     }
 
     /**
@@ -28,9 +30,14 @@ class MagentoHelper
      */
     public function getModuleProperties()
     {
+        if (!$this->moduleExist()) {
+            $message = 'registration.php not existing at current dir. Please check that your registration.php is correct and try again';
+            throw new \Exception($message);
+        }
+
         $moduleProperties = [];
         $fileHelper = new FileHelper();
-        $registrationContent = file_get_contents($fileHelper->getModuleDir() . '/registration.php');
+        $registrationContent = file_get_contents($fileHelper->getModuleDir() . '/' . $this->moduleRegistrationFile);
         $moduleProperties['Vendorname'] = preg_match("/[',\"](.*?)_/", $registrationContent, $match) ? $match[1] : false;
         $moduleProperties['Modulename'] = preg_match("/_(.*?)[',\"]/", $registrationContent, $match) ? $match[1] : false;
         if (!$moduleProperties) {

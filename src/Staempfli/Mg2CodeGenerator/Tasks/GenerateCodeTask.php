@@ -85,8 +85,9 @@ class GenerateCodeTask
     /**
      * Generate code
      * - Generates code according to template and properties set on constructor
+     * @param bool $dryRun
      */
-    public function generateCode()
+    public function generateCode($dryRun = false)
     {
         $templateFilesIterator = $this->getTemplateHelper()->getTemplateFilesIterator($this->templateName);
         $propertiesHelper = new PropertiesHelper();
@@ -97,7 +98,7 @@ class GenerateCodeTask
             }
             $filename = $propertiesHelper->replacePropertiesInText($file->getPathname(), $this->properties);
             $fileContent = $propertiesHelper->replacePropertiesInText(file_get_contents($file->getPathname()), $this->properties);
-            $this->generateFileWithContent($filename, $fileContent);
+            $this->generateFileWithContent($filename, $fileContent, $dryRun);
         }
 
     }
@@ -107,8 +108,9 @@ class GenerateCodeTask
      *
      * @param $filename
      * @param $fileContent
+     * @param bool $dryRun
      */
-    protected function generateFileWithContent($filename, $fileContent)
+    protected function generateFileWithContent($filename, $fileContent, $dryRun = false)
     {
         $filenameAbsolutePath = $this->getAbsolutePathToCopyTo($filename);
         if (file_exists($filenameAbsolutePath)) {
@@ -117,12 +119,17 @@ class GenerateCodeTask
                 return;
             }
         }
-        $this->prepareDirToWriteTo($filenameAbsolutePath);
-        if(!file_put_contents($filenameAbsolutePath, $fileContent)) {
-            $this->io->error(sprintf('There was an error copying the file "%s"', $filename));
-            $this->showInfoFileNotCopied($filename, $fileContent);
-            return;
+
+        // Do not create any files on dryRun mode
+        if (!$dryRun) {
+            $this->prepareDirToWriteTo($filenameAbsolutePath);
+            if(!file_put_contents($filenameAbsolutePath, $fileContent)) {
+                $this->io->error(sprintf('There was an error copying the file "%s"', $filename));
+                $this->showInfoFileNotCopied($filename, $fileContent);
+                return;
+            }
         }
+
         $this->io->writeln(sprintf('<info>File Created: %s', $this->getRelativePathToCopyTo($filename)));
     }
 
