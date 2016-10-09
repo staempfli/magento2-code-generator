@@ -1,0 +1,3 @@
+* Add your custom fields on Setup/InstallSchema.php
+* Add your custom columns to the grid view/adminhtml/ui_component/${vendorname}_${modulename}_${modelname}_listing.xml
+* Add your custom fields to the form view/adminhtml/ui_component/${vendorname}_${modulename}_${modelname}_form.xml
