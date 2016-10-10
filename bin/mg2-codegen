@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+require __DIR__ .'/../vendor/autoload.php';
+
+/**
+ * Shortcut constant for the project root directory
+ */
+define('BP', dirname(__DIR__));
+/**
+ * Command name
+ */
+define('COMMAND_NAME', 'mg2-codegen');
+
+use Staempfli\UniversalGenerator\Application;
+
+$application = new Application();
+
+// Custom commands
+$application->addGeneratorCommand('template:generate', 'Staempfli\Mg2CodeGenerator\Command\TemplateGenerateCommand');
+
+$application->run();

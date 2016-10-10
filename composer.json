@@ -11,12 +11,17 @@
       "email": "juan.alonso@staempfli.com"
     }
   ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/staempfli/universal-code-generator.git"
+    }
+  ],
   "require": {
-    "symfony/console": "^3.1",
-    "symfony/yaml": "^3.1"
+    "staempfli/universal-code-generator": "dev-develop"
   },
   "autoload": {
-    "psr-4": { "Staempfli\\": "src/Staempfli" }
+    "psr-4": { "Staempfli\\Mg2CodeGenerator\\": "src/Staempfli/Mg2CodeGenerator" }
   },
   "config": {
     "bin-dir": "bin"

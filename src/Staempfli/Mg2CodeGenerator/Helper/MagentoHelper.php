@@ -8,6 +8,8 @@
 
 namespace Staempfli\Mg2CodeGenerator\Helper;
 
+use Staempfli\UniversalGenerator\Helper\FileHelper;
+
 class MagentoHelper
 {
     protected $moduleRegistrationFile = 'registration.php';
