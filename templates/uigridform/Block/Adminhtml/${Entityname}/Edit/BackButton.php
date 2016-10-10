@@ -2,8 +2,8 @@
 /**
  * BackButton
  *
- * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
- * @author    ${comments.user.mail}
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
  */
 namespace ${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit;
 

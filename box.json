@@ -1,0 +1,19 @@
+{
+  "chmod": "0755",
+  "directories": [
+    "src",
+    "templates",
+    "config"
+  ],
+  "finder": [
+    {
+      "name": "*.php",
+      "in": "vendor",
+      "exclude": ["kherge", "Tests"]
+    }
+  ],
+  "git-version": "package_version",
+  "main": "bin/mg2-codegen",
+  "output": "mg2-codegen.phar",
+  "stub": true
+}

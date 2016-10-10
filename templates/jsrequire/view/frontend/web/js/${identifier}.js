@@ -1,8 +1,8 @@
 /**
  * ${identifier}
  *
- * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
- * @author    ${comments.user.mail}
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
  */
 
 /*jshint jquery:true*/
