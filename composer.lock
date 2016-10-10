@@ -60,12 +60,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/staempfli/universal-code-generator.git",
-                "reference": "adcaf6c7435d340012761194dc2ef885086a3aed"
+                "reference": "45a05070b8a23de5f5e8416c31a1e40889eb9c60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/adcaf6c7435d340012761194dc2ef885086a3aed",
-                "reference": "adcaf6c7435d340012761194dc2ef885086a3aed",
+                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/45a05070b8a23de5f5e8416c31a1e40889eb9c60",
+                "reference": "45a05070b8a23de5f5e8416c31a1e40889eb9c60",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +92,7 @@
                 "source": "https://github.com/staempfli/universal-code-generator/tree/develop",
                 "issues": "https://github.com/staempfli/universal-code-generator/issues"
             },
-            "time": "2016-10-09 15:44:31"
+            "time": "2016-10-10 09:57:01"
         },
         {
             "name": "symfony/console",
