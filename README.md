@@ -38,3 +38,9 @@ $ bin/mg2-codegen
 
     0. Fork this project
     0. Create a new template following the manual (./docs/createTemplates.md)[How to create templates]
+    
+## Troubleshotting:
+
+  [UnexpectedValueException]
+  creating archive "/Volumes/workspace/tools/mage2-cg-symfony/mg2-codegen.phar" disabled by the php.ini setting phar.readonly
+phar.readonly = off
