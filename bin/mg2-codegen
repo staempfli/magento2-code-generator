@@ -11,8 +11,9 @@ define('BP', dirname(__DIR__));
 /**
  * Command name
  */
-define('COMMAND_NAME', 'mg2-codegen');
+define('COMMAND_NAME', basename(__FILE__));
 
+// Init Console Application
 use Staempfli\UniversalGenerator\Application;
 
 $application = new Application();
