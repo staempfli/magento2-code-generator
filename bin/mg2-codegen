@@ -20,5 +20,6 @@ $application = new Application();
 
 // Custom commands
 $application->addGeneratorCommand('template:generate', 'Staempfli\Mg2CodeGenerator\Command\TemplateGenerateCommand');
+$application->addGeneratorCommand('self-update', Staempfli\Mg2CodeGenerator\Command\SelfUpdateCommand');
 
 $application->run();
