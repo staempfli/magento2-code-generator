@@ -21,6 +21,7 @@
     "staempfli/universal-code-generator": "dev-develop"
   },
   "require-dev": {
+    "kherge/box": "~2.5",
     "padraic/phar-updater": "1.0.*"
   },
   "autoload": {

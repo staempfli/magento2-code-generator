@@ -12,7 +12,7 @@
       "exclude": ["kherge", "Tests"]
     }
   ],
-  "git-version": "package_version",
+  "git-version": "git_version",
   "main": "bin/mg2-codegen",
   "output": "mg2-codegen.phar",
   "stub": true

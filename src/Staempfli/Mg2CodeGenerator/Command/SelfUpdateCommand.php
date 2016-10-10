@@ -79,19 +79,10 @@ EOT
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
-        $packageName = $this->getComposerPackageName();
-        $pharFilename = $this->getPharFilename();
-        if (!$packageName) {
-            $io->error('Package name not found. Please ensure that the composer.json file format is correct.');
-        }
-
-        if (!$pharFilename) {
-            $io->error('Phar filename not found. Please ensure that you have a box.json file with "output" param.');
-        }
 
         $updater = new PharUpdater(null, false, PharUpdater::STRATEGY_GITHUB);
-        $updater->getStrategy()->setPackageName($packageName);
-        $updater->getStrategy()->setPharName($packageName);
+        $updater->getStrategy()->setPackageName('staempfli/magento2-code-generator');
+        $updater->getStrategy()->setPharName('mg2-codegen.phar');
         $updater->getStrategy()->setCurrentLocalVersion('@git_version@');
 
         try {
@@ -106,37 +97,6 @@ EOT
         } catch (\Exception $e) {
             $io->error('There was an error while updating. Please try again later');
         }
-    }
-
-    /**
-     * Get package name from composer file
-     *
-     * @return bool|string
-     */
-    protected function getComposerPackageName()
-    {
-        $composerDecoded = json_decode(file_get_contents($this->fileHelper->getProjectBaseDir() . '/composer.json'), true);
-        if (isset($composerDecoded['name']))
-        {
-            return $composerDecoded['name'];
-        }
-
-        return false;
-    }
-
-    /**
-     * Get Phar filename from box.json configuration
-     *
-     * @return bool|string
-     */
-    protected function getPharFilename()
-    {
-        $boxDecoded = json_decode(file_get_contents($this->fileHelper->getProjectBaseDir() . '/box.json'), true);
-        if (isset($boxDecoded['output']))
-        {
-            return $boxDecoded['output'];
-        }
-        return false;
     }
 
 }
