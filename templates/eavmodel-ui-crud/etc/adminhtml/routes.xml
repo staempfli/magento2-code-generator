@@ -2,8 +2,8 @@
 <!--
 /**
  * routes
- * @copyright Copyright (c) ${generator.time.year} ${comments.company.name}
- * @author    ${comments.user.mail}
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
  */
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">

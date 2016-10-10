@@ -1,5 +1,7 @@
 .idea
 .DS_STORE
 /bin/*
-!bin/mage2-generator
+!bin/mg2-codegen
 /vendor
+
+/moduleTest
