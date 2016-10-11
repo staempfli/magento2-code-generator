@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ${vendorname}_${modulename}_${entityname}_form
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">${vendorname}_${modulename}_${entityname}_form.${vendorname}_${modulename}_${entityname}_form_data_source</item>
+            <item name="deps" xsi:type="string">${vendorname}_${modulename}_${entityname}_form.${vendorname}_${modulename}_${entityname}_form_data_source</item>
+        </item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="label" xsi:type="string" translate="true">${Entityname} Form</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\DeleteButton</item>
+            <item name="save" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\SaveButton</item>
+            <item name="save_and_continue" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\SaveAndContinueButton</item>
+        </item>
+    </argument>
+    <dataSource name="computer_games_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">${Vendorname}\${Modulename}\Ui\Component\Form\${Entityname}\DataProvider</argument>
+            <argument name="name" xsi:type="string">${vendorname}_${modulename}_${entityname}_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="*/*/save"/>
+                    <item name="validate_url" xsi:type="url" path="*/*/validate"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="main_fieldset">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Main Information</item>
+            </item>
+        </argument>
+        <field name="entity_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">main_fieldset</item>
+                </item>
+            </argument>
+        </field>
+        <field name="identifier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string">Identifier</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">main_fieldset</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="array">true</item>
+                    </item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </field>
+        <!-- Add your fields here -->
+    </fieldset>
+</form>

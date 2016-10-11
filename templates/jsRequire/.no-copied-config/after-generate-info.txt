@@ -1,0 +1,11 @@
+1. Include your javascript in your .phtml file:
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "${Identifier}": {
+                    //"someOption": "someValue"
+                }
+            }
+        }
+    </script>

@@ -55,7 +55,6 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
     protected function beforeAskInputProperties($templateName, PropertiesTask $propertiesTask, SymfonyStyle $io)
     {
         if ($templateName != $this->moduleTemplate) {
-            $io->section('Loading Magento Properties');
             $magentoHelper = new MagentoHelper();
             try {
                 $moduleProperties = $magentoHelper->getModuleProperties();

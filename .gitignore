@@ -1,7 +1,9 @@
 .idea
-.DS_STORE
+.DS_Store
 /bin/*
 !bin/mg2-codegen
 /vendor
+
+mg2-codegen.phar
 
 /moduleTest

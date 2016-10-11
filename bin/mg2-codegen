@@ -16,7 +16,7 @@ define('COMMAND_NAME', basename(__FILE__));
 // Init Console Application
 use Staempfli\UniversalGenerator\Application;
 
-$application = new Application();
+$application = new Application('@git-version@');
 
 // Custom commands
 $application->addGeneratorCommand('template:generate', 'Staempfli\Mg2CodeGenerator\Command\TemplateGenerateCommand');

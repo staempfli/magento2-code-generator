@@ -1,0 +1,53 @@
+1. Add your STATIC fields on:
+
+    ${Vendorname}/${Modulename}/Setup/InstallSchema.php
+
+2. Add ENTITY EAV Attributes on:
+
+    ${Vendorname}/${Modulename}/Setup/${Entityname}Setup.php
+
+3. Add your custom columns to the grid:
+
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_listing.xml
+
+4. Add your custom fields to the form:
+
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_form.xml
+
+5. Add Attributes to display in Grid on the Listing DataProvider:
+
+    ${Vendorname}\${Modulename}\Ui\Component\Listing\DataProvider
+
+    /**
+     * @param SearchResultInterface $searchResult
+     * @return array
+     */
+    protected function searchResultToOutput(SearchResultInterface $searchResult)
+    {
+        $searchResult->setStoreId($this->request->getParam('store', 0))
+            ->addAttributeToSelect([]); // Add here needed EAV attributes to display on grid
+
+        return parent::searchResultToOutput($searchResult);
+    }
+
+6. Set the Admin Menu tab where you want your Module can be found:
+
+    ${Vendorname}/${Modulename}/etc/adminhtml/menu.xml
+
+7. Set From server side Validations:
+
+    ${Vendorname}\${Modulename}\Controller\Adminhtml\${Entityname}\Validate:
+
+    /**
+     * Check if required fields is not empty
+     *
+     * @param array $data
+     */
+    public function validateRequireEntries(array $data)
+    {
+        $requiredFields = [
+            'identifier' => __('${Entityname} Identifier'),
+        ];
+        
+        //...
+    }

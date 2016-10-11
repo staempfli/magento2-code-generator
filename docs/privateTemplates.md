@@ -1,8 +1,8 @@
-# Create own Templates just for you
+# Create Private Templates just for you
 
 * Do the same as in the Create Templates documentation but place your template into `privateTemplates` folder
 
-    * [createTemplates.md](How to create templates)
+    * [How to create templates](createTemplates.md)
     
 ## Priority
 

@@ -83,7 +83,7 @@ EOT
         $updater = new PharUpdater(null, false, PharUpdater::STRATEGY_GITHUB);
         $updater->getStrategy()->setPackageName('staempfli/magento2-code-generator');
         $updater->getStrategy()->setPharName('mg2-codegen.phar');
-        $updater->getStrategy()->setCurrentLocalVersion('@git_version@');
+        $updater->getStrategy()->setCurrentLocalVersion('@git-version@');
 
         try {
             $result = $updater->update();
