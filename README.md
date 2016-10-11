@@ -32,7 +32,7 @@
 
 ## Demo
 
-![Video Demo](./docs/demo.gif)
+![Video Demo](./docs/video-demo.gif)
     
 ## Private Templates
 
