@@ -29,6 +29,10 @@
 * This commands mut be executed on the root module folder where the `registration.php` file is. 
 
 * When creating a new `module`, you must create first the module parent folder and execute the command from there.
+
+## Demo
+
+![Video Demo](./docs/demo.gif)
     
 ## Private Templates
 
