@@ -58,3 +58,23 @@
       }
       return $this->loadedData;
    }
+
+4. Save image on your Save action controller
+
+   ${Vendorname}/${Modulename}/Controller/Adminhtml/${Entityname}/Save.php:
+
+   /**
+    * file data preprocessing
+    *
+    * @param array $data
+    *
+    * @return array
+    */
+   protected function filePreprocessing($data)
+   {
+       if (empty($data['file'])) {
+           unset($data['file']);
+           $data['file']['delete'] = true;
+       }
+       return $data;
+   }
