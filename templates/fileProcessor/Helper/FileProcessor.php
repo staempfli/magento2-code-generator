@@ -5,8 +5,7 @@
  * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
  * @author    ${commentsUserEmail}
  */
-namespace ${Vendorname}\${
-    Modulename}\Helper;
+namespace ${Vendorname}\${Modulename}\Helper;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Filesystem;

@@ -1,1 +1,0 @@
-This Template creates the requirejs file and the .js file where you can add your javascript to use later on a .phtml.

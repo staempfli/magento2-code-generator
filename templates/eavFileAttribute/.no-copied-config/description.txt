@@ -1,1 +1,1 @@
-This Template creates necessary Attribute Backend, ajax and Helpers to have an Image/File EAV Attribute
+This Template creates the attribute Backend, Ajax and Helpers to have an Image/File EAV Attribute
