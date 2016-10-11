@@ -2,45 +2,48 @@
 
 ## Installation
 
-```
-$ git clone https://github.com/staempfli/magento2-code-generator.git
-$ cd magento2-code-generator && composer install
+0. Download phar file:
 
-# Test that it works
-$ bin/mg2-codegen
-```
+    `wget https://github.com/staempfli/magento2-code-generator/releases/download/<version>/mg2-codegen.phar` 
 
-### Global installation
+    * or if you have problems with SSL certificate:
 
-* Create symlink to `bin/mage2-generator` on your preferred `$PATH`:
-   
-    * `$ ln -s $(PWD)/bin/mage2-generator /usr/local/bin/mage2-generator`
+    `curl -O https://github.com/staempfli/magento2-code-generator/releases/download/<version>/mg2-codegen.phar` 
 
-### Setup personal config
+0. Make the .phar file executable:
 
-* `$ cp config/personal.properties.dist config/personal.properties
+    `chmod +x ./mg2-codegen.phar` 
+
+0. If you want to use the command globally on your system:
+
+    `sudo cp ./mg2-codegen.phar /usr/local/bin/mg2-codegen` 
 
 ## Usage
 
-* List all templates: `bin/mage2-generator generator:templates:list` 
+* List all templates: `./mg2-codegen.phar template:list` 
 
-* Generate template: `bin/mage2-generator generate` 
+* Generate template: `./mg2-codegen.phar template:generate <template>` 
 
 **NOTE**:
     
-* This commands mut be executed on the root module folder where the `registration.php file is. 
+* This commands mut be executed on the root module folder where the `registration.php` file is. 
 
-* For generate `module` where this file is not existing, you must create first the module parent folder and execute the command from there.
+* When creating a new `module`, you must create first the module parent folder and execute the command from there.
+    
+## Private Templates
+
+If current templates do not fill your needs, you can easily create your own templates. Just follow the manual:
+
+* [How to create private templates](./docs/privateTemplates.md)
     
 ## Contribute
 
 * If you want to contribute with new templates, just do the following:
 
     0. Fork this project
-    0. Create a new template following the manual (./docs/createTemplates.md)[How to create templates]
+    0. Create a new template following the manual [How to create templates](./docs/createTemplates.md)
     
-## Troubleshotting:
+## Prerequisites
 
-  [UnexpectedValueException]
-  creating archive "/Volumes/workspace/tools/mage2-cg-symfony/mg2-codegen.phar" disabled by the php.ini setting phar.readonly
-phar.readonly = off
+- PHP >= 5.6.*
+
