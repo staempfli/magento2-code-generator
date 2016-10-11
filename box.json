@@ -15,5 +15,6 @@
   "git-version": "git_version",
   "main": "bin/mg2-codegen",
   "output": "mg2-codegen.phar",
-  "stub": true
+  "stub": true,
+  "web": true
 }
