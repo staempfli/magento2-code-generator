@@ -4,4 +4,6 @@
 !bin/mg2-codegen
 /vendor
 
+mg2-codegen.phar
+
 /moduleTest
