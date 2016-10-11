@@ -4,11 +4,11 @@
 
 2. Add your custom columns to the grid
 
-    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${modelname}_listing.xml
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_listing.xml
 
 3. Add your custom fields to the form
 
-    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${modelname}_form.xml
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_form.xml
 
 4. Set the Admin Menu tab where you want your Module can be found:
 

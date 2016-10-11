@@ -8,11 +8,11 @@
 
 3. Add your custom columns to the grid:
 
-    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${modelname}_listing.xml
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_listing.xml
 
 4. Add your custom fields to the form:
 
-    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${modelname}_form.xml
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_form.xml
 
 5. Add Attributes to display in Grid on the Listing DataProvider:
 

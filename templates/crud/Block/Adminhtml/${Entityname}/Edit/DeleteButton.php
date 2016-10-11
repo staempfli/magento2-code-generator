@@ -67,6 +67,6 @@ class DeleteButton implements ButtonProviderInterface
      */
     public function getDeleteUrl()
     {
-        return $this->urlBuilder->getUrl('*/*/delete', ['${database_field_id}' => $this->registry->registry('${database_field_id}')]);
+        return $this->urlBuilder->getUrl('*/*/delete', ['entity_id' => $this->registry->registry('entity_id')]);
     }
 }

@@ -65,7 +65,7 @@ class Edit extends Action
     public function execute()
     {
         // 1. Get ID
-        $id = $this->getRequest()->getParam('${database_field_id}');
+        $id = $this->getRequest()->getParam('entity_id');
         $objectInstance = $this->objectFactory->create();
 
         // 2. Initial checking
@@ -87,7 +87,7 @@ class Edit extends Action
         }
 
         // 4. Register model to use later in blocks
-        $this->_coreRegistry->register('${database_field_id}', $id);
+        $this->_coreRegistry->register('entity_id', $id);
 
         // 5. Build edit form
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */

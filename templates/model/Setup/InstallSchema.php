@@ -33,7 +33,7 @@ class InstallSchema implements InstallSchemaInterface
         $table = $setup->getConnection()->newTable(
             $setup->getTable('${vendorname}_${modulename}_${entityname}')
         )->addColumn(
-            '${database_field_id}',
+            'entity_id',
             Table::TYPE_SMALLINT,
             null,
             ['identity' => true, 'nullable' => false, 'primary' => true],

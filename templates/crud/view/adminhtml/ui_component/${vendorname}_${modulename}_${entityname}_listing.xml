@@ -26,13 +26,13 @@
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">${Vendorname}${Entityname}GridDataProvider</argument>
             <argument name="name" xsi:type="string">${vendorname}_${modulename}_${entityname}_listing_data_source</argument>
-            <argument name="primaryFieldName" xsi:type="string">${database_field_id}</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="update_url" xsi:type="url" path="mui/index/render"/>
                     <item name="storageConfig" xsi:type="array">
-                        <item name="indexField" xsi:type="string">${database_field_id}</item>
+                        <item name="indexField" xsi:type="string">entity_id</item>
                     </item>
                 </item>
             </argument>
@@ -110,7 +110,7 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">${vendorname}_${modulename}_${entityname}_listing.${vendorname}_${modulename}_${entityname}_listing.${vendorname}_${modulename}_${entityname}_columns.ids</item>
-                    <item name="indexField" xsi:type="string">${database_field_id}</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
             <action name="delete">
@@ -161,7 +161,7 @@
                 <item name="editorConfig" xsi:type="array">
                     <item name="selectProvider" xsi:type="string">${vendorname}_${modulename}_${entityname}_listing.${vendorname}_${modulename}_${entityname}_listing.${vendorname}_${modulename}_${entityname}_columns.ids</item>
                     <item name="enabled" xsi:type="boolean">true</item>
-                    <item name="indexField" xsi:type="string">${database_field_id}</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                     <item name="clientConfig" xsi:type="array">
                         <item name="saveUrl" xsi:type="url" path="*/*/inlineEdit"/>
                         <item name="validateBeforeSave" xsi:type="boolean">false</item>
@@ -189,11 +189,11 @@
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">false</item>
                     <item name="resizeDefaultWidth" xsi:type="string">55</item>
-                    <item name="indexField" xsi:type="string">${database_field_id}</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
         </selectionsColumn>
-        <column name="${database_field_id}">
+        <column name="entity_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">textRange</item>
@@ -220,7 +220,7 @@
         <actionsColumn name="actions" class="${Vendorname}\${Modulename}\Ui\Component\Listing\Column\${Entityname}Actions">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="indexField" xsi:type="string">${database_field_id}</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
                 </item>
             </argument>
         </actionsColumn>

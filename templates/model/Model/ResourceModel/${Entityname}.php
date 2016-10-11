@@ -19,6 +19,6 @@ class ${Entityname} extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('${vendorname}_${modulename}_${entityname}', '${database_field_id}');
+        $this->_init('${vendorname}_${modulename}_${entityname}', 'entity_id');
     }
 }
