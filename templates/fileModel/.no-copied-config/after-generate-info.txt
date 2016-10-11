@@ -1,6 +1,15 @@
-1.- Add your custom fields on:
+1. Add the filename column to your table in:
 
-    ${Vendorname}/${Modulename}/Setup/InstallSchema.php
+        ${Vendorname}\${Modulename}\Setup\InstallSetup;
+
+        $table->addColumn(
+            'filename',
+            Table::TYPE_TEXT,
+            255,
+            ['nullable' => false],
+            'filename'
+        );
+
 
 2.  Add the formElement into your uiComponent form:
 

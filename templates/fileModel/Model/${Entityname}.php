@@ -110,7 +110,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
     public function beforeSave() //@codingStandardsIgnoreLine
     {
         parent::beforeSave();
-        $file = $this->get${Form_field_name}();
+        $file = $this->getFile();
         if (!is_array($file)) {
             $this->isSaveAllowed(false);
             return $this;
