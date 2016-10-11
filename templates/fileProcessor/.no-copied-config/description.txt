@@ -1,0 +1,1 @@
+This template creates a the ajax controller and fileProcessor Helper to be able to properly upload files.

@@ -1,0 +1,1 @@
+This template creates a model with needed Ajax controller and Helper to process files.

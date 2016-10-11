@@ -1,0 +1,5 @@
+1. Add the route to the uploader Controller on your form field uploaderConfig:
+
+    <item name="uploaderConfig" xsi:type="array">
+        <item name="url" xsi:type="string">${vendorname}_${modulename}/file/uploader</item>
+    </item>

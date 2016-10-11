@@ -1,0 +1,1 @@
+This Templates creates all configuration needed for a new Widget.
