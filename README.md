@@ -2,15 +2,11 @@
 
 ## Installation
 
-0. Download phar file:
+0. Download `.phar` file:
 
     `wget https://github.com/staempfli/magento2-code-generator/releases/download/<version>/mg2-codegen.phar` 
 
-    * or if you have problems with SSL certificate:
-
-    `curl -O https://github.com/staempfli/magento2-code-generator/releases/download/<version>/mg2-codegen.phar` 
-
-0. Make the .phar file executable:
+0. Make the `.phar` file executable:
 
     `chmod +x ./mg2-codegen.phar` 
 
@@ -20,9 +16,11 @@
 
 ## Usage
 
-* List all templates: `./mg2-codegen.phar template:list` 
+0. Go to your module root folder
 
-* Generate template: `./mg2-codegen.phar template:generate <template>` 
+0. List all templates: `./mg2-codegen.phar template:list` 
+
+0. Generate template: `./mg2-codegen.phar template:generate <template>` 
 
 **NOTE**:
     
@@ -38,14 +36,14 @@
 
 If current templates do not fill your needs, you can easily create your own templates. Just follow the manual:
 
-* [How to create private templates](./docs/privateTemplates.md)
+* [How to create private templates](vendor/staempfli/universal-code-generator/docs/privateTemplates.md)
     
 ## Contribute
 
 * If you want to contribute with new templates, just do the following:
 
     0. Fork this project
-    0. Create a new template following the manual [How to create templates](./docs/createTemplates.md)
+    0. Create a new template following the manual: [How to create templates](vendor/staempfli/universal-code-generator/docs/createTemplates.md)
     
 ## Prerequisites
 
