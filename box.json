@@ -3,6 +3,7 @@
   "directories": [
     "src",
     "templates",
+    "templates/*/.no-copied-config",
     "config"
   ],
   "finder": [
