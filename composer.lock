@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1366b9472030f44b1e52e71755519ced",
-    "content-hash": "41dca27833f9eadcf3ecc7383a3926a3",
+    "hash": "2c3b6113f0305aef5443c3624f7561fb",
+    "content-hash": "e2e1662c78227e319b4cb7411b3380d2",
     "packages": [
         {
             "name": "psr/log",
@@ -56,16 +56,16 @@
         },
         {
             "name": "staempfli/universal-code-generator",
-            "version": "dev-develop",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staempfli/universal-code-generator.git",
-                "reference": "3199e0e059b748cd4a02bd35b87c7f1c18a88cba"
+                "reference": "16b8487402b5fb4409abd8cc5bf3c2ba193bb3df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/3199e0e059b748cd4a02bd35b87c7f1c18a88cba",
-                "reference": "3199e0e059b748cd4a02bd35b87c7f1c18a88cba",
+                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/16b8487402b5fb4409abd8cc5bf3c2ba193bb3df",
+                "reference": "16b8487402b5fb4409abd8cc5bf3c2ba193bb3df",
                 "shasum": ""
             },
             "require": {
@@ -89,10 +89,10 @@
             ],
             "description": "Staempfli AG - Universal Code Generator Tool",
             "support": {
-                "source": "https://github.com/staempfli/universal-code-generator/tree/develop",
+                "source": "https://github.com/staempfli/universal-code-generator/tree/1.0",
                 "issues": "https://github.com/staempfli/universal-code-generator/issues"
             },
-            "time": "2016-10-11 09:37:01"
+            "time": "2016-10-12 15:11:35"
         },
         {
             "name": "symfony/console",
@@ -1408,9 +1408,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "staempfli/universal-code-generator": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

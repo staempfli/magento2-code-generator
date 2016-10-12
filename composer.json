@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "staempfli/universal-code-generator": "dev-develop"
+    "staempfli/universal-code-generator": "~1.0"
   },
   "require-dev": {
     "kherge/box": "~2.5",
