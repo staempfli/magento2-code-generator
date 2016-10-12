@@ -32,18 +32,25 @@
 
 ![Video Demo](./docs/video-demo.gif)
     
-## Private Templates
+## Create new Templates
+    
+### Clone and Install project
+ 
+For that you cannot use the `.phar` binary, so you need to install the project:
+
+* [Clone and Install](docs/clone-install.md)
+    
+### Contribute with new templates
+
+* If you want to contribute with new templates, just do the following:
+
+    0. Create a new template following the manual: [How to create templates](vendor/staempfli/universal-code-generator/docs/createTemplates.md)
+    
+### Private Templates
 
 If current templates do not fill your needs, you can easily create your own templates. Just follow the manual:
 
 * [How to create private templates](vendor/staempfli/universal-code-generator/docs/privateTemplates.md)
-    
-## Contribute
-
-* If you want to contribute with new templates, just do the following:
-
-    0. Fork this project
-    0. Create a new template following the manual: [How to create templates](vendor/staempfli/universal-code-generator/docs/createTemplates.md)
     
 ## Prerequisites
 
