@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2c3b6113f0305aef5443c3624f7561fb",
+    "hash": "ad95e3a84d5ffe6b4d95c9b7e6218e85",
     "content-hash": "e2e1662c78227e319b4cb7411b3380d2",
     "packages": [
         {
@@ -56,16 +56,16 @@
         },
         {
             "name": "staempfli/universal-code-generator",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staempfli/universal-code-generator.git",
-                "reference": "16b8487402b5fb4409abd8cc5bf3c2ba193bb3df"
+                "reference": "8f31c2ef88a85caef5d4c6665928c3d133e53805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/16b8487402b5fb4409abd8cc5bf3c2ba193bb3df",
-                "reference": "16b8487402b5fb4409abd8cc5bf3c2ba193bb3df",
+                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/8f31c2ef88a85caef5d4c6665928c3d133e53805",
+                "reference": "8f31c2ef88a85caef5d4c6665928c3d133e53805",
                 "shasum": ""
             },
             "require": {
@@ -75,7 +75,7 @@
             "type": "staempfli-tool",
             "autoload": {
                 "psr-4": {
-                    "Staempfli\\UniversalGenerator\\": "src/Staempfli/UniversalGenerator"
+                    "Staempfli\\UniversalGenerator\\": "src/Staempfli/UniversalGenerator/"
                 }
             },
             "license": [
@@ -89,10 +89,10 @@
             ],
             "description": "Staempfli AG - Universal Code Generator Tool",
             "support": {
-                "source": "https://github.com/staempfli/universal-code-generator/tree/1.0",
+                "source": "https://github.com/staempfli/universal-code-generator/tree/1.0.1",
                 "issues": "https://github.com/staempfli/universal-code-generator/issues"
             },
-            "time": "2016-10-12 15:11:35"
+            "time": "2016-10-13 11:31:56"
         },
         {
             "name": "symfony/console",
