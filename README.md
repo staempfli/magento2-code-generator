@@ -32,7 +32,7 @@
 
 ![Video Demo](docs/img/video-demo.gif)
 
-You can also watch this video demo in youtube:
+You can also watch a more detailed video demo in youtube:
 
 * [Create a CRUD EAV Module in just 5 minutes](https://www.youtube.com/watch?v=f8qBnOIRIs4)
     
