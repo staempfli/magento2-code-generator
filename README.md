@@ -30,7 +30,11 @@
 
 ## Demo
 
-![Video Demo](./docs/video-demo.gif)
+![Video Demo](docs/img/video-demo.gif)
+
+You can also watch this video demo in youtube:
+
+* [Create a CRUD EAV Module in just 5 minutes](https://www.youtube.com/watch?v=f8qBnOIRIs4)
     
 ## Create new Templates
     
