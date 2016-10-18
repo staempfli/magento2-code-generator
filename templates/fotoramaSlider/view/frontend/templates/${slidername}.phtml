@@ -1,0 +1,41 @@
+<?php
+/**
+ * ${slidername}
+ *
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
+ */
+?>
+<?php /** @var \${Vendorname}\${Modulename}\Block\${Slidername} $block */ ?>
+<div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+    <div data-role="loader" class="loading-mask">
+        <div class="loader">
+            <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>"
+                 alt="<?php /* @escapeNotVerified */ echo __('Loading...') ?>">
+        </div>
+    </div>
+</div>
+<!--Fix for jumping content. Loader must be the same size as gallery.-->
+<script>
+    var config = {
+            "width": <?php /* @escapeNotVerified */ echo $block->getVar('gallery/width'); ?>,
+            "height": <?php /* @escapeNotVerified */ echo $block->getVar('gallery/height') + $block->getVar('gallery/thumbheight'); ?>
+        };
+
+    loader = document.querySelectorAll('[data-gallery-role="gallery-placeholder"] [data-role="loader"]')[0];
+    loader.style.paddingBottom = (config.height / config.width * 100) + "%";
+</script>
+<script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": <?php /* @escapeNotVerified */ echo $block->getMagnifierJson(); ?>,
+                "data": <?php /* @escapeNotVerified */ echo $block->getGalleryImagesJson(); ?>,
+                "options": <?php /* @escapeNotVerified */ echo $block->getGalleryOptionsJson(); ?>,
+                "fullscreen": <?php /* @escapeNotVerified */ echo $block->getFullScreenJson(); ?>,
+                "breakpoints": <?php /* @escapeNotVerified */ echo $block->getBreakpointsJson(); ?>
+            }
+        }
+    }
+</script>

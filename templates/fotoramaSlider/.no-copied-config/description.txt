@@ -1,0 +1,1 @@
+This template creates a new Fotorama Slider block that you can include in your page

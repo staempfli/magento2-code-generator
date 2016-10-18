@@ -1,0 +1,21 @@
+1.- Implement function to get your image collection
+
+    ${Vendorname}\${Modulename}\Block\${Slidername}
+
+    protected function getImages();
+    protected function getImageThumbnailUrl($image);
+    protected function getImageMediumUrl($image);
+    protected function getImageLargeUrl($image);
+    protected function isMainImage($image);
+
+2.- Add block and styles on your layout xml
+
+    <head>
+        <css src="mage/gallery/gallery.css"/>
+    </head>
+
+    <block class="${Vendorname}\${Modulename}\Block\${Slidername}" name="${vendorname}.${modulename}.${slidername}"/>
+
+3.- Render child block on your parent .phtml
+
+    <?php echo $block->getChildHtml('${vendorname}.${modulename}.${slidername}'); ?>
