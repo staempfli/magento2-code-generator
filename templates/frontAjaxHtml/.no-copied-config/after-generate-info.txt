@@ -1,0 +1,16 @@
+1. Add the following code into your .phtml file where the ajax request will be triggered
+
+    <span id="ajax-${actionname}-loading" class="please-wait load indicator" style="display: none;"></span>
+
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "${Actionname}Ajax": {
+                    "ajaxUrl": "<?php echo $block->getUrl('${vendorname}_${modulename}/ajax/${actionname}'); ?>",
+                    "classElementTriggerAjax": "", // html class of elements that trigger the ajax request
+                    "idElementToReplace": "", // html id of element where the ajax respond will be loaded
+                    "waitLoadingContainer": "#ajax-${actionname}-loading"
+                }
+            }
+        }
+    </script>
