@@ -1,0 +1,7 @@
+Add your translations in:
+
+    - ${languageISO}_${CountryISO}.csv
+
+You can also customize the package configuration on:
+
+    - language.xml

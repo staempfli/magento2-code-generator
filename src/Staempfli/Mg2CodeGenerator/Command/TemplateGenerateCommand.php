@@ -23,7 +23,23 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
      *
      * @var string
      */
-    protected $moduleTemplate = 'module';
+    const TEMPLATE_MODULE = 'module';
+    /**
+     * Template name for creating a new language package
+     *
+     * @var string
+     */
+    const TEMPLATE_LANGUAGE = 'language';
+
+    /**
+     * Templates were a module already created is not required
+     *
+     * @var array
+     */
+    protected $moduleNoRequiredTemplates = [
+        self::TEMPLATE_MODULE,
+        self::TEMPLATE_LANGUAGE,
+    ];
 
     /**
      * {@inheritdoc}
@@ -42,7 +58,7 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
                 $io->error(sprintf('Module could not be found in %s', $fileHelper->getModuleDir()));
                 return false;
             }
-            if ($this->runCommandForAnotherTemplate($this->moduleTemplate, $input, $output)) {
+            if ($this->runCommandForAnotherTemplate(self::TEMPLATE_MODULE, $input, $output)) {
                 return false;
             }
         }
@@ -54,7 +70,7 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
      */
     protected function beforeAskInputProperties($templateName, PropertiesTask $propertiesTask, SymfonyStyle $io)
     {
-        if ($templateName != $this->moduleTemplate) {
+        if (!in_array($templateName, $this->moduleNoRequiredTemplates)) {
             $magentoHelper = new MagentoHelper();
             try {
                 $moduleProperties = $magentoHelper->getModuleProperties();
@@ -78,7 +94,7 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
         $templateName = $input->getArgument($this->templateArg);
         $magentoHelper = new MagentoHelper();
 
-        if (!$magentoHelper->moduleExist() && $this->moduleTemplate != $templateName) {
+        if (!$magentoHelper->moduleExist() && !in_array($templateName, $this->moduleNoRequiredTemplates)) {
             return true;
         }
 

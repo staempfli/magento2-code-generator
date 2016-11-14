@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * language.xml
+ *
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
+ */
+-->
+<language xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/Language/package.xsd">
+    <code>${languageISO}_${CountryISO}</code>
+    <vendor>${vendor}</vendor>
+    <package>${package}_${languageISO}_${countryISO}</package>
+    <!--<sort_order>100</sort_order>-->
+    <!--<use vendor="<vendor_dependency>" package="<package_dependency>"/>-->
+</language>
