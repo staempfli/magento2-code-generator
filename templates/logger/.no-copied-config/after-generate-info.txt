@@ -1,0 +1,15 @@
+1. Use your logger:
+
+    /**
+     * @var ${LoggerName}
+     */
+    protected $${loggerName};
+
+    public function __construct(\${Vendorname}\${Modulename}\Logger\${LoggerName} $${loggerName})
+    {
+        $this->${loggerName} = $${loggerName};
+    }
+
+2. You can find your log files in:
+
+    - /var/log/${loggerName}/

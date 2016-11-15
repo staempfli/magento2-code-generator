@@ -1,0 +1,1 @@
+Custom logger with following levels 'error.log', 'info.log', 'debug.log'
