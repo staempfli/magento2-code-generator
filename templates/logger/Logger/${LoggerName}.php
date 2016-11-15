@@ -9,7 +9,7 @@
 namespace ${Vendorname}\${Modulename}\Logger;
 
 use Monolog\Logger;
-use ${Vendorname}\${Modulename}\Logger\Handler\FactoryHandler;
+use ${Vendorname}\${Modulename}\Logger\Handler\HandlerFactory;
 
 class ${LoggerName} extends Logger
 {
@@ -25,11 +25,11 @@ class ${LoggerName} extends Logger
     /**
      * {@inheritdoc}
      */
-    public function __construct(FactoryHandler $factoryHandler, $name = '${loggerName}', array $handlers = [], array $processors = [])
+    public function __construct(HandlerFactory $handlerFactory, $name = '${loggerName}', array $handlers = [], array $processors = [])
     {
         foreach ($this->defaultHandlerTypes as $handlerType) {
             if (!array_key_exists($handlerType, $handlers)) {
-                $handlers[$handlerType] = $factoryHandler->create($handlerType);
+                $handlers[$handlerType] = $handlerFactory->create($handlerType);
             }
         }
         parent::__construct($name, $handlers, $processors);

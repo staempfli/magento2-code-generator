@@ -10,7 +10,7 @@ namespace ${Vendorname}\${Modulename}\Logger\Handler;
 
 use Monolog\Logger;
 
-class Info extends AbstractHandler
+class Info extends HandlerAbstract
 {
     /**
      * @var string

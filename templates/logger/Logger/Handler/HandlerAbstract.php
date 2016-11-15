@@ -1,6 +1,6 @@
 <?php
 /**
- * AbstractHandler
+ * HandlerAbstract
  *
  * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
  * @author    ${commentsUserEmail}
@@ -11,10 +11,10 @@ namespace ${Vendorname}\${Modulename}\Logger\Handler;
 use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\Logger\Handler\Base;
 
-class AbstractHandler extends Base
+class HandlerAbstract extends Base
 {
     /**
-     * AbstractHandler constructor.
+     * HandlerAbstract constructor.
      *
      * Set default filePath for ${LoggerName} logs folder
      *

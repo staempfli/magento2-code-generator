@@ -1,6 +1,6 @@
 <?php
 /**
- * FactoryHandler
+ * HandlerFactory
  *
  * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
  * @author    ${commentsUserEmail}
@@ -10,9 +10,9 @@ namespace ${Vendorname}\${Modulename}\Logger\Handler;
 
 use InvalidArgumentException;
 use Magento\Framework\ObjectManagerInterface;
-use ${Vendorname}\${Modulename}\Logger\Handler\AbstractHandler as ObjectType;
+use ${Vendorname}\${Modulename}\Logger\Handler\HandlerAbstract as ObjectType;
 
-class FactoryHandler
+class HandlerFactory
 {
     /**
      * Object Manager instance
@@ -57,7 +57,7 @@ class FactoryHandler
 
         $resultInstance = $this->objectManager->create($this->instanceTypeNames[$type], $data);
         if (!$resultInstance instanceof ObjectType) {
-            throw new InvalidArgumentException(get_class($resultInstance) . ' isn\'t instance of \${Vendorname}\${Modulename}\Logger\Handler\AbstractHandler');
+            throw new InvalidArgumentException(get_class($resultInstance) . ' isn\'t instance of \${Vendorname}\${Modulename}\Logger\Handler\HandlerAbstract');
         }
 
         return $resultInstance;
