@@ -42,15 +42,6 @@ define([
          * @param event - {Object} - Click event.
          */
         _clickAction: function(event) {
-
-        }
-
-        /**
-         * Click action function
-         * @private
-         * @param event - {Object} - Click event.
-         */
-        _clickAction: function(event) {
             if ($(this.options.waitLoadingContainer).is(":visible")) {
                 return false;
             }

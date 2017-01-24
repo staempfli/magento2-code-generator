@@ -26,7 +26,7 @@ class Index extends Action
     public function __construct(Context $context, PageFactory $pageFactory)
     {
         $this->pageFactory = $pageFactory;
-        return parent::__construct($context);
+        parent::__construct($context);
     }
 
     /**
