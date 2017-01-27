@@ -1,0 +1,1 @@
+This Template creates a Block and template .phtml file.

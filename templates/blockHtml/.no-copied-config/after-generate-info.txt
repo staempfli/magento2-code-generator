@@ -1,0 +1,3 @@
+1. Add your block in a layout xml:
+
+     <block class="${Vendorname}\${Modulename}\Block\${Blockname}" name="${vendorname}.${modulename}.${blockname}" template="${blockname}.phtml"/>
