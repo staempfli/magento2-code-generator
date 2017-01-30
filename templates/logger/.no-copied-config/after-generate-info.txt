@@ -1,7 +1,7 @@
 1. Use your logger:
 
     /**
-     * @var ${LoggerName}
+     * @var \${Vendorname}\${Modulename}\Logger\${LoggerName}
      */
     protected $${loggerName};
 
