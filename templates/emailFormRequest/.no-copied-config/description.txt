@@ -1,1 +1,1 @@
-This template creates a the controllers, helpers and templates to send a send an email from a form request
+This template creates the controllers, helper and templates to send an email from a form request.
