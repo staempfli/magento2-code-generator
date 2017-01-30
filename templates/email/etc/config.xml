@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * config
+ *
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <${vendorname}_${modulename}>
+            <email>
+                <sender_identity>custom2</sender_identity>
+                <${emailname}_template>${vendorname}_${modulename}_email_${emailname}_template</${emailname}_template>
+            </email>
+        </${vendorname}_${modulename}>
+    </default>
+</config>

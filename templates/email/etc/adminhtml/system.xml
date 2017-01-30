@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * system
+ *
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="${vendorname}_${modulename}" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>${Modulename}</label>
+            <tab>general</tab>
+            <resource>${Vendorname}_${Modulename}::${emailname}</resource>
+            <group id="email" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Settings</label>
+                <field id="sender_identity" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="${emailname}_template" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>${Emailname} Template</label>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

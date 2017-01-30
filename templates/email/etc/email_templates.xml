@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * email_templates
+ *
+ * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @author    ${commentsUserEmail}
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="${vendorname}_${modulename}_email_${emailname}_template" label="${Modulename} ${Emailname}" file="${emailname}.html" type="text" module="${Vendorname}_${Modulename}" area="adminhtml"/>
+</config>

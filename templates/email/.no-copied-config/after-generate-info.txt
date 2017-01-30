@@ -1,0 +1,20 @@
+1. Add you email template .html into:
+
+        ${Vendorname}/${Modulename}/view/adminhtml/email/${emailname}.html
+
+2.  Use the emailHelper:
+
+        /**
+         * @var \${Vendorname}\${Modulename}\Helper\Email
+         */
+        protected $emailHelper;
+
+        public function __construct(\${Vendorname}\${Modulename}\Helper\Email $emailHelper)
+        {
+            $this->emailHelper = $emailHelper;
+        }
+
+        public function someFunction()
+        {
+            $result = $this->emailHelper->sendTransactional($data, $recipientEmail, $replyToEmail, $areaCode, $storeId);
+        }
