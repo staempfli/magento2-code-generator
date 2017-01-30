@@ -68,7 +68,7 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
     /**
      * {@inheritdoc}
      */
-    protected function beforeAskInputProperties($templateName, PropertiesTask $propertiesTask, SymfonyStyle $io)
+    protected function beforeAskInputProperties($templateName, SymfonyStyle $io)
     {
         if (!in_array($templateName, $this->moduleNoRequiredTemplates)) {
             $magentoHelper = new MagentoHelper();
@@ -78,7 +78,7 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
                 $io->error($e->getMessage());
                 return;
             }
-            $propertiesTask->addProperties($moduleProperties);
+            $this->propertiesTask->addProperties($moduleProperties);
         }
 
     }
