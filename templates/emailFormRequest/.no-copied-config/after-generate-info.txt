@@ -1,0 +1,13 @@
+1. Add your form fields in:
+
+   ${Vendorname}/${Modulename}/view/frontend/templates/${controllername}.phtml
+
+
+2. Add your server validations on:
+
+    ${Vendorname}/${Modulename}/Controller/${Controllername}/Post.php
+
+
+3. Add your email content into:
+
+   ${Vendorname}/${Modulename}/view/adminhtml/email/${emailname}.html
