@@ -2,7 +2,7 @@
 
     ${Vendorname}/${Modulename}/view/adminhtml/email/${emailname}.html
 
-2.  Use the emailHelper:
+2.  Use the emailHelper to send emails:
 
     /**
      * @var \${Vendorname}\${Modulename}\Helper\Email
