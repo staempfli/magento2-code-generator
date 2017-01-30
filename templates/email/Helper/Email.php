@@ -48,7 +48,6 @@ class Email extends AbstractHelper
 
     /**
      * @param array $data
-     * @param string $replyToEmail
      * @param string $areaCode
      * @param int $storeId
      * @return bool
@@ -56,7 +55,6 @@ class Email extends AbstractHelper
     public function sendTransactional(
         array $data,
         string $recipient,
-        string $replyToEmail,
         string $areaCode = FrontNameResolver::AREA_CODE,
         int $storeId = Store::DEFAULT_STORE_ID
     ) {
@@ -67,8 +65,8 @@ class Email extends AbstractHelper
                 ->setTemplateOptions(['area' => $areaCode, 'store' => $storeId])
                 ->setTemplateVars(['data' => new DataObject($data)])
                 ->setFrom($this->scopeConfig->getValue(self::XML_PATH_EMAIL_SENDER, ScopeInterface::SCOPE_STORE))
+                ->setReplyTo($this->scopeConfig->getValue(self::XML_PATH_EMAIL_SENDER, ScopeInterface::SCOPE_STORE))
                 ->addTo($recipient)
-                ->setReplyTo($replyToEmail)
                 ->getTransport();
             $transport->sendMessage();
         } catch (\Exception $e) {
