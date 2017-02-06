@@ -31,15 +31,15 @@ class SelfUpdateCommand extends AbstractCommand
      */
     public function __construct($name = null)
     {
-        parent::__construct($name);
         $this->fileHelper = new FileHelper();
         $this->updater = new PharUpdater(null, false, PharUpdater::STRATEGY_GITHUB);
+        parent::__construct($name);
     }
 
     public function configure()
     {
         $applicationFileName = $this->fileHelper->getApplicationFileName();
-        $this->setDescription(sprintf('Updates %s to the latest stable version', $applicationFileName))
+        $this->setDescription(sprintf('Updates "%s" to the latest stable version', $applicationFileName))
             ->setHelp(<<<EOT
 
 The <info>self-update</info> command checks github for newer
