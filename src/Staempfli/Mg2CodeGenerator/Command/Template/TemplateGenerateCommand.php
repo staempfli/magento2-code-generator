@@ -9,6 +9,7 @@
 namespace Staempfli\Mg2CodeGenerator\Command\Template;
 
 use Staempfli\Mg2CodeGenerator\Helper\MagentoHelper;
+use Staempfli\UniversalGenerator\Command\Template\AbstractTemplateCommand;
 use Staempfli\UniversalGenerator\Command\Template\TemplateGenerateCommand as UniversalTemplateGenerateCommand;
 
 class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
@@ -48,7 +49,7 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
             if (!$this->io->confirm('Would you like to create a new module now?', true)) {
                 throw new \Exception(sprintf('Module could not be found in %s', $this->fileHelper->getRootDir()));
             }
-            $this->runCommandForAnotherTemplate(self::TEMPLATE_MODULE);
+            $this->generateTemplateModule();
         }
         return true;
     }
@@ -62,6 +63,28 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
             return true;
         }
         return false;
+    }
+
+    /**
+     * @return string $resultCode
+     */
+    protected function generateTemplateModule()
+    {
+        $originalTemplate = $this->templateName;
+        $this->updateTemplateArgument(self::TEMPLATE_MODULE);
+
+        $this->execute($this->io->getInput(), $this->io->getOutput());
+
+        $this->updateTemplateArgument($originalTemplate);
+    }
+
+    /**
+     * @param string $templateName
+     */
+    protected function updateTemplateArgument($templateName)
+    {
+        $this->io->getInput()->setArgument(AbstractTemplateCommand::ARG_TEMPLATE, $templateName);
+        $this->setTemplate($this->io->getInput());
     }
 
     /**
