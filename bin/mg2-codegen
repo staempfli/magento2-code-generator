@@ -19,7 +19,7 @@ use Staempfli\UniversalGenerator\Application;
 $application = new Application('@git-version@');
 
 // Custom commands
-$application->addGeneratorCommand('template:generate', 'Staempfli\Mg2CodeGenerator\Command\TemplateGenerateCommand');
+$application->addGeneratorCommand('template:generate', 'Staempfli\Mg2CodeGenerator\Command\Template\TemplateGenerateCommand');
 $application->addGeneratorCommand('self-update', 'Staempfli\Mg2CodeGenerator\Command\SelfUpdateCommand');
 
 $application->run();
