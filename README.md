@@ -24,27 +24,27 @@
 
 **NOTE**:
     
-* This commands mut be executed on the root module folder where the `registration.php` file is. 
+* This commands must be executed on the root module folder where the `registration.php` file is. 
 
-* When creating a new `module`, you must create first the module parent folder and execute the command from there.
+* When creating a new `module`, you must create the module parent folder first and execute the command from there.
 
 ## Demo
 
 ![Video Demo](docs/img/video-demo.gif)
 
-You can also watch a more detailed video demo in youtube:
+You can also watch a more detailed video demo on Youtube:
 
 * [Create a CRUD EAV Module in just 5 minutes](https://www.youtube.com/watch?v=f8qBnOIRIs4)
     
 ## Create new Templates
     
-### Clone and Install project
+### Clone and Install Project
  
 For that you cannot use the `.phar` binary, so you need to install the project:
 
 * [Clone and Install](docs/clone-install.md)
     
-### Contribute with new templates
+### Contribute with new Templates
 
 * If you want to contribute with new templates, just follow this manual:
 
