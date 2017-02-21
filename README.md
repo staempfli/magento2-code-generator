@@ -1,5 +1,10 @@
 # Magento 2 Code Generator Tool
 
+[![License](https://img.shields.io/packagist/l/staempfli/magento2-code-generator.svg)](https://packagist.org/packages/staempfli/magento2-code-generator)
+[![Version](https://img.shields.io/packagist/vpre/staempfli/magento2-code-generator.svg)](https://packagist.org/packages/staempfli/magento2-code-generator)
+[![Code Climate](https://img.shields.io/codeclimate/github/staempfli/magento2-code-generator.svg)](https://codeclimate.com/github/staempfli/magento2-module-spreadsheet/)
+[![Total Downloads](https://img.shields.io/github/downloads/staempfli/magento2-code-generator/total.svg)](https://packagist.org/packages/staempfli/magento2-code-generator)
+
 ## Installation
 
 0. Download `.phar` file:
