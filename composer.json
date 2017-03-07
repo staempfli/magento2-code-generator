@@ -30,7 +30,7 @@
   "config": {
     "bin-dir": "bin"
   },
-  "bin": ["mg2-codegen"],
+  "bin": ["bin/mg2-codegen"],
   "scripts": {
     "setPermissionsBin": "chmod -R +x bin",
     "post-install-cmd": [

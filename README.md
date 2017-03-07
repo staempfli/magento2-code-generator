@@ -12,7 +12,7 @@
 
 0. If you want to use the command globally on your system:
 
-    `sudo cp ./mg2-codegen.phar /usr/local/bin/mg2-codegen` 
+    `sudo mv ./mg2-codegen.phar /usr/local/bin/mg2-codegen`
 
 ## Usage
 
