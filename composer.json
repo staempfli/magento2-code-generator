@@ -18,11 +18,11 @@
     }
   ],
   "require": {
-    "staempfli/universal-code-generator": "~1.0"
+    "staempfli/universal-code-generator": "~1.0",
+    "padraic/phar-updater": "1.0.*"
   },
   "require-dev": {
-    "kherge/box": "~2.5",
-    "padraic/phar-updater": "1.0.*"
+    "kherge/box": "~2.5"
   },
   "autoload": {
     "psr-4": { "Staempfli\\Mg2CodeGenerator\\": "src/Staempfli/Mg2CodeGenerator/" }
