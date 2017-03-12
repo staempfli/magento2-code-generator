@@ -1,5 +1,10 @@
 # Magento 2 Code Generator Tool
 
+[![License](https://img.shields.io/packagist/l/staempfli/magento2-code-generator.svg)](https://packagist.org/packages/staempfli/magento2-code-generator)
+[![Version](https://img.shields.io/packagist/vpre/staempfli/magento2-code-generator.svg)](https://packagist.org/packages/staempfli/magento2-code-generator)
+[![Code Climate](https://img.shields.io/codeclimate/github/staempfli/magento2-code-generator.svg)](https://codeclimate.com/github/staempfli/magento2-module-spreadsheet/)
+[![Total Downloads](https://img.shields.io/github/downloads/staempfli/magento2-code-generator/total.svg)](https://packagist.org/packages/staempfli/magento2-code-generator)
+
 ## Installation
 
 ### Option1: Downloading .phar
@@ -35,20 +40,20 @@ You can also use option `--root-dir` to specify this path, if you execute it fro
 
 ![Video Demo](docs/img/video-demo.gif)
 
-You can also watch a more detailed video demos in youtube:
+You can also watch a more detailed video demos on Youtube:
 
 * [Create a CRUD EAV Module in just 5 minutes](https://www.youtube.com/watch?v=f8qBnOIRIs4)
 * [Playlist Tutorials](https://www.youtube.com/playlist?list=PLBt8dizedSZCxuqK41vG01_MngJQPRuMj)
-    
+
 ## Create new Templates
     
-### Clone and Install project
+### Clone and Install Project
  
 For that you cannot use the `.phar` binary, so you need to install the project:
 
 * [Clone and Install](docs/clone-install.md)
     
-### Contribute with new templates
+### Contribute with new Templates
 
 * If you want to contribute with new templates, just follow this manual:
 
