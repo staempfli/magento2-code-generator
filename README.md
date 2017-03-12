@@ -2,29 +2,32 @@
 
 ## Installation
 
-0. Download `.phar` file:
+### Option1: Downloading .phar
 
-    `wget https://github.com/staempfli/magento2-code-generator/releases/download/<version>/mg2-codegen.phar` 
+```
+wget https://github.com/staempfli/magento2-code-generator/releases/download/<version>/mg2-codegen.phar
+chmod +x ./mg2-codegen.phar
+# use the command globally on your system
+sudo mv ./mg2-codegen.phar /usr/local/bin/mg2-codegen
+```
 
-0. Make the `.phar` file executable:
+### Option2: Using Composer
 
-    `chmod +x ./mg2-codegen.phar` 
+```
+composer require "staempfli/magento2-code-generator":"~1.0"
+```
 
-0. If you want to use the command globally on your system:
-
-    `sudo mv ./mg2-codegen.phar /usr/local/bin/mg2-codegen`
 
 ## Usage
 
-0. Go to your module root folder
+0. List all templates: `mg2-codegen template:list`
 
-0. List all templates: `./mg2-codegen.phar template:list` 
-
-0. Generate template: `./mg2-codegen.phar template:generate <template>` 
+0. Generate template: `mg2-codegen template:generate <template>`
 
 **NOTE**:
     
-* This commands mut be executed on the root module folder where the `registration.php` file is. 
+* `template:generate` command must be executed on the module root folder where the `registration.php` file is.
+You can also use option `--root-dir` to specify this path, if you execute it from a different location.
 
 * When creating a new `module`, you must create first the module parent folder and execute the command from there.
 
@@ -32,9 +35,10 @@
 
 ![Video Demo](docs/img/video-demo.gif)
 
-You can also watch a more detailed video demo in youtube:
+You can also watch a more detailed video demos in youtube:
 
 * [Create a CRUD EAV Module in just 5 minutes](https://www.youtube.com/watch?v=f8qBnOIRIs4)
+* [Playlist Tutorials](https://www.youtube.com/playlist?list=PLBt8dizedSZCxuqK41vG01_MngJQPRuMj)
     
 ## Create new Templates
     
