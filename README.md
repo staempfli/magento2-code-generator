@@ -45,6 +45,27 @@ You can also watch a more detailed video demos on Youtube:
 * [Create a CRUD EAV Module in just 5 minutes](https://www.youtube.com/watch?v=f8qBnOIRIs4)
 * [Playlist Tutorials](https://www.youtube.com/playlist?list=PLBt8dizedSZCxuqK41vG01_MngJQPRuMj)
 
+## Available Templates
+
+* blockHtml
+* consoleCommand
+* crud
+* crudEAV
+* eavFileAttribute
+* email
+* emailFormRequest
+* fileModel
+* fileProcessor
+* fotoramaSlider
+* frontAjaxHtml
+* frontController
+* jsRequire
+* language
+* logger
+* model
+* module
+* widget
+
 ## Create new Templates
     
 ### Clone and Install Project
