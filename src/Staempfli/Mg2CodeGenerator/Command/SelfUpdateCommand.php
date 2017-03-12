@@ -9,7 +9,7 @@
 namespace Staempfli\Mg2CodeGenerator\Command;
 
 use Staempfli\UniversalGenerator\Command\AbstractCommand;
-use Staempfli\UniversalGenerator\Helper\FileHelper;
+use Staempfli\UniversalGenerator\Helper\Files\ApplicationFilesHelper;
 use Humbug\SelfUpdate\Updater as PharUpdater;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,9 +17,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 class SelfUpdateCommand extends AbstractCommand
 {
     /**
-     * @var FileHelper
+     * @var ApplicationFilesHelper
      */
-    protected $fileHelper;
+    protected $applicationFilesHelper;
     /**
      * @var PharUpdater
      */
@@ -31,14 +31,14 @@ class SelfUpdateCommand extends AbstractCommand
      */
     public function __construct($name = null)
     {
-        $this->fileHelper = new FileHelper();
+        $this->applicationFilesHelper = new ApplicationFilesHelper();
         $this->updater = new PharUpdater(null, false, PharUpdater::STRATEGY_GITHUB);
         parent::__construct($name);
     }
 
     public function configure()
     {
-        $applicationFileName = $this->fileHelper->getApplicationFileName();
+        $applicationFileName = $this->applicationFilesHelper->getApplicationFileName();
         $this->setDescription(sprintf('Updates "%s" to the latest stable version', $applicationFileName))
             ->setHelp(<<<EOT
 
@@ -56,7 +56,7 @@ EOT
      */
     public function isEnabled()
     {
-        $pharFilePath = $this->fileHelper->getPharPath();
+        $pharFilePath = $this->applicationFilesHelper->getPharPath();
         if ($pharFilePath) {
             return true;
         }

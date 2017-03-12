@@ -43,11 +43,11 @@ class TemplateGenerateCommand extends UniversalTemplateGenerateCommand
     {
         if ($this->shouldCreateNewModule()) {
             $this->io->text([
-                sprintf('Module is not existing at the specified path %s', $this->fileHelper->getRootDir()),
+                sprintf('Module is not existing at the specified path %s', $this->applicationFilesHelper->getRootDir()),
                 'Code generator needs to be executed in a valid module.'
             ]);
             if (!$this->io->confirm('Would you like to create a new module now?', true)) {
-                throw new \Exception(sprintf('Module could not be found in %s', $this->fileHelper->getRootDir()));
+                throw new \Exception(sprintf('Module could not be found in %s', $this->applicationFilesHelper->getRootDir()));
             }
             $this->generateTemplateModule();
         }

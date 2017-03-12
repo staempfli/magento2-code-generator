@@ -8,20 +8,20 @@
 
 namespace Staempfli\Mg2CodeGenerator\Helper;
 
-use Staempfli\UniversalGenerator\Helper\FileHelper;
+use Staempfli\UniversalGenerator\Helper\Files\ApplicationFilesHelper;
 
 class MagentoHelper
 {
     const MODULE_REGISTRATION_FILE = 'registration.php';
 
     /**
-     * @var FileHelper
+     * @var ApplicationFilesHelper
      */
-    protected $fileHelper;
+    protected $applicationFilesHelper;
 
     public function __construct()
     {
-        $this->fileHelper = new FileHelper();
+        $this->applicationFilesHelper = new ApplicationFilesHelper();
     }
 
     /**
@@ -37,7 +37,7 @@ class MagentoHelper
      */
     protected function getRegistrationFileAbsolutePath()
     {
-        return $this->fileHelper->getRootDir() . '/' . self::MODULE_REGISTRATION_FILE;
+        return $this->applicationFilesHelper->getRootDir() . '/' . self::MODULE_REGISTRATION_FILE;
     }
 
     /**
