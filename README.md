@@ -90,3 +90,16 @@ If current templates do not fill your needs, you can easily create your own temp
 
 - PHP >= 5.6.*
 
+## Developers
+
+* [Juan Alonso](https://github.com/jalogut)
+
+Licence
+-------
+[GNU General Public License, version 3 (GPLv3)](http://opensource.org/licenses/gpl-3.0)
+
+Copyright
+---------
+(c) 2016 Staempfli AG
+
+
