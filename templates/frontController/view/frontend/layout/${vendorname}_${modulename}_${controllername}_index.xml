@@ -3,7 +3,7 @@
 /**
  * ${vendorname}_${modulename}_${controllername}_index.xml
  *
- * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
  */
 -->

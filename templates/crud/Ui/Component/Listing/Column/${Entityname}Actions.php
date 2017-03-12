@@ -3,7 +3,7 @@
 /**
  * ${Entityname}Actions.php
  *
- * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
  */
 namespace ${Vendorname}\${Modulename}\Ui\Component\Listing\Column;

@@ -2,7 +2,7 @@
 /**
  * Info
  *
- * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
+ * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
  */
 
