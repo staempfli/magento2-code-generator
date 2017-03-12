@@ -1,6 +1,6 @@
 <?php
 /**
- * Logger
+ * ${LoggerName}
  *
  * @copyright Copyright (c) ${commentsYear} ${CommentsCompanyName}
  * @author    ${commentsUserEmail}
