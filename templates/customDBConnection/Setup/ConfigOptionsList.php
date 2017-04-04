@@ -14,15 +14,16 @@ use Magento\Framework\Setup\ConfigOptionsListInterface;
 use Magento\Framework\Setup\Option\TextConfigOption;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Config\ConfigOptionsListConstants;
+use Magento\Setup\Exception as SetupException;
 use Magento\Setup\Model\ConfigGenerator;
-use Magento\Setup\Validator\DbValidator;
-use Zend\ServiceManager\Di\DiAbstractServiceFactory;
-use Zend\ServiceManager\ServiceManager;
+use Magento\Framework\Model\ResourceModel\Type\Db\ConnectionFactory;
 
 class ConfigOptionsList implements ConfigOptionsListInterface
 {
     const DB_CONNECTION_NAME = '${connectionname}';
+    const DB_CONNECTION_SETUP = self::DB_CONNECTION_NAME;
     const CONFIG_PATH_DB_CONNECTION = ConfigOptionsListConstants::CONFIG_PATH_DB_CONNECTIONS . '/' . self::DB_CONNECTION_NAME;
+    const CONFIG_PATH_RESOURCE_SETUP = ConfigOptionsListConstants::CONFIG_PATH_RESOURCE . '/' . self::DB_CONNECTION_SETUP . '/connection';
     const OPTION_DB_HOST = self::DB_CONNECTION_NAME . '-db-host';
     const OPTION_DB_NAME = self::DB_CONNECTION_NAME . '-db-name';
     const OPTION_DB_USER = self::DB_CONNECTION_NAME . '-db-user';
@@ -40,24 +41,14 @@ class ConfigOptionsList implements ConfigOptionsListInterface
     ];
 
     protected $configGenerator;
-    protected $dbValidator;
+    protected $connectionFactory;
 
     public function __construct(
         ConfigGenerator $configGenerator,
-        DbValidator $dbValidator,
-        ServiceManager $serviceLocator,
-        DiAbstractServiceFactory $abstractServiceFactory
+        ConnectionFactory $connectionFactory
     ) {
         $this->configGenerator = $configGenerator;
-        $this->dbValidator = $dbValidator;
-        $this->fixDBValidatorErrorGettingInstanceOfLoggerQuiet($serviceLocator, $abstractServiceFactory);
-    }
-
-    protected function fixDBValidatorErrorGettingInstanceOfLoggerQuiet(
-        ServiceManager $serviceLocator,
-        DiAbstractServiceFactory $abstractServiceFactory
-    ) {
-        $serviceLocator->addAbstractFactory($abstractServiceFactory);
+        $this->connectionFactory = $connectionFactory;
     }
 
     public function getOptions()
@@ -108,42 +99,44 @@ class ConfigOptionsList implements ConfigOptionsListInterface
         ];
     }
 
-    public function createConfig(array $data, DeploymentConfig $deploymentConfig)
+    public function createConfig(array $options, DeploymentConfig $deploymentConfig)
     {
         $configData = new ConfigData(ConfigFilePool::APP_ENV);
 
-        foreach (self::OPTIONAL_OPTIONS as $configSubPath => $option) {
-            if (isset($data[$option])) {
-                $configData->set(
-                    self::CONFIG_PATH_DB_CONNECTION . '/' . $configSubPath,
-                    $data[$option]
-                );
-            }
+        $dbConfig = $this->getDbConfig($options, $deploymentConfig);
+        foreach ($dbConfig as $configSubPath => $configValue) {
+            $configData->set(self::CONFIG_PATH_DB_CONNECTION . '/' . $configSubPath, $configValue);
         }
-        $activeConfigPath = self::CONFIG_PATH_DB_CONNECTION . '/' . ConfigOptionsListConstants::KEY_ACTIVE;
-        if ($deploymentConfig->get($activeConfigPath) === null) {
-            $configData->set($activeConfigPath, '1');
+
+        if ($deploymentConfig->get(self::CONFIG_PATH_RESOURCE_SETUP) === null) {
+            $configData->set(self::CONFIG_PATH_RESOURCE_SETUP, self::DB_CONNECTION_NAME);
         }
 
         return [$configData];
     }
 
-    /**
-     * @param array $options
-     * @param DeploymentConfig $deploymentConfig
-     * @return array
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
-     */
-    public function validate(array $options, DeploymentConfig $deploymentConfig) //@codingStandardsIgnoreLine
+    protected function getDbConfig(array $options, DeploymentConfig $deploymentConfig) : array
+    {
+        $dbConfig = [];
+        foreach (self::OPTIONAL_OPTIONS as $configSubPath => $option) {
+            if ($options[$option] === null) {
+                $options[$option] = $deploymentConfig->get(self::CONFIG_PATH_DB_CONNECTION . '/' . $configSubPath);
+            }
+            $dbConfig[$configSubPath] = $options[$option];
+        }
+
+        $activeConfigPath = self::CONFIG_PATH_DB_CONNECTION . '/' . ConfigOptionsListConstants::KEY_ACTIVE;
+        $dbConfig[ConfigOptionsListConstants::KEY_ACTIVE] = $deploymentConfig->get($activeConfigPath)??'1';
+
+        return $dbConfig;
+    }
+
+    public function validate(array $options, DeploymentConfig $deploymentConfig)
     {
         if (!$options[ConfigOptionsListConstants::INPUT_KEY_SKIP_DB_VALIDATION]) {
             try {
-                $this->dbValidator->checkDatabaseConnection(
-                    $options[self::OPTION_DB_NAME],
-                    $options[self::OPTION_DB_HOST],
-                    $options[self::OPTION_DB_USER],
-                    $options[self::OPTION_DB_PASSWORD]
-                );
+                $dbConfig = $this->getDbConfig($options, $deploymentConfig);
+                $this->checkDatabaseConnection($dbConfig);
             } catch (\Exception $e) {
                 $errors = [
                     sprintf('Error validating DB connection name: "%s"', self::DB_CONNECTION_NAME),
@@ -153,5 +146,27 @@ class ConfigOptionsList implements ConfigOptionsListInterface
             }
         }
         return [];
+    }
+
+    /**
+     * @param array $dbConfig
+     * @return bool
+     * @throws SetupException
+     */
+    protected function checkDatabaseConnection(array $dbConfig)
+    {
+        $connection = $this->connectionFactory->create($dbConfig);
+        $dbName = $dbConfig[ConfigOptionsListConstants::KEY_NAME];
+
+        $accessibleDbs = $connection
+            ->query("SHOW DATABASES")
+            ->fetchAll(\PDO::FETCH_COLUMN, 0); //@codingStandardsIgnoreLine
+        if (in_array($dbName, $accessibleDbs)) {
+            return true;
+        }
+
+        throw new SetupException(
+            sprintf("Database '%s' does not exist or user does not have privileges to access this database.", $dbName)
+        );
     }
 }
