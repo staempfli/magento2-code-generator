@@ -15,7 +15,6 @@ use Magento\Framework\Setup\Option\TextConfigOption;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Config\ConfigOptionsListConstants;
 use Magento\Setup\Exception as SetupException;
-use Magento\Setup\Model\ConfigGenerator;
 use Magento\Framework\Model\ResourceModel\Type\Db\ConnectionFactory;
 
 class ConfigOptionsList implements ConfigOptionsListInterface
@@ -40,14 +39,11 @@ class ConfigOptionsList implements ConfigOptionsListInterface
         ConfigOptionsListConstants::KEY_INIT_STATEMENTS => self::OPTION_DB_INIT_STATEMENTS,
     ];
 
-    protected $configGenerator;
     protected $connectionFactory;
 
     public function __construct(
-        ConfigGenerator $configGenerator,
         ConnectionFactory $connectionFactory
     ) {
-        $this->configGenerator = $configGenerator;
         $this->connectionFactory = $connectionFactory;
     }
 
