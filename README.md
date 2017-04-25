@@ -18,16 +18,15 @@ sudo mv ./mg2-codegen.phar /usr/local/bin/mg2-codegen
 
 ### Option2: Using Composer
 
-Install locally on your project:
+Install globally on your system with the following command:
+
 ```
-composer require "staempfli/magento2-code-generator":"~1.0"
+composer global require "staempfli/magento2-code-generator"
 ```
 
-Or install globally on your system with the following command:
+Just make sure you have the composer `bin` dir in your `$PATH`. The default value is `~/.composer/vendor/bin/`
 
-    composer global require "staempfli/magento2-code-generator"
-
-Just make sure you have the composer bin dir in your PATH. The default value is `~/.composer/vendor/bin/`
+Note: if you have dependency problems with other projects installed globally, we recommend you to use [consolidation/cgr](https://github.com/consolidation/cgr)
 
 ## Usage
 
