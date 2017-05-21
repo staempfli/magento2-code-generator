@@ -61,7 +61,7 @@ class DataProvider extends AbstractDataProvider
     public function getData()
     {
         if (!$this->loadedData) {
-            $items = $this->collection->getItems();;
+            $items = $this->collection->getItems();
             foreach ($items as $item) {
                 $this->loadedData[$item->getId()] = $item->getData();
                 break;
