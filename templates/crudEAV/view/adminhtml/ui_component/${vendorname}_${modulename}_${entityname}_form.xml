@@ -24,7 +24,7 @@
             <item name="save_and_continue" xsi:type="string">${Vendorname}\${Modulename}\Block\Adminhtml\${Entityname}\Edit\SaveAndContinueButton</item>
         </item>
     </argument>
-    <dataSource name="computer_games_form_data_source">
+    <dataSource name="${vendorname}_${modulename}_${entityname}_form_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">${Vendorname}\${Modulename}\Ui\Component\Form\${Entityname}\DataProvider</argument>
             <argument name="name" xsi:type="string">${vendorname}_${modulename}_${entityname}_form_data_source</argument>
