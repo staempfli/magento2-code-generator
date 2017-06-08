@@ -101,7 +101,8 @@ If current templates do not fill your needs, you can easily create your own temp
 
 Licence
 -------
-[GNU General Public License, version 3 (GPLv3)](http://opensource.org/licenses/gpl-3.0)
+* **Software tool:** free software under the terms of [GNU General Public License, version 3 (GPLv3)](http://opensource.org/licenses/gpl-3.0)
+* **Generated code:** free to use, copy, modify or distribute under the terms of the [Free Public License 1.0.0](https://opensource.org/licenses/FPL-1.0.0)
 
 Copyright
 ---------
