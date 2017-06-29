@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ${vendorname}_${modulename}_${configfile_name}.xsd
+ *
+ * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
+ * @author    ${commentsUserEmail}
+ */
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="config">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" maxOccurs="unbounded" name="${configfile_name}" type="${configfile_name}Type" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="${configfile_name}Type">
+        <xs:sequence>
+            <xs:element minOccurs="1" maxOccurs="unbounded" name="${main_element_name}" type="${main_element_name}Type" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="${main_element_name}Type">
+        <xs:sequence>
+            <xs:element name="subelement_1" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="subelement_2" type="xs:string" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

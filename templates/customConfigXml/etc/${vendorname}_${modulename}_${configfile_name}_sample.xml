@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * ${vendorname}_${modulename}_${configfile_name}_sample.xml
+ *
+ * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
+ * @author    ${commentsUserEmail}
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:${Vendorname}_${Modulename}:etc/${vendorname}_${modulename}_${configfile_name}.xsd">
+    <${configfile_name}>
+        <${main_element_name}>
+            <subelement_1>Sample Value A</subelement_1>
+            <subelement_2>Sample Value B</subelement_2>
+        </${main_element_name}>
+        <${main_element_name}>
+            <subelement_1>Sample Value C</subelement_1>
+            <subelement_2>Sample Value D</subelement_2>
+        </${main_element_name}>
+    </${configfile_name}>
+</config>

@@ -1,0 +1,35 @@
+1. Configure xml schema:
+
+    ${Vendorname}/${Modulename}/etc/${vendorname}_${modulename}_${configfile_name}.xsd
+
+2. Setup your config data as in example:
+
+    ${Vendorname}/${Modulename}/etc/${vendorname}_${modulename}_${configfile_name}_sample.xml
+
+3. Get configuration data from anywhere:
+
+     <?php
+     class SampleClass
+     {
+         /**
+          * @var \${Vendorname}\${Modulename}\Config\MappingConfigFactory
+          */
+         private $mappingConfigFactory;
+
+         public function __construct(
+             \${Vendorname}\${Modulename}\Config\MappingConfigFactory $mappingConfigFactory,
+         ) {
+             $this->mappingConfigFactory = $mappingConfigFactory;
+         }
+
+         public function someFunction()
+         {
+             $mappingConfig = $this->mappingConfigFactory->create([
+                 'fileName' => '${vendorname}_${modulename}_${configfile_name}_sample.xml'
+             ]);
+             $configData = $mappingConfig->getConfigData();
+
+             //...
+         }
+     }
+
