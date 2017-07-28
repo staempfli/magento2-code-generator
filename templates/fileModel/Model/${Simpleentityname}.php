@@ -1,6 +1,6 @@
 <?php
 /**
- * ${Entityname}.php
+ * ${Simpleentityname}.php
  *
  * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
@@ -16,29 +16,29 @@ use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Registry;
 use ${Vendorname}\${Modulename}\Helper\FileProcessor;
 
-class ${Entityname} extends AbstractModel implements IdentityInterface
+class ${Simpleentityname} extends AbstractModel implements IdentityInterface
 {
     /**
      * @var string
      */
-    const FILES_SUBDIR = '${entityname}';
+    const FILES_SUBDIR = '${simpleentityname}';
 
     /**
      * CMS page cache tag
      */
-    const CACHE_TAG = '${vendorname}_${modulename}_${entityname}';
+    const CACHE_TAG = '${vendorname}_${modulename}_${simpleentityname}';
 
     /**
      * @var string
      */
-    protected $_cacheTag = '${vendorname}_${modulename}_${entityname}';
+    protected $_cacheTag = '${vendorname}_${modulename}_${simpleentityname}';
 
     /**
      * Prefix of model events names
      *
      * @var string
      */
-    protected $_eventPrefix = '${vendorname}_${modulename}_${entityname}';
+    protected $_eventPrefix = '${vendorname}_${modulename}_${simpleentityname}';
 
     /**
      * @var FileProcessor
@@ -46,9 +46,9 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
     protected $fileProcessor;
 
     /**
-     * @var ${Entityname}Factory
+     * @var ${Simpleentityname}Factory
      */
-    protected $${entityname}Factory;
+    protected $${simpleentityname}Factory;
 
     /**
      * Initialize resource model
@@ -58,12 +58,12 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
     protected function _construct()
     {
         parent::_construct();
-        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}');
+        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Simpleentityname}');
     }
 
     /**
      * @param FileProcessor $fileProcessor
-     * @param ${Entityname}Factory $${entityname}Factory
+     * @param ${Simpleentityname}Factory $${simpleentityname}Factory
      * @param Context $context
      * @param Registry $registry
      * @param AbstractResource|null $resource
@@ -72,7 +72,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
      */
     public function __construct(
         FileProcessor $fileProcessor,
-        ${Entityname}Factory $${entityname}Factory,
+        ${Simpleentityname}Factory $${simpleentityname}Factory,
         Context $context,
         Registry $registry,
         AbstractResource $resource = null,
@@ -88,7 +88,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
         );
 
         $this->fileProcessor = $fileProcessor;
-        $this->${entityname}Factory = $${entityname}Factory;
+        $this->${simpleentityname}Factory = $${simpleentityname}Factory;
     }
 
     /**
@@ -195,8 +195,8 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
             if (isset($file[$idField]) && !$file[$idField]) {
                 unset($file[$idField]);
             }
-            $fileObject = $this->${entityname}Factory->create()->addData($file);
-            if ($fileObject->getDelete() || !$fileObject->get${Form_field_name}()) {
+            $fileObject = $this->${simpleentityname}Factory->create()->addData($file);
+            if ($fileObject->getDelete() || !$fileObject->getFile()) {
                 $fileObject->isDeleted(true);
             }
             if (isset($items[$fileObject->getId()])) {

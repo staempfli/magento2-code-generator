@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ${Entityname}.php
+ * ${Simpleentityname}.php
  *
  * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
@@ -12,24 +12,24 @@ namespace ${Vendorname}\${Modulename}\Model;
 use Magento\Framework\DataObject\IdentityInterface;
 use Magento\Framework\Model\AbstractModel;
 
-class ${Entityname} extends AbstractModel implements IdentityInterface
+class ${Simpleentityname} extends AbstractModel implements IdentityInterface
 {
     /**
      * CMS page cache tag
      */
-    const CACHE_TAG = '${vendorname}_${modulename}_${entityname}';
+    const CACHE_TAG = '${vendorname}_${modulename}_${simpleentityname}';
 
     /**
      * @var string
      */
-    protected $_cacheTag = '${vendorname}_${modulename}_${entityname}';
+    protected $_cacheTag = '${vendorname}_${modulename}_${simpleentityname}';
 
     /**
      * Prefix of model events names
      *
      * @var string
      */
-    protected $_eventPrefix = '${vendorname}_${modulename}_${entityname}';
+    protected $_eventPrefix = '${vendorname}_${modulename}_${simpleentityname}';
 
     /**
      * Initialize resource model
@@ -39,7 +39,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
     protected function _construct()
     {
         parent::_construct();
-        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}');
+        $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Simpleentityname}');
     }
 
     /**

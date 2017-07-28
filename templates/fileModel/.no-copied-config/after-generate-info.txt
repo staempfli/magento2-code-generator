@@ -13,12 +13,12 @@
 
 2.  Add the formElement into your uiComponent form:
 
-    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${entityname}_form.xml:
+    ${Vendorname}/${Modulename}/view/adminhtml/ui_component/${vendorname}_${modulename}_${simpleentityname}_form.xml:
 
     <field name="file">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="label" xsi:type="string">${Entityname}</item>
+                <item name="label" xsi:type="string">${Simpleentityname}</item>
                 <item name="formElement" xsi:type="string">fileUploader</item>
                 <item name="componentType" xsi:type="string">fileUploader</item>
                 <item name="notice" xsi:type="string" translate="true">Allowed file types: jpeg, gif, png</item>
@@ -36,7 +36,7 @@
 
 3.- Get right File format for the form in your DataProvider
 
-   ${Vendorname}/${Modulename}/Ui/Component/Form/${Entityname}/DataProvider.php
+   ${Vendorname}/${Modulename}/Ui/Component/Form/${Simpleentityname}/DataProvider.php
 
    /**
     * Get data
@@ -48,7 +48,7 @@
       if (!$this->loadedData) {
           $items = $this->collection->getItems();
           foreach ($items as $item) {
-              $image = $item->get${Entityname}();
+              $image = $item->get${Simpleentityname}();
               if ($image->getId()) {
                 $item->setFile($image->getFileValueForForm());
               }
@@ -61,7 +61,7 @@
 
 4. Save image on your Save action controller
 
-   ${Vendorname}/${Modulename}/Controller/Adminhtml/${Entityname}/Save.php:
+   ${Vendorname}/${Modulename}/Controller/Adminhtml/${Simpleentityname}/Save.php:
 
    /**
     * file data preprocessing
