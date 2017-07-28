@@ -1,0 +1,6 @@
+dependencies:
+  0: crudEAV
+  1: model
+  2: fileModel
+  3: fileEAVMultiple
+  4: fileProcessor

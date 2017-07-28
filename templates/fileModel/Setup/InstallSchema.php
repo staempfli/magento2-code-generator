@@ -39,19 +39,11 @@ class InstallSchema implements InstallSchemaInterface
             ['identity' => true, 'nullable' => false, 'primary' => true],
             '${Simpleentityname} ID'
         )->addColumn(
-            'identifier',
+            'filename',
             Table::TYPE_TEXT,
-            100,
+            255,
             ['nullable' => false],
-            '${Simpleentityname} Identifier'
-        )->addIndex(
-            $setup->getIdxName(
-                $setup->getTable('${vendorname}_${modulename}_${simpleentityname}'),
-                ['identifier'],
-                AdapterInterface::INDEX_TYPE_FULLTEXT
-            ),
-            ['identifier'],
-            ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
+            'filename'
         )->setComment(
             '${Simpleentityname} Table'
         );

@@ -1,6 +1,6 @@
 <?php
 /**
- * ${Attributename}
+ * ${Fileattributename}
  *
  * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
@@ -12,12 +12,12 @@ use Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend;
 use Magento\Framework\DataObject;
 use ${Vendorname}\${Modulename}\Helper\FileProcessor;
 
-class ${Attributename} extends AbstractBackend
+class ${Fileattributename} extends AbstractBackend
 {
     /**
      * @var string
      */
-    const FILES_SUBDIR = '${attributename}';
+    const FILES_SUBDIR = '${fileattributename}';
 
     /**
      * @var FileProcessor
@@ -43,25 +43,25 @@ class ${Attributename} extends AbstractBackend
     public function beforeSave($object) //@codingStandardsIgnoreLine
     {
         parent::beforeSave($object);
-        $file = $object->get${Attributename}();
+        $file = $object->get${Fileattributename}();
         if (!is_array($file)) {
-            $object->setSkipSave${Attributename}(true);
+            $object->setSkipSave${Fileattributename}(true);
             return $this;
         }
 
         if (isset($file['delete'])) {
-            $object->set${Attributename}(null);
+            $object->set${Fileattributename}(null);
             return $this;
         }
 
         $file = reset($file) ?: [];
         if (!isset($file['file'])) {
             throw new LocalizedException(
-                __('${Attributename} does not contain field \'file\'')
+                __('${Fileattributename} does not contain field \'file\'')
             );
         }
         // Add file related data to object
-        $object->set${Attributename}($file['file']);
+        $object->set${Fileattributename}($file['file']);
         $object->setFileExists(isset($file['exists']));
 
         return $this;
@@ -79,17 +79,17 @@ class ${Attributename} extends AbstractBackend
     {
         parent::afterSave($object);
         // if file already exists we do not need to save any new file
-        if ($object->getFileExists() || $object->getSkipSave${Attributename}()) {
+        if ($object->getFileExists() || $object->getSkipSave${Fileattributename}()) {
             return $this;
         }
 
         // Delete old file if new one has changed
-        if ($object->getOrigData('${attributename}') && $object->get${Attributename}() != $object->getOrigData('${attributename}')) {
-            $this->fileProcessor->delete($this->getFileSubDir($object), $object->getOrigData('${attributename}'));
+        if ($object->getOrigData('${fileattributename}') && $object->get${Fileattributename}() != $object->getOrigData('${fileattributename}')) {
+            $this->fileProcessor->delete($this->getFileSubDir($object), $object->getOrigData('${fileattributename}'));
         }
 
-        if ($object->get${Attributename}()) {
-            if (!$this->fileProcessor->saveFileFromTmp($object->get${Attributename}(), $this->getFileSubDir($object))) {
+        if ($object->get${Fileattributename}()) {
+            if (!$this->fileProcessor->saveFileFromTmp($object->get${Fileattributename}(), $this->getFileSubDir($object))) {
                 throw new \Exception('There was an error saving the file');
             }
         }
@@ -107,7 +107,7 @@ class ${Attributename} extends AbstractBackend
     }
 
     /**
-     * Delete media file before an ${attributename} row in database is removed
+     * Delete media file before an ${fileattributename} row in database is removed
      * @param \Magento\Framework\DataObject $object
      * @return $this
      */
@@ -115,8 +115,8 @@ class ${Attributename} extends AbstractBackend
     {
         parent::beforeDelete($object);
         // Delete file from disk before the object is deleted from database
-        if ($object->get${Attributename}()) {
-            $this->fileProcessor->delete($this->getFileSubDir($object), $object->get${Attributename}());
+        if ($object->get${Fileattributename}()) {
+            $this->fileProcessor->delete($this->getFileSubDir($object), $object->get${Fileattributename}());
         }
         return $this;
     }
@@ -129,9 +129,9 @@ class ${Attributename} extends AbstractBackend
      */
     public function getFileInfo($object)
     {
-        if (!$object->getData('file_info') && $object->get${Attributename}()) {
+        if (!$object->getData('file_info') && $object->get${Fileattributename}()) {
             $fileInfoObject = new DataObject();
-            $fileInfo = $this->fileProcessor->getFileInfo($object->get${Attributename}(), $this->getFileSubDir($object));
+            $fileInfo = $this->fileProcessor->getFileInfo($object->get${Fileattributename}(), $this->getFileSubDir($object));
             if ($fileInfo) {
                 $fileInfoObject->setData($fileInfo);
             }

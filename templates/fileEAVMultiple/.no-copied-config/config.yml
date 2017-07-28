@@ -1,0 +1,4 @@
+dependencies:
+  0: model
+  1: fileModel
+  2: fileProcessor

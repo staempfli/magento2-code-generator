@@ -1,0 +1,4 @@
+dependencies:
+  0: crudEAV
+  1: fileEAVAttribute
+  2: fileProcessor

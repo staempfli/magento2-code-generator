@@ -1,7 +1,7 @@
 <?php
 
 /**
- * ${Entityname}.php
+ * ${Simpleentityname}.php
  *
  * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
@@ -10,7 +10,7 @@ namespace ${Vendorname}\${Modulename}\Model\ResourceModel;
 
 use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
-class ${Entityname} extends AbstractDb
+class ${Simpleentityname} extends AbstractDb
 {
     /**
      * Initialize resource model
@@ -19,6 +19,6 @@ class ${Entityname} extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('${vendorname}_${modulename}_${entityname}', 'entity_id');
+        $this->_init('${vendorname}_${modulename}_${simpleentityname}', 'id');
     }
 }
