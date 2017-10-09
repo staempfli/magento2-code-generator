@@ -77,7 +77,7 @@ define([
         /**
          * show ajax loader
          */
-        _ajaxBeforeSend: function () {;
+        _ajaxBeforeSend: function () {
             $(this.options.waitLoadingContainer).show();
         },
 
