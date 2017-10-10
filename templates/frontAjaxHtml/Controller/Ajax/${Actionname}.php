@@ -1,6 +1,6 @@
 <?php
 /**
- * Index
+ * ${Actionname}
  *
  * @copyright Copyright © ${commentsYear} ${CommentsCompanyName}. All rights reserved.
  * @author    ${commentsUserEmail}
