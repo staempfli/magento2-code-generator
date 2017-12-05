@@ -1,0 +1,1 @@
+This Template creates an Ajax action with Json return.
