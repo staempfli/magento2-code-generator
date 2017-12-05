@@ -8,7 +8,8 @@
 /*jshint jquery:true*/
 define([
     "jquery",
-    "jquery/ui"
+    "jquery/ui",
+    'mage/translate'
 ], function ($) {
     "use strict";
 
@@ -22,7 +23,7 @@ define([
          * @private
          */
         _create: function() {
-            this.element.on('click', $.proxy(this._clickAction, this));
+            this.element.on('click', $.proxy(this.clickAction, this));
         },
 
         /**
@@ -33,12 +34,7 @@ define([
             // Do something if needed
         },
 
-        /**
-         * Click action function
-         * @private
-         * @param event - {Object} - Click event.
-         */
-        _clickAction: function(event) {
+        clickAction: function(event) {
             // Do something with element clicked $(event.target)
         }
     });

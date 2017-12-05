@@ -1,11 +1,19 @@
 1. Include your javascript in your .phtml file:
 
+    <!-- Insert Js using script tag -->
     <script type="text/x-magento-init">
         {
-            "*": {
+            "<element_selector>": {
                 "${Identifier}": {
                     //"someOption": "someValue"
                 }
             }
         }
     </script>
+
+    <!-- Insert Js using data-mage-init element attribute -->
+    data-mage-init='{
+        "${Identifier}": {
+            //"someOption": "someValue"
+        }
+    }'
