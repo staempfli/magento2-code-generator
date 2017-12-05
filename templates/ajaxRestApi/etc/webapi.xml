@@ -1,0 +1,8 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/${modulename}/${actionname}" method="PUT">
+        <service class="${Vendorname}\${Modulename}\Api\${ApiClassName}Interface" method="${actionname}"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

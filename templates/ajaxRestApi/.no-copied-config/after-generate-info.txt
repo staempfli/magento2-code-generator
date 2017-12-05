@@ -1,0 +1,22 @@
+1. Add the following code into your .phtml file where the ajax request will be triggered
+
+    <!-- loading request indicator -->
+    <span id="${actionname}-loading" class="please-wait load indicator" style="display: none;"></span>
+
+    <!-- Insert Js using script tag -->
+    <script type="text/x-magento-init">
+        {
+            "<element_selector>": {
+                "${actionname}": {
+                    "waitLoadingContainer": "#${actionname}-loading"
+                }
+            }
+        }
+    </script>
+
+    <!-- Insert Js using data-mage-init element attribute -->
+    data-mage-init='{
+        "${actionname}": {
+            "waitLoadingContainer": "#${actionname}-loading"
+        }
+    }'
