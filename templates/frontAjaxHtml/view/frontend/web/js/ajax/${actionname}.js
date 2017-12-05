@@ -8,15 +8,15 @@
 /*jshint jquery:true*/
 define([
     "jquery",
-    "jquery/ui"
+    "jquery/ui",
+    'mage/translate'
 ], function ($) {
     "use strict";
 
     $.widget('${vendorname}_${modulename}.${actionname}ajax', {
         options: {
             ajaxUrl: null,
-            classElementTriggerAjax: null,
-            idElementToReplace: null,
+            elementToReplace: null,
             waitLoadingContainer: null
         },
 
@@ -25,7 +25,7 @@ define([
          * @private
          */
         _create: function() {
-            $(this.options.classElementTriggerAjax).on('click', $.proxy(this._clickAction, this));
+            this.element.on('click', $.proxy(this.clickAction, this));
         },
 
         /**
@@ -36,12 +36,7 @@ define([
             // Do something if needed
         },
 
-        /**
-         * Click action function
-         * @private
-         * @param event - {Object} - Click event.
-         */
-        _clickAction: function(event) {
+        clickAction: function(event) {
             if ($(this.options.waitLoadingContainer).is(":visible")) {
                 return false;
             }
@@ -50,58 +45,37 @@ define([
             $.ajax({
                 context: this,
                 url: this.options.ajaxUrl,
-                data: this._getDataForAjaxRequest(),
+                data: this.getDataForAjaxRequest(),
                 cache: true,
                 dataType: 'html',
-                beforeSend: this._ajaxBeforeSend,
-                complete: this._ajaxComplete,
-                success: this._ajaxSuccess,
-                error: this._ajaxError
+                beforeSend: $.proxy(this.beforeSend, this),
+                complete: $.proxy(this.complete, this),
+                success: $.proxy(this.success, this),
+                error: $.proxy(this.displayError, this, $.mage.__('Sorry, something went wrong.')),
             });
 
         },
 
-        /**
-         * Get data for Ajax request
-         *
-         * @returns {{}}
-         * @private
-         */
-        _getDataForAjaxRequest: function() {
+        getDataForAjaxRequest: function() {
             var data = {};
-
             // data[dataCode] = dataValue;
             return data;
         },
 
-        /**
-         * show ajax loader
-         */
-        _ajaxBeforeSend: function () {
+        beforeSend: function () {
             $(this.options.waitLoadingContainer).show();
         },
 
-        /**
-         * hide ajax loader
-         */
-        _ajaxComplete: function () {
+        complete: function () {
             $(this.options.waitLoadingContainer).hide();
         },
 
-        /**
-         * Ajax Success Action
-         */
-        _ajaxSuccess: function (response) {
-            $(this.options.idElementToReplace).html(response);
+        success: function (response) {
+            $(this.options.elementToReplace).html(response);
         },
 
-        /**
-         * Ajax Error Action
-         */
-        _ajaxError: function () {
-            alert({
-                content: $.mage.__('Sorry, something went wrong.')
-            });
+        displayError: function (message) {
+            alert(message);
         }
     });
 
