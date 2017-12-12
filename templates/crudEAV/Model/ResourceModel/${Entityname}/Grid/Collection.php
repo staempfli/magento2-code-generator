@@ -25,7 +25,8 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class Collection
- * Collection for displaying grid
+ * @package ${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}\Grid
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
 class Collection extends ${Entityname}Collection implements SearchResultInterface
 {
@@ -69,9 +70,21 @@ class Collection extends ${Entityname}Collection implements SearchResultInterfac
         $eventObject,
         $resourceModel,
         $model = '${Vendorname}\${Modulename}\Ui\Component\Listing\DataProvider\Document',
-        AdapterInterface $connection = null)
-    {
-        parent::__construct($entityFactory, $logger, $fetchStrategy, $eventManager, $eavConfig, $resource, $eavEntityFactory, $resourceHelper, $universalFactory, $storeManager, $connection);
+        AdapterInterface $connection = null
+    ) {
+        parent::__construct(
+            $entityFactory,
+            $logger,
+            $fetchStrategy,
+            $eventManager,
+            $eavConfig,
+            $resource,
+            $eavEntityFactory,
+            $resourceHelper,
+            $universalFactory,
+            $storeManager,
+            $connection
+        );
         $this->_eventPrefix = $eventPrefix;
         $this->_eventObject = $eventObject;
         $this->_init($model, $resourceModel);

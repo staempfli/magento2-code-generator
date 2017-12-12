@@ -22,6 +22,11 @@ use Magento\Framework\Validator\UniversalFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class Collection
+ * @package ${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class Collection extends AbstractCollection
 {
     /**

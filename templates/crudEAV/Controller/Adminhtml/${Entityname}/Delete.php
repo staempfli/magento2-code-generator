@@ -21,8 +21,8 @@ class Delete extends Action
      * @param ${Entityname}Factory $objectFactory
      */
     public function __construct(
-    Context $context,
-    ${Entityname}Factory $objectFactory
+        Context $context,
+        ${Entityname}Factory $objectFactory
     ) {
         $this->objectFactory = $objectFactory;
         parent::__construct($context);

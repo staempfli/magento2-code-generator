@@ -63,7 +63,7 @@ class Uploader extends Action
         $current = current($files);
         foreach ($current as $key => $value) {
             if (is_array($value)) {
-                array_walk_recursive($value, array($this, 'getNonArrayValue'));
+                array_walk_recursive($value, [$this, 'getNonArrayValue']);
             } else {
                 $this->fixedFilesArray[$key] = $value;
             }

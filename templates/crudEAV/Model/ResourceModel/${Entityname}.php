@@ -84,7 +84,6 @@ class ${Entityname} extends AbstractEntity
         return $this->_storeId;
     }
 
-
     /**
      * Set Attribute values to be saved
      *

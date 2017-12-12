@@ -56,7 +56,8 @@ class DeleteButton implements ButtonProviderInterface
             'data_attribute' => [
                 'url' => $this->getDeleteUrl()
             ],
-            'on_click' => 'deleteConfirm(\'' . __("Are you sure you want to do this?") . '\', \'' . $this->getDeleteUrl() . '\')',
+            'on_click' =>
+                'deleteConfirm(\'' . __("Are you sure you want to do this?") . '\', \'' . $this->getDeleteUrl() . '\')',
             'sort_order' => 20,
         ];
         return $data;

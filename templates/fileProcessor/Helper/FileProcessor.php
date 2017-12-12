@@ -66,8 +66,7 @@ class FileProcessor
         Filesystem $filesystem,
         StoreManagerInterface $storeManager,
         File $backendFile
-    )
-    {
+    ) {
         $this->uploaderFactory = $uploaderFactory;
         $this->storeManager = $storeManager;
         $this->mediaDirectory = $filesystem->getDirectoryWrite(DirectoryList::MEDIA);
@@ -127,7 +126,8 @@ class FileProcessor
      */
     protected function getMediaUrl($filename, $subdir = null)
     {
-        return $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA) . $this->getPath($subdir, $filename);
+        return $this->storeManager->getStore()
+                ->getBaseUrl(UrlInterface::URL_TYPE_MEDIA) . $this->getPath($subdir, $filename);
     }
 
     /**

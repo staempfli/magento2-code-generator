@@ -9,6 +9,7 @@ namespace ${Vendorname}\${Modulename}\Controller\Adminhtml\${Entityname};
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
+use ${Vendorname}\${Modulename}\Model\${Entityname}\Attribute\Backend\ImageFactory;
 use ${Vendorname}\${Modulename}\Model\${Entityname}Factory;
 
 class Save extends Action
@@ -58,7 +59,8 @@ class Save extends Action
                 $objectInstance->load($data['entity_id']);
                 $params['entity_id'] = $data['entity_id'];
             }
-            $this->${fileattributename}Preprocessing($data);
+            $imageData = $this->preparedImagesData($data);
+            $data = array_merge($data, $imageData);
             $objectInstance->addData($data);
 
             $this->_eventManager->dispatch(
@@ -87,19 +89,16 @@ class Save extends Action
         return $resultRedirect->setPath('*/*/');
     }
 
-    /**
-     * ${Fileattributename} data preprocessing
-     *
-     * @param array $data
-     *
-     * @return array
-     */
-    protected function ${fileattributename}Preprocessing(&$data)
+    protected function preparedImagesData(array $data): array
     {
-        if (empty($data['${fileattributename}'])) {
-            unset($data['${fileattributename}']);
-            $data['${fileattributename}']['delete'] = true;
+        $imagesData = [];
+        $imageAttributeCodes = array_keys(ImageFactory::IMAGE_ATTRIBUTE_CODES);
+        foreach ($imageAttributeCodes as $imageAttrCode) {
+            if (empty($data[$imageAttrCode])) {
+                $imagesData[$imageAttrCode]['delete'] = true;
+            }
         }
+        return $imagesData;
     }
 
 }

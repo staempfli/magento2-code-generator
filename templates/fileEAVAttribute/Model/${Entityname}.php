@@ -15,7 +15,8 @@ use Magento\Framework\Model\Context;
 use Magento\Framework\Model\ResourceModel\AbstractResource;
 use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Registry;
-use ${Vendorname}\${Modulename}\Model\${Entityname}\Attribute\Backend\${Fileattributename}Factory;
+use ${Vendorname}\${Modulename}\Model\${Entityname}\Attribute\Backend\ImageAbstract;
+use ${Vendorname}\${Modulename}\Model\${Entityname}\Attribute\Backend\ImageFactory;
 
 class ${Entityname} extends AbstractModel implements IdentityInterface
 {
@@ -23,23 +24,20 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
      * CMS page cache tag
      */
     const CACHE_TAG = '${vendorname}_${modulename}_${entityname}';
-
     /**
      * @var string
      */
     protected $_cacheTag = '${vendorname}_${modulename}_${entityname}';
-
     /**
      * Prefix of model events names
      *
      * @var string
      */
     protected $_eventPrefix = '${vendorname}_${modulename}_${entityname}';
-
     /**
-     * @var ${Fileattributename}Factory
+     * @var ImageFactory
      */
-    private $${fileattributename}Factory;
+    private $imageFactory;
 
     /**
      * Initialize resource model
@@ -52,17 +50,8 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
         $this->_init('${Vendorname}\${Modulename}\Model\ResourceModel\${Entityname}');
     }
 
-    /**
-     * Reference constructor.
-     * @param ${Fileattributename}Factory $${fileattributename}Factory
-     * @param Context $context
-     * @param Registry $registry
-     * @param AbstractResource|null $resource
-     * @param AbstractDb|null $resourceCollection
-     * @param array $data
-     */
     public function __construct(
-        ${Fileattributename}Factory $${fileattributename}Factory,
+        ImageFactory $imageFactory,
         Context $context,
         Registry $registry,
         AbstractResource $resource = null,
@@ -76,7 +65,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
             $resourceCollection,
             $data
         );
-        $this->${fileattributename}Factory = $${fileattributename}Factory;
+        $this->imageFactory = $imageFactory;
     }
 
     /**
@@ -104,26 +93,22 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
         return $this;
     }
 
-    /**
-     * Get ${Fileattributename} in right format to edit in admin form
-     *
-     * @return array
-     */
-    public function get${Fileattributename}ValueForForm()
+    public function getImageValueForForm(string $imageAttrCode): array
     {
-        $${fileattributename} = $this->${fileattributename}Factory->create();
-        return $${fileattributename}->getFileValueForForm($this);
+        /** @var ImageAbstract $image */
+        $image = $this->imageFactory->create($imageAttrCode);
+        return $image->getFileValueForForm($this);
     }
 
     /**
-     * Get ${Fileattributename} Src to display in frontend
-     *
+     * @param string $imageAttrCode
      * @return mixed
      */
-    public function get${Fileattributename}Src()
+    public function getMainImageSrc(string $imageAttrCode)
     {
-        $${fileattributename} = $this->${fileattributename}Factory->create();
-        return $${fileattributename}->getFileInfo($this)->getUrl();
+        /** @var ImageAbstract $image */
+        $image = $this->imageFactory->create($imageAttrCode);
+        return $image->getFileInfo($this)->getUrl();
     }
 
 }
