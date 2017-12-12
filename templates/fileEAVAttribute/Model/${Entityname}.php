@@ -37,6 +37,11 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
     protected $_eventPrefix = '${vendorname}_${modulename}_${entityname}';
 
     /**
+     * @var ${Fileattributename}Factory
+     */
+    private $${fileattributename}Factory;
+
+    /**
      * Initialize resource model
      *
      * @return void
