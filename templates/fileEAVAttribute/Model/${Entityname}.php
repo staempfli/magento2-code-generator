@@ -104,7 +104,7 @@ class ${Entityname} extends AbstractModel implements IdentityInterface
      * @param string $imageAttrCode
      * @return mixed
      */
-    public function getMainImageSrc(string $imageAttrCode)
+    public function getImageSrc(string $imageAttrCode)
     {
         /** @var ImageAbstract $image */
         $image = $this->imageFactory->create($imageAttrCode);
