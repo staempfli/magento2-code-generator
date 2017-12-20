@@ -63,7 +63,7 @@ class Uploader extends Action
         $current = current($files);
         foreach ($current as $key => $value) {
             if (is_array($value)) {
-                array_walk_recursive($value, [$this, 'getNonArrayValue']);
+                array_walk_recursive($value, [$this, 'fixNonArrayValue']);
             } else {
                 $this->fixedFilesArray[$key] = $value;
             }
@@ -77,7 +77,7 @@ class Uploader extends Action
      * @param $item
      * @param $key
      */
-    public function getNonArrayValue($item, $key)
+    public function fixNonArrayValue($item, $key)
     {
         $this->fixedFilesArray[$key] = $item;
     }
