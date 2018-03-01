@@ -8,9 +8,9 @@
 /*jshint jquery:true*/
 define([
     "jquery",
-    "jquery/ui",
+    'Magento_Ui/js/modal/alert',
     'mage/translate'
-], function ($) {
+], function ($, alert) {
     "use strict";
 
     $.widget('${vendorname}_${modulename}.${actionname}ajax', {
@@ -71,15 +71,22 @@ define([
 
         success: function (response) {
             if (response.success) {
+                // Do something with response.success json
                 alert('Success: ' + response.success);
             }
             if (response.error) {
-                alert('Error: ' + response.error);
+                this.displayError('Error: ' + response.error);
             }
         },
 
         displayError: function (message) {
-            alert(message);
+            alert({
+                title: $.mage.__('An error occurred'),
+                content: message,
+                actions: {
+                    always: function(){}
+                }
+            });
         }
     });
 
