@@ -25,8 +25,12 @@ class ${LoggerName} extends Logger
     /**
      * {@inheritdoc}
      */
-    public function __construct(HandlerFactory $handlerFactory, $name = '${loggerName}', array $handlers = [], array $processors = [])
-    {
+    public function __construct(
+        HandlerFactory $handlerFactory,
+        $name = '${loggerName}',
+        array $handlers = [],
+        array $processors = []
+    ) {
         foreach ($this->defaultHandlerTypes as $handlerType) {
             if (!array_key_exists($handlerType, $handlers)) {
                 $handlers[$handlerType] = $handlerFactory->create($handlerType);

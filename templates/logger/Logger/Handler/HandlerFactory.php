@@ -27,9 +27,9 @@ class HandlerFactory
      * @var string
      */
     protected $instanceTypeNames = [
-        'error' => '\\${Vendorname}\\${Modulename}\\Logger\\Handler\\Error',
-        'info' => '\\${Vendorname}\\${Modulename}\\Logger\\Handler\\Info',
-        'debug' => '\\${Vendorname}\\${Modulename}\\Logger\\Handler\\Debug',
+        'error' => \${Vendorname}\${Modulename}\Logger\Handler\Error::class,
+        'info' => \${Vendorname}\${Modulename}\Logger\Handler\Info::class,
+        'debug' => \${Vendorname}\${Modulename}\Logger\Handler\Debug::class,
     ];
 
     /**
@@ -49,7 +49,7 @@ class HandlerFactory
      * @param array $data
      * @return ObjectType
      */
-    public function create($type, array $data = array())
+    public function create($type, array $data = [])
     {
         if (empty($this->instanceTypeNames[$type])) {
             throw new InvalidArgumentException('"' . $type . ': isn\'t allowed');
@@ -57,7 +57,8 @@ class HandlerFactory
 
         $resultInstance = $this->objectManager->create($this->instanceTypeNames[$type], $data);
         if (!$resultInstance instanceof ObjectType) {
-            throw new InvalidArgumentException(get_class($resultInstance) . ' isn\'t instance of \${Vendorname}\${Modulename}\Logger\Handler\HandlerAbstract');
+            throw new InvalidArgumentException(get_class($resultInstance) .
+                ' isn\'t instance of \${Vendorname}\${Modulename}\Logger\Handler\HandlerAbstract');
         }
 
         return $resultInstance;
