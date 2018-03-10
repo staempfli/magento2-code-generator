@@ -22,8 +22,8 @@ class Uninstall implements UninstallInterface
     {
         $setup->startSetup();
 
-        if ($setup->tableExists('${vendorname}_${modulename}_${simpleentityname}')) {
-            $setup->getConnection()->dropTable($setup->getTable('${vendorname}_${modulename}_${simpleentityname}'));
+        if ($setup->tableExists('${vendorname}_${modulename}_${entityname}')) {
+            $setup->getConnection()->dropTable($setup->getTable('${vendorname}_${modulename}_${entityname}'));
         }
 
         $setup->endSetup();

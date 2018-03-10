@@ -28,32 +28,32 @@ class InstallSchema implements InstallSchemaInterface
         $setup->startSetup();
 
         /**
-         * Create table '${vendorname}_${modulename}_${simpleentityname}'
+         * Create table '${vendorname}_${modulename}_${entityname}'
          */
         $table = $setup->getConnection()->newTable(
-            $setup->getTable('${vendorname}_${modulename}_${simpleentityname}')
+            $setup->getTable('${vendorname}_${modulename}_${entityname}')
         )->addColumn(
-            'id',
+            'entity_id',
             Table::TYPE_SMALLINT,
             null,
             ['identity' => true, 'nullable' => false, 'primary' => true],
-            '${Simpleentityname} ID'
+            '${Entityname} ID'
         )->addColumn(
             'identifier',
             Table::TYPE_TEXT,
             100,
             ['nullable' => false],
-            '${Simpleentityname} Identifier'
+            '${Entityname} Identifier'
         )->addIndex(
             $setup->getIdxName(
-                $setup->getTable('${vendorname}_${modulename}_${simpleentityname}'),
+                $setup->getTable('${vendorname}_${modulename}_${entityname}'),
                 ['identifier'],
                 AdapterInterface::INDEX_TYPE_FULLTEXT
             ),
             ['identifier'],
             ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
         )->setComment(
-            '${Simpleentityname} Table'
+            '${Entityname} Table'
         );
 
         // Add more columns here
