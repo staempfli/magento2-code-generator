@@ -1,14 +1,10 @@
 {
   "name": "${vendorname}/magento2-module-${modulename}",
-  "description": "${description}",
+  "description": "${Vendorname} Magento2 module ${Modulename}",
   "require": {
     "php": "~7.0.0"
   },
   "type": "magento2-module",
-  "license": [
-    "OSL-3.0",
-    "AFL-3.0"
-  ],
   "autoload": {
     "files": [
       "registration.php"
