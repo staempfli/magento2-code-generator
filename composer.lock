@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "71f17b8c237e4c7fd117b25f380c43a1",
+    "content-hash": "249649f18011d7153e6104c18969b561",
     "packages": [
         {
             "name": "padraic/humbug_get_contents",
@@ -164,16 +164,16 @@
         },
         {
             "name": "staempfli/universal-code-generator",
-            "version": "1.1.1",
+            "version": "1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staempfli/universal-code-generator.git",
-                "reference": "511d25d7acb86ace0311146b1b45e8c2dc7d377e"
+                "reference": "2bdbf9f89ea648a974512390d91527aaaadbcb7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/511d25d7acb86ace0311146b1b45e8c2dc7d377e",
-                "reference": "511d25d7acb86ace0311146b1b45e8c2dc7d377e",
+                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/2bdbf9f89ea648a974512390d91527aaaadbcb7d",
+                "reference": "2bdbf9f89ea648a974512390d91527aaaadbcb7d",
                 "shasum": ""
             },
             "require": {
@@ -197,10 +197,10 @@
             ],
             "description": "Staempfli AG - Universal Code Generator Tool",
             "support": {
-                "source": "https://github.com/staempfli/universal-code-generator/tree/1.1.1",
+                "source": "https://github.com/staempfli/universal-code-generator/tree/1.2",
                 "issues": "https://github.com/staempfli/universal-code-generator/issues"
             },
-            "time": "2017-04-25T10:26:57+00:00"
+            "time": "2018-03-11T00:24:22+00:00"
         },
         {
             "name": "symfony/console",
