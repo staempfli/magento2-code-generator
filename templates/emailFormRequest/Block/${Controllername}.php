@@ -15,7 +15,7 @@ class ${Controllername} extends Template
     /**
      * @var string $_template
      */
-    protected $_template = "${controllername}.phtml";
+    protected $_template = "${Vendorname}_${Modulename}::${controllername}.phtml";
 
     /**
      * Returns action url for contact form

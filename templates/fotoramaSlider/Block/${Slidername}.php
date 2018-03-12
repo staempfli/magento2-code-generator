@@ -13,7 +13,7 @@ class ${Slidername} extends Template
     /**
      * @var string $_template
      */
-    protected $_template = "${slidername}.phtml";
+    protected $_template = "${Vendorname}_${Modulename}::${slidername}.phtml";
 
     /**
      * {@inheritdoc}

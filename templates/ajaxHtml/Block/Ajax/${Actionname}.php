@@ -15,7 +15,7 @@ class ${Actionname} extends Template
     /**
      * @var string $_template
      */
-    protected $_template = "ajax/${actionname}.phtml";
+    protected $_template = "${Vendorname}_${Modulename}::ajax/${actionname}.phtml";
 
     // write your methods here...
 }
