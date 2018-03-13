@@ -52,24 +52,36 @@ You can also watch a more detailed video demos on Youtube:
 
 ## Available Templates
 
-* blockHtml
-* consoleCommand
-* crud
-* crudEAV
-* eavFileAttribute
-* email
-* emailFormRequest
-* fileModel
-* fileProcessor
-* fotoramaSlider
-* frontAjaxHtml
-* frontController
-* jsRequire
-* language
-* logger
-* model
-* module
-* widget
+```
+Featured
+  ajaxHtml
+  consoleCommand
+  crudEAV
+  crudEAVWithFile
+  frontController
+  requireJs
+  logger
+  widget
+
+More Templates
+  ajaxJson
+  ajaxRestApi
+  blockHtml
+  crud
+  crudEAVWithMultipleFiles
+  customConfigXml
+  customDBConnection
+  email
+  emailFormRequest
+  fileEAVAttribute
+  fileEAVMultiple
+  fileModel
+  fileProcessor
+  fotoramaSlider
+  language
+  model
+  module
+``
 
 ## Create new Templates
     
