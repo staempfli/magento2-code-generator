@@ -16,7 +16,7 @@ class ${Widgetname} extends Template implements BlockInterface
     /**
      * @var string $_template
      */
-    protected $_template = "widget/${widgetname}.phtml";
+    protected $_template = "${Vendorname}_${Modulename}::widget/${widgetname}.phtml";
 
     // write your methods here...
 }
