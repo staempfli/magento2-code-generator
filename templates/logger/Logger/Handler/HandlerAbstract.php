@@ -21,8 +21,9 @@ class HandlerAbstract extends Base
      * @param DriverInterface $filesystem
      * @param null|string $filePath
      */
-    public function __construct(DriverInterface $filesystem, $filePath = BP . '/var/log/${loggerName}/') //@codingStandardsIgnoreLine
+    public function __construct(DriverInterface $filesystem, $filePath = 'var/log/${loggerName}/') //@codingStandardsIgnoreLine
     {
+        $filePath = BP . DIRECTORY_SEPARATOR . $filePath;
         parent::__construct($filesystem, $filePath);
     }
 }
