@@ -47,7 +47,7 @@ class ${Entityname} extends AbstractEntity
     }
 
     /**
-     * Retrieve employee entity default attributes
+     * Retrieve ${Entityname} entity default attributes
      *
      * @return string[]
      */
