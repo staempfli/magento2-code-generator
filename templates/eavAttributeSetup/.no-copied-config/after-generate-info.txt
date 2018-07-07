@@ -1,0 +1,1 @@
+1. Go to Setup/InstallData.php and define your new attribute
