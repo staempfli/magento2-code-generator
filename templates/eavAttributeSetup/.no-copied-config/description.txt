@@ -1,0 +1,4 @@
+This Template creates an InstallData and an Unistall class used to add an attribute to products, categories or customers
+
+Use 'Catalog' as Entitymodule and 'Product' or 'Category' as Entity if you want to create an attribute for products or categories
+Use 'Customer' for both if you want to create an attribute for customers.
