@@ -1,0 +1,1 @@
+This Template creates an InstallData and an Unistall class used to define cms pages and blocks on setup
