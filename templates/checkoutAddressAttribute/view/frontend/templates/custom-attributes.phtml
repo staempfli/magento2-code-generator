@@ -1,0 +1,12 @@
+<?php
+/* @var \${Vendorname}\${Modulename}\Block\Widget\CustomAttributes $block */
+?>
+
+<?php foreach($block->getCustomAttributes() as $attributeCode => $attributeValue): ?>
+    <div class="field <?php echo $attributeCode; ?>">
+        <label class="label" for="<?php echo $attributeCode; ?>"><span><?php /* @escapeNotVerified */ echo __($attributeCode) ?></span></label>
+        <div class="control">
+            <input type="text" name="<?php echo $attributeCode; ?>" id="<?php echo $attributeCode; ?>" title="<?php /* @escapeNotVerified */ echo __($attributeCode) ?>" value="<?php echo $block->escapeHtml($attributeValue) ?>" class="input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass($attributeCode) ?>">
+        </div>
+    </div>
+<?php endforeach; ?>
