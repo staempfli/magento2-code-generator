@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "249649f18011d7153e6104c18969b561",
@@ -164,16 +164,16 @@
         },
         {
             "name": "staempfli/universal-code-generator",
-            "version": "1.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/staempfli/universal-code-generator.git",
-                "reference": "2bdbf9f89ea648a974512390d91527aaaadbcb7d"
+                "reference": "7723bc22d13ee15acddfb655404d8bacf9b3c824"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/2bdbf9f89ea648a974512390d91527aaaadbcb7d",
-                "reference": "2bdbf9f89ea648a974512390d91527aaaadbcb7d",
+                "url": "https://api.github.com/repos/staempfli/universal-code-generator/zipball/7723bc22d13ee15acddfb655404d8bacf9b3c824",
+                "reference": "7723bc22d13ee15acddfb655404d8bacf9b3c824",
                 "shasum": ""
             },
             "require": {
@@ -197,10 +197,10 @@
             ],
             "description": "Staempfli AG - Universal Code Generator Tool",
             "support": {
-                "source": "https://github.com/staempfli/universal-code-generator/tree/1.2",
+                "source": "https://github.com/staempfli/universal-code-generator/tree/1.2.1",
                 "issues": "https://github.com/staempfli/universal-code-generator/issues"
             },
-            "time": "2018-03-11T00:24:22+00:00"
+            "time": "2019-02-04T09:53:17+00:00"
         },
         {
             "name": "symfony/console",
