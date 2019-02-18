@@ -7,3 +7,5 @@
 mg2-codegen.phar
 
 /moduleTest
+
+docker-compose.yml
