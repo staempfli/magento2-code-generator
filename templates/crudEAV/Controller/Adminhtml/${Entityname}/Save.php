@@ -66,6 +66,10 @@ class Save extends Action
             );
 
             try {
+
+                if($objectInstance->getData('identifier') == null)
+                    $objectInstance->setIdentifier($this->generateRandomString());
+
                 $objectInstance->save();
                 $this->messageManager->addSuccessMessage(__('You saved this record.'));
                 $this->_getSession()->setFormData(false);
